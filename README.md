@@ -1,2 +1,2 @@
-# Smart-Plant-
+# Smart-Plant
 Smart Plant IoT Project
