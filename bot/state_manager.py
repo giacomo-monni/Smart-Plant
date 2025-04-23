@@ -27,7 +27,7 @@ def logout_user(user_id): # gestisce il logout dello user rimuovendo lo user dal
 
 
 def is_logged_in(user_id): # controlla se uno user è attualmente loggato
-    return True
+    return user_id in user_sessions
 
 
 def get_logged_username(user_id): # restituisce lo username associato al chat_id dell'utente loggato
