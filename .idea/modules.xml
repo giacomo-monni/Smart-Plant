@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/flaskProjectTelegram.iml" filepath="$PROJECT_DIR$/.idea/flaskProjectTelegram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IoTSmartPlant.iml" filepath="$PROJECT_DIR$/.idea/IoTSmartPlant.iml" />
     </modules>
   </component>
 </project>
