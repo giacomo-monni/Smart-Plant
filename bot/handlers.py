@@ -119,6 +119,9 @@ def handle_update(update): # gestisce i comandi del bot e ciò che risponde l'ut
     elif text == "/assistence":
         return {"method": "sendMessage", "chat_id": chat_id, "text": "📞 Per problemi contatta l'assistenza (WIP)."}
 
+    elif text == "/status_plant":
+        return {"method": "sendMessage", "chat_id": chat_id, "text": "Qui verrà restituito lo status della pianta"}
+
     elif text == "/register":
         if is_logged_in(chat_id):
             return {"method": "sendMessage", "chat_id": chat_id, "text": "🔐 Sei già loggato."}
@@ -180,7 +183,7 @@ def get_available_commands(user_id): # ottieni la lista di comandi disponibili q
         return [
             "/help", "/info",
             "/add_plant", "/manage_plant", "/remove_plant",
-            "/logout", "/assistence"
+            "/logout", "/assistence", "/status_plant"
         ]
     else: # lista di comandi disponibili se lo user non è loggato
         return ["/help", "/info", "/login", "/register", "/assistence"]

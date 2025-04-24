@@ -9,5 +9,6 @@ commands = {
     "/add_plant": "Aggiungi una nuova pianta al tuo smart pot",
     "/remove_plant": "Rimuovi una pianta esistente",
     "/manage_plant": "Rinomina una pianta esistente",
-    "/assistence": "Contatta l'assistenza in caso di problemi"
+    "/assistence": "Contatta l'assistenza in caso di problemi",
+    "/status_plant": "Restituisce lo stato della pianta"
 }
