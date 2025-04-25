@@ -7,11 +7,11 @@ db = client.smartplant # Estrae il database 'smartplant'
 users = db.users # estrae i dati contenuti nella categoria 'users'
 
 # Questo file gestisce l'aspetto di autenticazione relativo al database, quindi non considera lo stato attuale della sessione.
-# La sessione viene gestita da handlers.py
+# La sessione viene gestita da handler.py
 
 def register_user(username, password, chat_id): # incaricato di registrare lo user
     if users.find_one({"chat_id": chat_id}): # se l'account esiste già non registrarlo
-        return False, "❌ Hai già un account registrato."
+        return False, "❌ Sei già legato a un profilo con questo account."
 
     if users.find_one({"username": username}): # se lo username esiste già non registrarlo
         return False, "❌ Username già in uso."

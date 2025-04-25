@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from config import BOT_TOKEN
-from bot.handlers import handle_update
+from bot.handler import handle_update
 import requests
 
 app = Flask(__name__)
