@@ -11,8 +11,9 @@ collections:
 * pots
 * users
 
-plants e users non serve crearli, li crea in automatico.
-pots va creato a mano in quanto contiene la lista dei pot id ammissibili.
+It's not necessary to create plants and users, since it creates them automatically.
+The pot must be created manually since it contains the list of admissible pot IDs.
+
 
 Entry in pots:
 { 
@@ -49,79 +50,84 @@ Entry in users:
     }
 }
 
-NB: gli "_id" sono creati in automatico da MongoDB.
+NB: "_id" are automatically created by MongoDB.
 
 ## ngrok
-Scaricare ngrok, nella tab Setup and Installation usare deploy static domain. In questo modo si ha un dominio pubblico sempre disponibile.
+Download ngrok, use "Deploy Static Domain" within the "Setup and Installation" tab. 
+In this way a public domain is always available
 
-Per avviare il server pubblico:
+To start the public server:
 
-_ngrok http --url=URL_DOMINIO_STATICO PORT_
+_ngrok http --url=<STATIC_DOMAIN_URL> \<PORT>_
 
-Server pubblico che ho già creato:
+Example of public server, already created:
 https://mutt-growing-emu.ngrok-free.app/
 
-PORT sarà quella che usi su Flask. Flask di default usa la porta 5000 se non la cambi.
+\<PORT> is the same as the one used with Flask (Flask default port is 5000)
 
-Per creare il webhook tra ngrok e telegram:
+To create the webhook between ngrok and Telegram:
 
 curl -X POST "https://api.telegram.org/botTELEGRAM_TOKEN/setWebhook" -d "url=URL_STATICO/webhook_name"
 
-Il webhook name deve coincidere con quello del server nel codice python.
+The name of the webhook must coincide with the server's one in the Python code.
 
 ## Bot telegram
-Nome bot: SmartPlantIoT
+Bot name: SmartPlantIoT
 
 botname: @smartplantiotbot
 
 ## Summary
 
-* Crea il database e la collection pots.
-* curl -X POST "https://api.telegram.org/botTELEGRAM_TOKEN/setWebhook" -d "url=https://mutt-growing-emu.ngrok-free.app/webhook" , il TOKEN lo puoi prendere dal file .env
+* Create the database and the pots collection.
+* curl -X POST "https://api.telegram.org/botTELEGRAM_TOKEN/setWebhook" -d "url=https://mutt-growing-emu.ngrok-free.app/webhook" (the TOKEN can be taken from .env file)
 * ngrok http --url=mutt-growing-emu.ngrok-free.app 5000 , uso la porta 5000 pure su flask
-* Avvio il server con pycharm
+* Start the server
 
-Per eseguire e rendere funzionante il server e il bot basta seguire sempre gli ultimi due punti. 
-I primi punti sono solo per il setup.
+Last two points are related to the functioning of the server and the bot; the first two points are related just for the setup.
 
-## Info varie
-Il bot identifica ogni user che lo utilizza tramite il chat_id.
-Il chat_id è un identificatore unico, cioè ogni utente che usa il bot ce l'ha diverso, inoltre
-non importa che telegram venga disinstallato, cambi smartphone, cancelli la chat, blocchi il bot o cambi numero di telefono,
-il chat_id è legato all'account, per cui a meno che non cancelli l'account di telegram, resterà sempre lo stesso.
-Per cui può essere usato per tenere traccia delle sessioni degli user (utenti loggati e non).
-Lo user quindi non può connettersi ad altri account perché il server verifica sempre il chat_id del messaggio che ha ricevuto.
+## Various information
+The bot identifies each user by means of the chat_id.
+The 'chat_id' is an unique identifier, i.e. it's different for each user; furthermore, even if the user uninstalls 
+Telegram, changes his/her phone, deletes the chat, stops the bot, the 'chat_id' is linked to the account.
+It can be used to trace users' sessions (logged-in users and not).
+The user can not connect to other accounts because the server always verifies the 'chat_id' of the received message. 
 
-Anche se basterebbe la chat_id, nell'ipotetico caso di espansione dell'applicazione, si potrebbe aggiungere una web app accessibile
-tramite sito web, per cui è comunque richiesto l'inserimento di uno username e password, in modo da avere un sistema di binding
-tra account del sito web e account telegram (inoltre in questo caso il bot telegram può fungere da meccanismo di autenticazione multifattore
-perché può mandare codici OTP).
+Even if 'chat_id' would be sufficient, considering a possible expansion of the application as a _future work_, 
+a web application, accessible from a website, can be added; for such application, it is required the insertion 
+of a username and a password, in order to have a binding system between accounts of the website and the Telegram account
+(in this case the Telegram bot can be also used as a MultiFactor Authentication method because it can send OTP codes).
 
-Il server permette di registrare un solo profilo per account telegram.
-Questo perché il chat_id è unico e l'inserimento di username e password al momento è solo per future implementazioni.
-Nel caso lo user volesse rimuovere l'account o per altri problemi, può contattare l'assistenza, anche questo implementabile in futuro.
+The server allows to register a single profile per Telegram account.
+This is because the 'chat_id' is unique and the insertion of username and password in a web application is just a future
+implementation. If a user wants to remove his/her account or he/she wants to overcome some issues, 
+it can contact the user support, which is, also, implementable in the future.
 
-## Struttura codice
-* app.py: avvia il server e gestisce il webhook
-* config.py: inizializza le variabili d'ambiente (URL statico, URI database, BOT token)
-* .env: contiene le variabili d'ambiente
-* requirements.txt: contiene le dipendenze, pycharm riconosce questo file e le scarica da solo
+## Code structure
+* app.py: starts the server and handles the webhook
+* config.py: initialized environment variables (static URL, database's URI, BOT token)
+* .env: contains environment variables 
+* requirements.txt: it contains package dependencies
+  * if using PyCharm, the IDE recognizes this file and downloads every required package.
+  * if you're not using an IDE, please install the requirements with the following command:
 
-
-* bot/auth.py: gestisce l'autenticazione lato database
-* bot/commands.py: contiene la lista di tutti i comandi del bot e una loro descrizione
-* bot/handler.py: gestisce i messaggi che riceve dall'utente e manda all'utente
-* bot/plant_manager.py: si coccupa della gestione delle piante lato database
-* bot/plant_manager.py: si occupa della gestione dei pot lato database
-* state_manager.py: contiene le funzioni utili per tenere traccia della sessione degli utenti
+    `pip install -r requirements.txt`
 
 
-* /bot/handlers/utils.py: contiene funzioni che vengono usate da altri file
+* bot/auth.py: manages the authentication on the database side
+* bot/commands.py: contains the list of all the bot commands and their description
+* bot/handler.py: manages the received messages from the user and sends a proper response back to the user 
+* bot/plant_manager.py: manages the plants on the database side
+* bot/pot_manager.py: manages the pots on the database side
+* state_manager.py: contains the useful functions to trace users' session
 
-Da qui in poi il codice è suddiviso in 3 sezioni (auth, base, plant) in base a cosa deve gestire il server.
-Ogni sezione ha un file commands.py (incaricato di riconoscere e gestire il comando mandato dal bot) 
-e un file states.py (incaricato di gestire la sessione dell'utente e le azioni da fare se avviene un dato comando).
 
-* auth: incaricato della fase di registrazione e login dello user
-* base: incaricato dei comandi base come mostare le info del bot
-* plant: incaricato della gestione di tutto ciò che riguarda le piante
+* /bot/handlers/utils.py: contains common functions used by several files
+
+From now on, the code is divided into three sections (auth, base, plant) depending on what the server needs to handle 
+Each section has a commands.py file (responsible for recognizing and managing the command sent by the bot) 
+and a states.py file (responsible for managing the user's session and the actions to be taken if a given command occurs).
+
+* auth: responsible for user registration and login phases 
+* base: responsible for base commands and how to show bot information 
+* plant: responsible for managing everything related to plants
+
