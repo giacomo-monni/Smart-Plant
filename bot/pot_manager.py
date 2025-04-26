@@ -1,13 +1,15 @@
+
+"""
+pot_manager.py contiene alcune funzioni utili per la gestione dei pot come verificare se un pot ha un id valido,
+se un pot è già stato usato, per impostare un pot come usato o renderlo nuovamente disponibile.
+"""
+
 from pymongo import MongoClient
 from config import MONGO_URI
 
 client = MongoClient(MONGO_URI)
 db = client.smartplant
 pots = db.pots
-
-# Per questo codice c'è bisogno di creare su MongoDB una collezione "pots" all'interno del database "smartplant"
-# I pot sono identificati così: {pot_id: POT_ID, used: false, user_id: null}
-# Il POT_ID è inventato ed è unico per pot.
 
 
 def is_valid_pot(pot_id): # Verifica se il pot esiste e non sia già stato usato

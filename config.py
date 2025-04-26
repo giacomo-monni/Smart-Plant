@@ -1,3 +1,9 @@
+
+"""
+ config.py si occupa di caricare le variabili d'ambiente come il token del bot telegram, l'url del webhook
+ e l'uri del database mongodb.
+"""
+
 import os
 from dotenv import load_dotenv
 

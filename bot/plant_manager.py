@@ -1,3 +1,10 @@
+
+"""
+plant_manager.py si occupa della gestione delle piante lato database.
+Quindi inserimento di una pianta dal database, la sua cancellazione e la modifica dei parametri delle piante possedute
+da un utente. Si può espandere in base ai dati che vogliamo salvare nel database.
+"""
+
 from pymongo import MongoClient
 from config import MONGO_URI
 from .pot_manager import is_valid_pot, mark_pot_as_used, free_pot

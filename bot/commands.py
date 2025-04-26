@@ -1,4 +1,9 @@
 
+"""
+commands.py contiene la lista di tutti i comandi che il bot può eseguire e che vengono resi visibili se
+si usa il comando /help.
+"""
+
 # lista dei comandi disponibili dal bot e la loro descrizione. E' usata da /help
 commands = {
     "/help": "Mostra l'elenco dei comandi",

@@ -3,7 +3,7 @@ from ...state_manager import set_state, get_state, clear_state, login_user
 from ..utils import send, get_welcome_message
 
 
-def handle_state(state, text, chat_id):
+def handle_state(state, text, chat_id): # gestisce gli stati relativi alle azioni di autenticazione
     if state == "register_username":
         set_state(chat_id, {"step": "register_password", "username": text})
         return send(chat_id, "🔐 Inserisci una password:")

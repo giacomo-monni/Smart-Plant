@@ -1,10 +1,12 @@
+
+"""
+state_manager.py implementa una state machine per gestire le azioni del bot e
+tiene traccia delle sessioni degli user tramite il loro chat_id.
+Inoltre è utile se un comando richiede l'esecuzione di più azioni.
+"""
+
 user_states = {} # viene popolato dagli stati degli user con le entry "user_id:state"
 user_sessions = {} # viene popolato dagli user loggati con le entry "chat_id:username"
-
-# State machine per gestire le azioni del bot e tiene traccia delle sessioni degli user tramite il loro chat_id
-# gli chat_id sono unici per account telegram
-# Nota: lo user_id è la chat_id
-
 
 def set_state(user_id, state): # imposta lo stato attuale di uno user (loggato o non)
     user_states[user_id] = state

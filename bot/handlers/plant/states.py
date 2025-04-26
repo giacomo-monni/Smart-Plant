@@ -3,7 +3,7 @@ from ...state_manager import set_state, clear_state
 from ..utils import send
 
 
-def handle_state(state, text, chat_id):
+def handle_state(state, text, chat_id): # gestisce gli stati relativi alle azioni legate alle piante
     # Aggiunta pianta
     if state == "add_plant_pot":
         if len(get_user_plants(chat_id)) >= 10:

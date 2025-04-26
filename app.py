@@ -1,3 +1,8 @@
+
+"""
+app.py è incaricato di avviare il server e gestire la comunicazione tra bot telegram e server.
+"""
+
 from flask import Flask, request, jsonify
 from config import BOT_TOKEN
 from bot.handler import handle_update
