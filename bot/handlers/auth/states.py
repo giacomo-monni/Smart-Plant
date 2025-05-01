@@ -1,3 +1,8 @@
+
+"""
+auth/states.py
+"""
+
 from ...auth import register_user, authenticate_user
 from ...state_manager import set_state, get_state, clear_state, login_user
 from ..utils import send, get_welcome_message

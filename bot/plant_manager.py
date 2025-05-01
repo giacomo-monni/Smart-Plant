@@ -8,13 +8,14 @@ da un utente. Si può espandere in base ai dati che vogliamo salvare nel databas
 from pymongo import MongoClient
 from config import MONGO_URI
 from .pot_manager import is_valid_pot, mark_pot_as_used, free_pot
+import json
 
 client = MongoClient(MONGO_URI)
 db = client.smartplant
 plants = db.plants
 
 
-def add_plant(user_id, pot_id, plant_name): # aggiunge una pianta associata a un pot nel database
+def add_plant(user_id, pot_id, plant_name, soil_threshold, temperature_range, humidity_threshold): # aggiunge una pianta associata a un pot nel database
     valid, msg = is_valid_pot(pot_id) # verifica se il pot esiste e se sia già in uso
     if not valid:
         return False, msg
@@ -26,10 +27,20 @@ def add_plant(user_id, pot_id, plant_name): # aggiunge una pianta associata a un
     if existing_name: # verifica se esiste già una pianta con lo stesso nome in uso
         return False, "❌ Hai già una pianta con questo nome."
 
+    try:
+        soil_threshold = abs(int(soil_threshold))
+        temperature_range = [abs(int(temperature_range[0])), abs(int(temperature_range[1]))]
+        humidity_threshold = abs(int(humidity_threshold))
+    except ValueError:
+        return False, "❌ Hai inserito dei dati invalidi."
+
     plants.insert_one({ # inserisce la pianta associata a un pot e uno user nel database
         "user_id": user_id,
         "pot_id": pot_id,
-        "plant_name": plant_name
+        "plant_name": plant_name,
+        "soil_threshold": soil_threshold,
+        "temperature_range": temperature_range,
+        "humidity_threshold": humidity_threshold
     })
 
     mark_pot_as_used(pot_id, user_id) # segna nel database che il pot ora è usato e da chi è usato.
@@ -62,7 +73,45 @@ def remove_plant(user_id, plant_name): # Rimuove una pianta dell'utente e libera
     return True
 
 
-def rename_plant(user_id, old_name, new_name): # rinomina una pianta
+# def rename_plant(user_id, old_name, new_name): # rinomina una pianta
+#     old_plant = plants.find_one({
+#         "user_id": user_id,
+#         "plant_name": old_name
+#     })
+#
+#     if not old_plant: # controlla se non esiste la pianta
+#         return False, "❌ Non possiedi nessuna pianta con quel nome."
+#
+#     duplicate = plants.find_one({
+#         "user_id": user_id,
+#         "plant_name": new_name
+#     })
+#
+#     if duplicate: # Controlla se esiste già una pianta con il nuovo nome
+#         return False, "❌ Hai già una pianta con questo nome. Scegli un nome diverso."
+#
+#     plants.update_one( # modifica il nome della pianta
+#         {"user_id": user_id, "plant_name": old_name},
+#         {"$set": {"plant_name": new_name}}
+#     )
+#
+#     return True, "✅ Nome della pianta aggiornato!"
+
+
+def info_plant(user_id, plant_name):
+    existing_plant = plants.find_one({
+        "user_id": user_id,
+        "plant_name": plant_name
+    })
+    existing_plant.pop("_id", None)  # Rimuove il campo _id se esiste
+    existing_plant.pop("user_id", None)
+    righe = [f"{chiave}: {valore}" for chiave, valore in existing_plant.items()]
+    stringa_finale = "\n".join(righe)
+
+    return stringa_finale
+
+
+def modify_plant(user_id, old_name, new_name, soil, temp, humidity): # modifica una pianta
     old_plant = plants.find_one({
         "user_id": user_id,
         "plant_name": old_name
@@ -76,12 +125,16 @@ def rename_plant(user_id, old_name, new_name): # rinomina una pianta
         "plant_name": new_name
     })
 
-    if duplicate: # Controlla se esiste già una pianta con il nuovo nome
+    if duplicate and old_name != new_name: # Controlla se esiste già una pianta con il nuovo nome
         return False, "❌ Hai già una pianta con questo nome. Scegli un nome diverso."
 
-    plants.update_one( # modifica il nome della pianta
+    plants.update_one( # modifica i dati della pianta
         {"user_id": user_id, "plant_name": old_name},
-        {"$set": {"plant_name": new_name}}
+        {"$set": {
+            "plant_name": new_name,
+            "soil_threshold": soil,
+            "temperature_range": temp,
+            "humidity_threshold": humidity}}
     )
 
     return True, "✅ Nome della pianta aggiornato!"

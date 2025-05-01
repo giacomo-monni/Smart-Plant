@@ -20,9 +20,10 @@ def send(chat_id, text, markdown=False): # crea il messaggio da inviare al bot e
 
 def get_available_commands(user_id): # estrae i comandi da dover mostrare all'utente loggato e non loggato
     return (
-        ["/help", "/info", "/add_plant", "/manage_plant", "/remove_plant", "/logout", "/assistence", "/status_plant"]
+        ["/help", "/info", "/add_plant", "/remove_plant", "/assistance", "/info_plant",
+         "/stat_plant", "/get_data_now", "/get_data", "/modify_plant"]
         if is_logged_in(user_id)
-        else ["/help", "/info", "/login", "/register", "/assistence"]
+        else ["/help", "/info", "/login", "/register", "/assistance"]
     )
 
 

@@ -1,5 +1,8 @@
 from ..utils import send, get_welcome_message, get_help_message
 
+"""
+base/commands.py
+"""
 
 def handle_command(text, chat_id): # gestisce i comandi relativi a funzionalità base
     if text == "/start": # manda un messaggio di benvenuto e mostra la lista dei comandi
@@ -16,7 +19,7 @@ def handle_command(text, chat_id): # gestisce i comandi relativi a funzionalità
             "• Automatizza l'irrigazione 🌱"
         ), markdown=True)
 
-    elif text == "/assistence": # opzione di richiesta assistenza se ci sono problemi WIP.
+    elif text == "/assistance": # opzione di richiesta assistenza se ci sono problemi WIP.
         return send(chat_id, "📞 Per problemi contatta l'assistenza (WIP).")
 
 

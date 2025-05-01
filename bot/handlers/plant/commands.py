@@ -1,3 +1,8 @@
+
+"""
+plant/commands.py
+"""
+
 from ...plant_manager import get_user_plants
 from ...state_manager import is_logged_in, set_state
 from ..utils import send
@@ -20,17 +25,51 @@ def handle_command(text, chat_id): # gestisce i comandi relativi alle piante
         set_state(chat_id, "remove_plant_select")
         return send(chat_id, "🗑️ Scegli la pianta da rimuovere:\n" + "\n".join(names))
 
-    elif text == "/manage_plant": # menù di gestione delle piante, per ora le rinomina soltanto
+    # elif text == "/rename_plant": # rinomina la pianta
+    #     if not is_logged_in(chat_id):
+    #         return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
+    #     plant_list = get_user_plants(chat_id)
+    #     if not plant_list:
+    #         return send(chat_id, "🌿 Non hai piante registrate.")
+    #     names = [p["plant_name"] for p in plant_list]
+    #     set_state(chat_id, "rename_plant_select")
+    #     return send(chat_id, "🛠️ Scegli la pianta da rinominare:\n" + "\n".join(names))
+
+    elif text == "/info_plant": # mostra le info salvate della pianta
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
         plant_list = get_user_plants(chat_id)
         if not plant_list:
             return send(chat_id, "🌿 Non hai piante registrate.")
         names = [p["plant_name"] for p in plant_list]
-        set_state(chat_id, "manage_plant_select")
-        return send(chat_id, "🛠️ Scegli la pianta da gestire:\n" + "\n".join(names))
+        set_state(chat_id, "info_plant_select")
+        return send(chat_id, "🛠️ Scegli la pianta:\n" + "\n".join(names))
 
-    elif text == "/status_plant": # chiedo lo status della pianta, per ora non fa nulla.
+    elif text == "/modify_plant": # modifica le info della pianta selezionata
+        if not is_logged_in(chat_id):
+            return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
+        plant_list = get_user_plants(chat_id)
+        if not plant_list:
+            return send(chat_id, "🌿 Non hai piante registrate.")
+        names = [p["plant_name"] for p in plant_list]
+        set_state(chat_id, "modify_plant_select")
+        return send(chat_id, "🛠️ Scegli la pianta da modificare:\n" + "\n".join(names))
+
+
+
+
+
+    elif text == "/stat_plant": #
+        if not is_logged_in(chat_id):
+            return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
+        return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")
+
+    elif text == "/get_data_now": #
+        if not is_logged_in(chat_id):
+            return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
+        return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")
+
+    elif text == "/get_data": #
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
         return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")
