@@ -1,6 +1,6 @@
 
 """
-plant/commands.py
+handlers/plant/commands.py
 """
 
 from ...plant_manager import get_user_plants
@@ -25,16 +25,6 @@ def handle_command(text, chat_id): # gestisce i comandi relativi alle piante
         set_state(chat_id, "remove_plant_select")
         return send(chat_id, "🗑️ Scegli la pianta da rimuovere:\n" + "\n".join(names))
 
-    # elif text == "/rename_plant": # rinomina la pianta
-    #     if not is_logged_in(chat_id):
-    #         return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
-    #     plant_list = get_user_plants(chat_id)
-    #     if not plant_list:
-    #         return send(chat_id, "🌿 Non hai piante registrate.")
-    #     names = [p["plant_name"] for p in plant_list]
-    #     set_state(chat_id, "rename_plant_select")
-    #     return send(chat_id, "🛠️ Scegli la pianta da rinominare:\n" + "\n".join(names))
-
     elif text == "/info_plant": # mostra le info salvate della pianta
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
@@ -55,21 +45,23 @@ def handle_command(text, chat_id): # gestisce i comandi relativi alle piante
         set_state(chat_id, "modify_plant_select")
         return send(chat_id, "🛠️ Scegli la pianta da modificare:\n" + "\n".join(names))
 
-
-
-
-
-    elif text == "/stat_plant": #
+    elif text == "/get_data_now": # dice al pot di mandare i dati
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
-        return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")
+        plant_list = get_user_plants(chat_id)
+        if not plant_list:
+            return send(chat_id, "🌿 Non hai piante registrate.")
+        names = [p["plant_name"] for p in plant_list]
+        set_state(chat_id, "data_plant_select")
+        return send(chat_id, "🛠️ Scegli la pianta:\n" + "\n".join(names))
 
-    elif text == "/get_data_now": #
+    elif text == "/stat_plant": # manda al client info statistiche su una pianta
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
-        return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")
+        plant_list = get_user_plants(chat_id)
+        if not plant_list:
+            return send(chat_id, "🌿 Non hai piante registrate.")
+        names = [p["plant_name"] for p in plant_list]
+        set_state(chat_id, "stat_plant_select")
+        return send(chat_id, "🛠️ Scegli la pianta:\n" + "\n".join(names))
 
-    elif text == "/get_data": #
-        if not is_logged_in(chat_id):
-            return send(chat_id, "🔒 Devi essere loggato per usare questo comando.")
-        return send(chat_id, "📡 Qui verrà restituito lo status della pianta.")

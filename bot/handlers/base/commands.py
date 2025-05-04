@@ -1,8 +1,10 @@
-from ..utils import send, get_welcome_message, get_help_message
 
 """
-base/commands.py
+handlers/base/commands.py
 """
+
+from ..utils import send, get_welcome_message, get_help_message
+
 
 def handle_command(text, chat_id): # gestisce i comandi relativi a funzionalità base
     if text == "/start": # manda un messaggio di benvenuto e mostra la lista dei comandi

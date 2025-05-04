@@ -1,6 +1,6 @@
 
 """
-auth/states.py
+handlers/auth/states.py
 """
 
 from ...auth import register_user, authenticate_user

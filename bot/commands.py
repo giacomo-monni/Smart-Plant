@@ -16,6 +16,5 @@ commands = {
     "/modify_plant": "Modifica i parametri della pianta (nome, soil, temperature, humidity)",
     "/info_plant": "Restituisce le info della pianta salvata",
     "/get_data_now": "Restituisce le misurazioni della pianta in questo esatto momento",
-    "/get_data": "Restituisce le misurazioni della pianta in un momento specifico",
     "/stat_plant": "Mostra le informazioni statistiche della pianta negli ultimi 7 giorni"
 }

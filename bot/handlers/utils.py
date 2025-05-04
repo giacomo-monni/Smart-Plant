@@ -1,6 +1,6 @@
 
 """
-utils.py contiene funzioni utili ad altre funzioni considerabili principali.
+handlers/utils.py contiene funzioni utili ad altre funzioni considerabili principali.
 Principalmente roba per gestire meglio la ripetizione di funzioni richiamate spesso.
 Non è molto importante ai fini del progetto.
 """
@@ -21,7 +21,7 @@ def send(chat_id, text, markdown=False): # crea il messaggio da inviare al bot e
 def get_available_commands(user_id): # estrae i comandi da dover mostrare all'utente loggato e non loggato
     return (
         ["/help", "/info", "/add_plant", "/remove_plant", "/assistance", "/info_plant",
-         "/stat_plant", "/get_data_now", "/get_data", "/modify_plant"]
+         "/stat_plant", "/get_data_now", "/modify_plant"]
         if is_logged_in(user_id)
         else ["/help", "/info", "/login", "/register", "/assistance"]
     )

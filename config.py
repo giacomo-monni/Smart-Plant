@@ -18,10 +18,7 @@ WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 # URI MongoDB server
 MONGO_URI = os.getenv("MONGO_URI")
 
-
-
-
-
-
+# URI Mosquitto broker
+MQTT_URI = os.getenv("MQTT_URI")
 
 

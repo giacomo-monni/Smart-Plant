@@ -1,6 +1,6 @@
 
 """
-auth/commands.py
+handlers/auth/commands.py
 """
 
 from ...state_manager import set_state, logout_user, is_logged_in
