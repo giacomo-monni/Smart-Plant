@@ -86,7 +86,7 @@ def on_message(client, userdata, msg):
                 "humidity_value": data.get("humidity_value"),
                 "temperature_value": data.get("temperature_value"),
                 "soil_moisture_value": data.get("soil_moisture"),
-                "must_be_irrigated": data.get("must_be_irrigated"),
+                "must_be_irrigated": data.get("must_be_irrigated"), # nel node manca questo
                 "is_irrigated": data.get("is_irrigated"),
                 "user_id": user_id
             }
