@@ -61,7 +61,7 @@ void setup_wifi(){
   Serial.println("Connected to WiFi");
 }
 
-int toLogarithm(int sensorRead){
+int toPercentage(int sensorRead){
   const float dry = 1024; // sensor in air (completely dry)
   const float wet = 740; // sensor in water (completely wet)
 
@@ -85,15 +85,19 @@ void publishSensorData(){
   bool isIrrigated = false; 
   char buffer[256];
 
+  Serial.println("Soil Humidity: "+soilHumidity);
   // Converting soilHumidity analog read to % values
-  soilHumidity = toLogarithm(soilHumidity);
-
+  soilHumidity = toPercentage(soilHumidity);
+  Serial.println("Soil Humidity (%): "+soilHumidity+ 
+                "\nTemperature (°C): "+temperature+
+                "\nEnvironment Humidity: "+humidity);
   bool soil_cond = soilHumidity < moistureTh;
   bool temp_cond = temp > tempMax;
   bool humidity_cond = humidity < humidityTh; 
   bool irrigate_cond = soil_cond || temp_cond || humidity_cond;
   doc["must_be_irrigated"] = String(irrigate_cond ? true : false);
 
+  Serial.println("Plant must be irrigated: "+irrigate_cond);
   if(irrigate_cond) { 
     int delta = soilHumidity - moistureTh;
     if(delta <= 0) 
@@ -117,21 +121,22 @@ void publishSensorData(){
     digitalWrite(PUMP_PIN, LOW);
     soilHumidity = analogRead(SOIL_PIN); // measuring soil humidity again
     isIrrigated = true;
+    Serial.println("Plant has been irrigated");
   }
 
   // Converting soilHumidity analog read to % values
-  soilHumidity = toLogarithm(soilHumidity);
+  soilHumidity = toPercentage(soilHumidity);
 
   StaticJsonDocument<256> doc;
-  doc["light_value"]       = String(lightLevel);
   doc["humidity_value"]    = String(humidity);
   doc["temperature_value"] = String(temperature);
   doc["soil_moisture"]     = String(soilHumidity);
   doc["is_irrigated"]      = String(isIrrigated);
-  doc["light_level"]       = String(lightLevel);
 
   serializeJson(doc, buffer);
   client.publish(topic_data.c_str(), buffer);
+
+  Serial.println("Data published");
 }
 
 
@@ -147,12 +152,15 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
 
   if(action == "save_parameters"){
     moistureTh = doc["soil_threshold"];
-    //moistureMax = doc["soil_threshold"][1];
     humidityTh = doc["humidity_threshold"];
-    //humidityMax = doc["humidity_threshold"][1];
     tempMin     = doc["temperature_range"][0];
     tempMax     = doc["temperature_range"][1];
-    lightLevel  = doc["light_level"];
+
+    Serial.println("Saved parameters:\n
+                    Soil moisture threshold: "+moistureTh+
+                    "\nHumidity threshold: "+humidityTh+
+                    "\nTemperature thresholds (min:max): ("+tempMin+":"+
+                    tempMax+")");
   } else if (action == "get_data_now"){
     publishSensorData();
   }
