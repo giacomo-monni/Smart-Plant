@@ -27,7 +27,6 @@ int temperature;
 
 // Humidity variables (thresholds and actual value)
 int humidityTh = 50; // %
-//int humidityMax = 70; // %
 int humidity;
 
 // Future implementation: keeping it constant since NodeMCU has just one analog pin
