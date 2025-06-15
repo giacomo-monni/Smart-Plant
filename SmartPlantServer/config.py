@@ -1,24 +1,22 @@
-
 """
- config.py si occupa di caricare le variabili d'ambiente come il token del bot telegram, l'url del webhook
- e l'uri del database mongodb.
+config.py is responsible for loading environment variables such as the Telegram bot token,
+the webhook URL, and the MongoDB connection URI.
 """
 
 import os
 from dotenv import load_dotenv
 
-load_dotenv() # Carica le variabili dal file .env
+# Load environment variables from a .env file into the process environment
+load_dotenv()
 
-# Token bot
+# Telegram bot token used for authentication with the Telegram API
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# URL/webhook
+# Webhook URL used to receive updates from Telegram
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
-# URI MongoDB server
+# MongoDB connection URI to connect to the MongoDB database
 MONGO_URI = os.getenv("MONGO_URI")
 
-# URI Mosquitto broker
+# MQTT broker URI for connecting to the Mosquitto MQTT server
 MQTT_URI = os.getenv("MQTT_URI")
-
-
