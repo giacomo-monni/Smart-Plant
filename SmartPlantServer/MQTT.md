@@ -48,11 +48,16 @@ and wants to receive the threshold values.
 
 ### Payload sent with smartplant/pot_id/cmd
 Since cmd is used both for sending threshold values and user commands through the bot, we divided the payload using two actions:
-*save_parameters* to send the thresholds and  
-*???*
+*save_parameters* to send the thresholds and *get_data_now* to obtain the measurements.
 
+When the user uses the command /get_data_now from the Telegram bot, the server sends the following payload (in json format):  
+```
+{
+"action": "get_data_now"
+}
+```
 
-When the server receive a ready message, it should send the following payload (in json format):  
+When the server receives a ready message, it should send the following payload (in json format):  
 ```plaintext
 {  
 "action": "save_parameters",

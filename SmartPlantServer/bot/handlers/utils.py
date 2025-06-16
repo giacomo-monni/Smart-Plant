@@ -1,15 +1,13 @@
-
 """
-handlers/utils.py contiene funzioni utili ad altre funzioni considerabili principali.
-Principalmente roba per gestire meglio la ripetizione di funzioni richiamate spesso.
-Non è molto importante ai fini del progetto.
+bot/handlers/utils.py contains utility functions that support other, more central functions.
+Mainly used to reduce repetition of commonly used functions.
 """
 
 from ..commands import commands
 from ..state_manager import is_logged_in
 
 
-def send(chat_id, text, markdown=False): # crea il messaggio da inviare al bot e quindi visualizzare all'utente
+def send(chat_id, text, markdown=False):  # Creates the message to be sent to the bot and shown to the user
     return {
         "method": "sendMessage",
         "chat_id": chat_id,
@@ -18,7 +16,7 @@ def send(chat_id, text, markdown=False): # crea il messaggio da inviare al bot e
     }
 
 
-def get_available_commands(user_id): # estrae i comandi da dover mostrare all'utente loggato e non loggato
+def get_available_commands(user_id):  # Returns the list of commands based on whether the user is logged in or not
     return (
         ["/help", "/info", "/add_plant", "/remove_plant", "/assistance", "/info_plant",
          "/stat_plant", "/get_data_now", "/modify_plant"]
@@ -27,12 +25,12 @@ def get_available_commands(user_id): # estrae i comandi da dover mostrare all'ut
     )
 
 
-def get_welcome_message(chat_id, username=None): # messaggio di benvenuto quando si verifica il comando /start
-    intro = f"✅ Benvenuto {username}!\n\n" if username else "🌱 Benvenuto nel bot Smart Plant!\n\n"
+def get_welcome_message(chat_id, username=None):  # Welcome message shown when /start is triggered
+    intro = f"✅ Welcome {username}!\n\n" if username else "🌱 Welcome to the Smart Plant bot!\n\n"
     available = get_available_commands(chat_id)
-    return intro + "Ecco i comandi disponibili:\n" + "\n".join([f"{cmd}: {commands[cmd]}" for cmd in available])
+    return intro + "Here are the available commands:\n" + "\n".join([f"{cmd}: {commands[cmd]}" for cmd in available])
 
 
-def get_help_message(chat_id): # # mostra la lista dei comandi in base all'utente se è loggato o no
+def get_help_message(chat_id):  # Shows the list of commands depending on whether the user is logged in
     available = get_available_commands(chat_id)
-    return "📋 Comandi disponibili:\n\n" + "\n".join([f"{cmd}: {commands[cmd]}" for cmd in available])
+    return "📋 Available commands:\n\n" + "\n".join([f"{cmd}: {commands[cmd]}" for cmd in available])

@@ -29,7 +29,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("./logs/app.log", mode='a', encoding='utf-8'),
+        logging.FileHandler("./logs/server.log", mode='a', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -39,7 +39,7 @@ app = Flask(__name__)
 @app.route("/webhook", methods=["POST"])  # Webhook for communication from Telegram to the server
 def webhook():
     update = request.get_json()
-    logging.debug(f"Received update from Telegram: {update}")
+    logging.debug(f"Received update from Telegram")
 
     response = handle_update(update)  # Manages the response for a given Telegram request
     logging.debug(f"Generated response: {response}")

@@ -1,27 +1,27 @@
-
 """
-handlers/base/commands.py
+bot/handlers/base/commands.py
+This module handles the basic, non-authentication-related commands.
+These include general-purpose commands such as /start, /help, /info, and /assistance.
+It serves as the entry point for new users and a help tool for logged-in users.
 """
 
 from ..utils import send, get_welcome_message, get_help_message
 
 
-def handle_command(text, chat_id): # gestisce i comandi relativi a funzionalità base
-    if text == "/start": # manda un messaggio di benvenuto e mostra la lista dei comandi
+def handle_command(text, chat_id):  # Handles commands related to general functionalities
+    if text == "/start":  # Sends a welcome message and displays the list of available commands
         return send(chat_id, get_welcome_message(chat_id))
 
-    elif text == "/help": # mostra la lista dei comandi
+    elif text == "/help":  # Shows the list of available commands
         return send(chat_id, get_help_message(chat_id))
 
-    elif text == "/info": # mostra info varie sul progetto
+    elif text == "/info":  # Provides project-related information
         return send(chat_id, (
-            "🌿 *Smart Plant* è un sistema intelligente per monitorare e prendersi cura delle tue piante.\n\n"
-            "• Monitora l'umidità del terreno\n"
-            "• Ricevi notifiche automatiche\n"
-            "• Automatizza l'irrigazione 🌱"
+            "🌿 *Smart Plant* is an intelligent system for monitoring and taking care of your plants.\n\n"
+            "• Monitors soil moisture\n"
+            "• Sends automatic notifications\n"
+            "• Automates irrigation 🌱"
         ), markdown=True)
 
-    elif text == "/assistance": # opzione di richiesta assistenza se ci sono problemi WIP.
-        return send(chat_id, "📞 Per problemi contatta l'assistenza (WIP).")
-
-
+    elif text == "/assistance":  # Placeholder for user support/help requests
+        return send(chat_id, "📞 For issues, please contact support.")

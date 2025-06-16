@@ -1,49 +1,48 @@
-
 """
-auth.py gestisce l'aspetto di autenticazione relativo al database, quindi non considera lo stato attuale dell'utente.
-Il suo compito è registare e autenticare un utente.
+bot/auth.py handles the authentication aspect related to the database, so it does not consider
+the current state of the user. Its role is also to register and authenticate a user.
 """
 
 import bcrypt
 from pymongo import MongoClient
 from config import MONGO_URI
 
-client = MongoClient(MONGO_URI) # connessione al Server MongoDB
-db = client.smartplant # Estrae il database 'smartplant'
-users = db.users # estrae i dati contenuti nella categoria 'users'
+client = MongoClient(MONGO_URI)  # Connection to the MongoDB server
+db = client.smartplant  # Extracts the 'smartplant' database
+users = db.users  # Extracts the 'users' collection
 
 
-def register_user(username, password, chat_id): # incaricato di registrare lo user
-    if users.find_one({"chat_id": chat_id}): # se l'account esiste già non registrarlo
-        return False, "❌ Sei già legato a un profilo con questo account."
+def register_user(username, password, chat_id):  # Responsible for registering a user
+    if users.find_one({"chat_id": chat_id}):  # If the account already exists, don't register
+        return False, "❌ You are already linked to a profile with this account."
 
-    if users.find_one({"username": username}): # se lo username esiste già non registrarlo
-        return False, "❌ Username già in uso."
+    if users.find_one({"username": username}):  # If the username is already taken, don't register
+        return False, "❌ Username already in use."
 
-    salt = bcrypt.gensalt() # genera un salt da usare per la password durante l'operazione di hash
-    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), salt) # applica l'algoritmo di hashing bcrypt (che è ottimo per le password)
+    salt = bcrypt.gensalt()  # Generates a salt to use when hashing the password
+    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), salt)  # Applies the bcrypt hashing algorithm
 
-    user_data = { # dati da salvare nel database
+    user_data = {  # Data to be saved to the database
         "chat_id": chat_id,
         "username": username,
         "password_hash": hashed_pw,
         "salt": salt
     }
 
-    users.insert_one(user_data) # salva i dati nel database
-    return True, "✅ Registrazione completata con successo."
+    users.insert_one(user_data)  # Saves the user data to the database
+    return True, "✅ Registration successful."
 
 
-def authenticate_user(username, password, chat_id): # incaricato del login
+def authenticate_user(username, password, chat_id):  # Responsible for user login
     user = users.find_one({"username": username})
-    if not user: # controlla se lo user esiste nel database
+    if not user:  # Check if the user exists in the database
         return False
 
-    if user.get("chat_id") != chat_id: # evita di fare il login da account telegram diversi
-        return False # Nota: non metto un messaggio di errore personalizzato per evitare di rilasciare troppe informazioni.
+    if user.get("chat_id") != chat_id:  # Prevent login from different Telegram accounts
+        return False  # Note: no detailed error message to avoid leaking info.
 
-    hashed_input = bcrypt.hashpw(password.encode('utf-8'), user['salt']) # calcola l'hash della password inviata
-    if hashed_input != user['password_hash']: # controlla se la password è coerente con quella salvata nel database
+    hashed_input = bcrypt.hashpw(password.encode('utf-8'), user['salt'])  # Hashes the provided password
+    if hashed_input != user['password_hash']:  # Verifies if password matches the stored one
         return False
 
     return True

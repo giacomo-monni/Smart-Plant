@@ -1,8 +1,7 @@
 
 """
-plant_manager.py si occupa della gestione delle piante lato database.
-Quindi inserimento di una pianta dal database, la sua cancellazione e la modifica dei parametri delle piante possedute
-da un utente. Si può espandere in base ai dati che vogliamo salvare nel database.
+bot/plant_manager.py handles plant management on the database side, such as inserting a plant into the database,
+deleting it, and modifying the parameters of the plants owned by a user.
 """
 
 from pymongo import MongoClient
@@ -15,8 +14,9 @@ db = client.smartplant
 plants = db.plants
 
 
-def add_plant(user_id, pot_id, plant_name, soil_threshold, temperature_range, humidity_threshold): # aggiunge una pianta associata a un pot nel database
-    valid, msg = is_valid_pot(pot_id) # verifica se il pot esiste e se sia già in uso
+# Adds a plant in the database
+def add_plant(user_id, pot_id, plant_name, soil_threshold, temperature_range, humidity_threshold):
+    valid, msg = is_valid_pot(pot_id)  # verifies if pot already exists and if it's currently used
     if not valid:
         return False, msg
 
@@ -24,17 +24,17 @@ def add_plant(user_id, pot_id, plant_name, soil_threshold, temperature_range, hu
         "user_id": user_id,
         "plant_name": plant_name
     })
-    if existing_name: # verifica se esiste già una pianta con lo stesso nome in uso
-        return False, "❌ Hai già una pianta con questo nome."
+    if existing_name:  # verifies if a plant with the same name already exists
+        return False, "❌ You already have a plant with this name."
 
     try:
         soil_threshold = abs(int(soil_threshold))
         temperature_range = [abs(int(temperature_range[0])), abs(int(temperature_range[1]))]
         humidity_threshold = abs(int(humidity_threshold))
     except ValueError:
-        return False, "❌ Hai inserito dei dati invalidi."
+        return False, "❌ You have entered invalid data."
 
-    plants.insert_one({ # inserisce la pianta associata a un pot e uno user nel database
+    plants.insert_one({  # inserts the plant and its user and pot in the database
         "user_id": user_id,
         "pot_id": pot_id,
         "plant_name": plant_name,
@@ -43,44 +43,44 @@ def add_plant(user_id, pot_id, plant_name, soil_threshold, temperature_range, hu
         "humidity_threshold": humidity_threshold
     })
 
-    mark_pot_as_used(pot_id, user_id) # segna nel database che il pot ora è usato e da chi è usato.
+    mark_pot_as_used(pot_id, user_id)  # Marks in the database that the pot is now in use and by whom it is being used.
 
-    return True, "✅ Pianta aggiunta con successo!"
+    return True, "✅ Plant successfully added."
 
 
-def get_user_plants(user_id): # Restituisce tutte le piante associate a uno specifico utente.
+def get_user_plants(user_id): # Returns all plants associated with a specific user.
     return list(plants.find({"user_id": user_id}))
 
 
-def remove_plant(user_id, plant_name): # Rimuove una pianta dell'utente e libera il pot associato
+def remove_plant(user_id, plant_name): # Removes a user's plant and frees the associated pot.
     plant = plants.find_one({
         "user_id": user_id,
         "plant_name": plant_name
     })
 
-    if not plant: # controlla se non esiste la pianta
+    if not plant: # Checks if the plant does not exist.
         return False
 
     pot_id = plant["pot_id"]
 
-    plants.delete_one({ # cancella la pianta
+    plants.delete_one({ # deletes the plant from the database
         "user_id": user_id,
         "plant_name": plant_name
     })
 
-    free_pot(pot_id) # libera il pot
+    free_pot(pot_id) # marks the pot as free
 
     db.pot_data.delete_many({"pot_id": pot_id})
 
     return True
 
 
-def info_plant(user_id, plant_name):
+def info_plant(user_id, plant_name): # queries the database to get plant information
     existing_plant = plants.find_one({
         "user_id": user_id,
         "plant_name": plant_name
     })
-    existing_plant.pop("_id", None)  # Rimuove il campo _id se esiste
+    existing_plant.pop("_id", None)  # Removes the _id field if it exists
     existing_plant.pop("user_id", None)
     righe = [f"{chiave}: {valore}" for chiave, valore in existing_plant.items()]
     stringa_finale = "\n".join(righe)
@@ -88,24 +88,24 @@ def info_plant(user_id, plant_name):
     return stringa_finale
 
 
-def modify_plant(user_id, old_name, new_name, soil, temp, humidity): # modifica una pianta
+def modify_plant(user_id, old_name, new_name, soil, temp, humidity): # modifies the plant
     old_plant = plants.find_one({
         "user_id": user_id,
         "plant_name": old_name
     })
 
-    if not old_plant: # controlla se non esiste la pianta
-        return False, "❌ Non possiedi nessuna pianta con quel nome."
+    if not old_plant: # Checks if the plant does not exist
+        return False, "❌ You don't own any plant with that name."
 
     duplicate = plants.find_one({
         "user_id": user_id,
         "plant_name": new_name
     })
 
-    if duplicate and old_name != new_name: # Controlla se esiste già una pianta con il nuovo nome
-        return False, "❌ Hai già una pianta con questo nome. Scegli un nome diverso."
+    if duplicate and old_name != new_name: # Checks if a plant with the new name already exists
+        return False, "❌ You already have a plant with this name. Please choose a different name."
 
-    plants.update_one( # modifica i dati della pianta
+    plants.update_one( # Modifies the plant's data.
         {"user_id": user_id, "plant_name": old_name},
         {"$set": {
             "plant_name": new_name,
@@ -114,10 +114,10 @@ def modify_plant(user_id, old_name, new_name, soil, temp, humidity): # modifica 
             "humidity_threshold": humidity}}
     )
 
-    return True, "✅ Nome della pianta aggiornato!"
+    return True, "✅ Plant name updated!"
 
 
-def get_plant_statistics(pot_id):
+def get_plant_statistics(pot_id): # calculates statistic information using the plant's data stored in the database
     from statistics import mean
     pot_data_col = db["pot_data"]
 
@@ -125,7 +125,7 @@ def get_plant_statistics(pot_id):
     week_ago = today - timedelta(days=7)
 
     try:
-        # Recupera tutti i dati dell'ultima settimana per quel pot_id
+        # Fetches all data from the past week for that pot_id.
         records = list(pot_data_col.find({
             "pot_id": pot_id,
             "timestamp": {"$gte": week_ago, "$lte": today}
@@ -142,7 +142,6 @@ def get_plant_statistics(pot_id):
         irrigations = [r for r in records if r.get("is_irrigated") is True]
         missed_irrigations = [r for r in records if r.get("must_be_irrigated") is True and r.get("is_irrigated") is False]
 
-        # Per il calcolo del tempo in condizioni ideali
         plant = plants.find_one({"pot_id": pot_id})
         ideal_conditions = 0
 
@@ -176,6 +175,6 @@ def get_plant_statistics(pot_id):
         }
 
     except Exception as e:
-        print(f"Errore nel recuperare le statistiche: {e}")
+        print(f"Error retrieving statistics: {e}")
         return None
 
