@@ -15,6 +15,7 @@ import json
 from pymongo import MongoClient
 from datetime import datetime
 from mqtt_client import client
+from bot.digital_twins import update_digital_twin, format_plant_status_report
 import logging
 
 # === Logging setup ===
@@ -64,6 +65,7 @@ db = mongo_client["smartplant"]
 plants_col = db["plants"]
 pots_col = db["pots"]
 pot_data_col = db["pot_data"]
+digital_twins = db["digital_twins"]
 
 
 # === MQTT Message Handling ===
@@ -94,58 +96,52 @@ def on_message(client, userdata, msg):  # Receives a MQTT message
             # Extracts the data obtain by the Node message
             plant = plants_col.find_one({"pot_id": pot_id})
             plant_name = plant["plant_name"]
-            light_value = data.get("light_value")
 
             # Generate a timestamp
             timestamp = datetime.utcnow()
             timestamp_str = timestamp.strftime("%Y-%m-%d %H:%M:%S")
 
-            # Maps the corresponding light values received
-            if light_value < 300:
-                light_map = "low"
-            elif 300 <= light_value < 700:
-                light_map = "medium"
-            else:
-                light_map = "high"
-
             # Generates a new entry to save the Node data in the database
-            user_id = pot["user_id"]
+            chat_id = pot["chat_id"]
             pot_data_entry = {
-                "pot_id": pot_id,
-                "plant_name": plant_name,
                 "timestamp": timestamp,
-                "light_value": data.get("light_value"),
+                "pot_id": pot_id,
+                "chat_id": chat_id,
+                "plant_name": plant_name,
                 "humidity_value": data.get("humidity_value"),
                 "temperature_value": data.get("temperature_value"),
-                "soil_moisture_value": data.get("soil_moisture"),
+                "soil_moisture_value": data.get("soil_moisture_value"),
                 "need_water": data.get("need_water"),
                 "is_irrigated": data.get("is_irrigated"),
-                "user_id": user_id
             }
 
-            pot_data_col.insert_one(pot_data_entry)
+            pot_data_col.insert_one(pot_data_entry) # saves the data in the database (pot_data collection)
+
+            # builds the digital twin
+            twin = update_digital_twin(pot_data_entry, plant, pot_id, chat_id)
+
+            # Update or insert the twin
+            query = {
+                "chat_id": chat_id,
+                "pot_id": pot_id,
+                "plant_name": plant["plant_name"]
+            }
+
+            # saves the digital twins in the database (digital_twins collection)
+            digital_twins.update_one(query, {"$set": twin}, upsert=True)
+
             logging.info(f"Data saved for pot {pot_id}")
 
             # === Send message to Telegram ===
-            message = (
-                f"🌱 Data received for pot `{pot_id}`:\n"
-                f"🌱 Associated plant: `{plant_name}`\n"
-                f"📅 Date: `{timestamp_str}`\n"
-                f"📡 Light: {data.get('light_value')} lux ({light_map})\n"
-                f"💧 Air Humidity: {data.get('humidity_value')}%\n"
-                f"🌡️ Temperature: {data.get('temperature_value')}°C\n"
-                f"🌍 Soil Moisture: {data.get('soil_moisture_value')}%\n"
-                f"❓ Needed irrigation? {data.get('need_water')}\n"
-                f"✅ Was it irrigated? {data.get('is_irrigated')}\n"
-            )
+            msg = format_plant_status_report(twin)
 
             telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
             res = requests.post(telegram_url, json={
-                "chat_id": user_id,
-                "text": message,
+                "chat_id": chat_id,
+                "text": msg,
                 "parse_mode": "Markdown"
             })
-            logging.info(f"Telegram message sent to user {user_id}: {res.status_code}")
+            logging.info(f"Telegram message sent to user {chat_id}: {res.status_code}")
 
         except Exception as e:
             logging.error(f"Error parsing data for pot {pot_id}: {e}")

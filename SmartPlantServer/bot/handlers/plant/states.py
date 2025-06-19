@@ -8,8 +8,7 @@ the database or also asks statistical data.
 from ...plant_manager import add_plant, remove_plant, modify_plant, get_user_plants, info_plant, get_plant_statistics
 from ...state_manager import set_state, clear_state
 from ..utils import send
-from mqtt_client import client
-import json
+from ...digital_twins import format_plant_status_report, get_digital_twin, modify_digital_twin
 
 
 def handle_state(state, text, chat_id):  # manages the states related to the plants.
@@ -106,30 +105,34 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
     elif isinstance(state, dict) and state.get("step") == "modify_plant_humidity":
         temperature_range = [state["min_temperature"], state["max_temperature"]]
         success, msg = modify_plant(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
+
+        if success:
+            modify_digital_twin(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
+
         clear_state(chat_id)
         return send(chat_id, msg)
 
 
-    # Asks the Node to execute measurements and return them to the user
-    elif state == "data_plant_select":
-        plant_list = get_user_plants(chat_id)
-        names = [p["plant_name"] for p in plant_list]
-        clear_state(chat_id)
-        if text not in names:
-            return send(chat_id, "❌ The plant name is not valid.")
-
-        plant = next(p for p in plant_list if p["plant_name"] == text)
-        pot_id = plant["pot_id"]
-
-        payload = {"action": "get_data_now"}
-        topic = f"smartplant/{pot_id}/cmd"
-
-        if not client.is_connected():  # checks the MQTT connection
-            return send(chat_id, "❌ There are issues with the servers, please try again later.")
-
-        client.publish(topic, json.dumps(payload))  # Publishes the command
-
-        return send(chat_id, "✅ Command sent, please wait for the response.")
+    # # Asks the Node to execute measurements and return them to the user
+    # elif state == "data_plant_select":
+    #     plant_list = get_user_plants(chat_id)
+    #     names = [p["plant_name"] for p in plant_list]
+    #     clear_state(chat_id)
+    #     if text not in names:
+    #         return send(chat_id, "❌ The plant name is not valid.")
+    #
+    #     plant = next(p for p in plant_list if p["plant_name"] == text)
+    #     pot_id = plant["pot_id"]
+    #
+    #     payload = {"action": "get_data_now"}
+    #     topic = f"smartplant/{pot_id}/cmd"
+    #
+    #     if not client.is_connected():  # checks the MQTT connection
+    #         return send(chat_id, "❌ There are issues with the servers, please try again later.")
+    #
+    #     client.publish(topic, json.dumps(payload))  # Publishes the command
+    #
+    #     return send(chat_id, "✅ Command sent, please wait for the response.")
 
     # Asks the weekly plant statistics
     elif state == "stat_plant_select":
@@ -157,7 +160,6 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
                 f"📉 Minimum temperature: {stats['min_temperature']}°C\n"
                 f"💧 Average humidity: {stats['avg_humidity']}%\n"
                 f"🌿 Minimum humidity: {stats['min_humidity']}%\n"
-                f"💡 Average absorbed light: {stats['avg_light']} lux\n"
                 f"🌾 Average soil moisture: {stats['avg_soil_moisture']}%\n\n"
                 f"💧 The plant was watered {stats['irrigations_count']} times in the past 7 days\n"
                 f"🚱 {stats['missed_irrigations_percentage']}% of the time the plant needed watering but had no water\n\n"
@@ -168,3 +170,23 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
 
         except Exception as e:
             return send(chat_id, f"❌ An error occurred while retrieving the statistics: {str(e)}")
+
+
+    # Returns the digital twin current data
+    elif state == "status_plant_select":
+        plant_list = get_user_plants(chat_id)
+        names = [p["plant_name"] for p in plant_list]
+        clear_state(chat_id)
+        if text not in names:
+            return send(chat_id, "❌ The plant name is not valid.")
+
+        # Queries the database in order to retrieve the digital twin
+        twin = get_digital_twin(chat_id, text)
+        
+        if twin is None:
+            return send(chat_id, "❌ No data are available for this plant.")
+
+        # Sends the data to the user
+        msg = format_plant_status_report(twin)
+
+        return send(chat_id, msg, markdown=True)

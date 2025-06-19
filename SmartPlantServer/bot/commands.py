@@ -14,7 +14,7 @@ commands = {
     "/remove_plant": "Remove an existing plant",
     "/modify_plant": "Edit plant parameters (name, soil, temperature, humidity)",
     "/info_plant": "Returns the saved plant's information",
-    "/get_data_now": "Returns the current measurements of the plant at this exact moment",
-    "/stat_plant": "Displays the plant's statistics for the past 7 days"
+    "/stat_plant": "Displays the plant's statistics for the past 7 days",
+    "/status": "Displays the plant's current status"
 }
 

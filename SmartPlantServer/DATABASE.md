@@ -4,6 +4,7 @@ the existing Nodes and the associated plants.
 The MongoDB service use the localhost address with the port 27017.
 ```
 smartplant
+├── digital_twins
 ├── plants
 ├── pot_data
 ├── pots
@@ -13,7 +14,7 @@ smartplant
 It contains:  
     - *pot_id* that identify a Node;  
     - *used* to know if that pot is currently used by a user;  
-    - *user_id* that identify the user_id that are using that pot.  
+    - *chat_id* that identify the telegram user_id that is using that pot.  
 
    These fields are modified when a user register or unregister a plant.
 Currently, we have ten pots (from pot_0 to pot_9).
@@ -30,9 +31,40 @@ The reason is that in this way we can implement a future web application and the
 
 
 3) **plants**: this collection contains the plants registered by the users.
-    - ???
+    - *chat_id* identifies the telegram account
+    - *pot_id* identifies the node
+    - *plant_name* is the plant name (must be unique for each plant of a user)
+    - *soil_threshold* is the threshold of soil moisture decided by the user for their plant
+    - *temperature_range* is the range of temperature decided by the user for their plant
+      - *min* indicates the minimum temperature of the range
+      - *max* indicates the maximum temperature of the range
+    - *humidity_threshold* is the threshold of humidity decided by the user for their plant
 
 
 4) **pot_data**: this collection contains the measurements carried out by the smart pots for each plant.
-    - ???
-    - the timestamp can be imprecise, but we don't care since smart plant service doesn't require strictly high precision.
+   - *timestamp* represents the moment when the data is inserted into the database.
+   - *pot_id* identifies the node
+   - *chat_id* identifies the telegram account
+   - *plant_name* is the plant name
+   - *humidity_value* is the humidity measurement carried out by the humidity sensor
+   - *temperature_value* is the temperature measurement carried out by the temperature sensor
+   - *soil_moisture_value* is the soil moisture measurement carried out by the soil moisture sensor
+   - *need_water* indicates if the plant needed water after the measurements
+   - *is_irrigated* indicates if the plant was irrigated after the measurements
+
+
+5) **digital_twins**: this collection contains the last measurements for a given plant. It represents the actual state of a plant.
+   - *chat_id* identifies the telegram account
+   - *plant_name* is the plant name
+   - *pot_id* identifies the node
+   - *alerts* shows possible problems in the actual plant treatment
+   - *humidity_value* is the humidity measurement
+   - *is_irrigated*  indicates if the plant was irrigated after the measurements
+   - *need_water* indicates if the plant needed water after the measurements
+   - *soil_moisture_value* is the soil moisture measurement
+   - *status* indicates if the plant requires water, if it's too hot and other environmental status
+   - *temperature_value* is the temperature measurement
+   - *timestamp* represents the moment when the data is inserted into the database.
+
+Note: the timestamp isn't calculated when the node carries out the measurements but when the server inserts the entry in the database.
+This of course can be imprecise, but it doesn't matter since smart plant service doesn't strictly require high time precision.

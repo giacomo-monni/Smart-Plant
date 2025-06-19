@@ -13,6 +13,7 @@ SmartPlantServer/
 │   ├── auth.py
 │   ├── commands.py
 │   ├── handler.py
+│   ├── digital_twins.py
 │   ├── plant_manager.py
 │   ├── pot_manager.py
 │   ├── state_manager.py
@@ -71,6 +72,9 @@ followed by their description.
 It acts as the central core for managing states and commands when a message is received by the bot.
 It recognizes the user and decides how to handle the received information and what to return to the user.
 
+**bot/digital_twins.py**  
+Manages the functions that create, update and visualize the digital twin.
+
 **bot/pot_manager.py**  
 It contains some utility functions for managing pots, such as checking if a pot has a valid ID,
 if a pot has already been used, and for marking a pot as used or making it available again.
@@ -128,7 +132,7 @@ Inside *plants*, you should create new entries following this schema (these are 
     "id": {...}
     "pot_id": "pot_i",
     "used": false,
-    "user_id": null
+    "chat_id": null
     }
    ```
     Where "id" is automatically assign by the database from each new entry and for "pot_i" you should replace i with a number (e.g. pot_0)

@@ -20,15 +20,15 @@ def is_valid_pot(pot_id):  # Checks whether the pot exists and hasn't already be
     return True, ""
 
 
-def mark_pot_as_used(pot_id, user_id):  # Marks a pot as used by a user
+def mark_pot_as_used(pot_id, chat_id):  # Marks a pot as used by a user
     pots.update_one(
         {"pot_id": pot_id},
-        {"$set": {"used": True, "user_id": user_id}}
+        {"$set": {"used": True, "chat_id": chat_id}}
     )
 
 
 def free_pot(pot_id):  # Frees a pot, making it available again
     pots.update_one(
         {"pot_id": pot_id},
-        {"$set": {"used": False, "user_id": None}}
+        {"$set": {"used": False, "chat_id": None}}
     )

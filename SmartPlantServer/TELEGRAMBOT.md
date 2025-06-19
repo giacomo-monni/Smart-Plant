@@ -11,8 +11,8 @@
 /remove_plant: "Remove an existing plant"
 /modify_plant: "Edit plant parameters (name, soil, temperature, humidity)"
 /info_plant: "Returns the saved plant's information"
-/get_data_now: "Returns the current measurements of the plant at this exact moment"
 /stat_plant: "Displays the plant's statistics for the past 7 days"
+/status: "Displays the plant's current status"
 ```
 
 #### Commands available before the log in
@@ -34,7 +34,7 @@
 /modify_plant
 /info_plant
 /stat_plant
-/get_data_now
+/status
 ```
 
 ### Commands explaination
@@ -61,16 +61,21 @@
 
 */stat_plant* asks the user to insert the plant name and returns the weekly statistic for that plant.
 
-*/get_data_now* asks the user to insert the plant name to send the measurement command to.  
-Measurements received using the command */get_data_now*:
-```plaintext
-🌱 Data received for pot {pot_id}:
-🌱 Associated plant: {plant_name}
-📅 Date: {timestamp_str}
-📡 Light: {light_value} lux ({light_map})
-💧 Air Humidity: {humidity_value}%
-🌡️ Temperature: {temperature_value}°C
-🌍 Soil Moisture: {soil_moisture_value}%
-❓ Needed irrigation? {need_water}
-✅ Was it irrigated? {is_irrigated}
-``` 
+*/status* asks the user to insert the plant name in order to give the digital twin current data.  
+Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot:
+```
+🌿 Plant Status Report — Rosmarino
+🆔 Pot ID: pot_test
+📅 Timestamp: 2025-06-14 14:12:00
+⏱️ Last update: 8 minutes ago
+🌡️ Temperature: 27.5°C
+💧 Air Humidity: 61%
+🌾 Soil Moisture: 32%
+🚿 Need Water: No
+💦 Irrigated: No
+📌 Status: Healthy
+
+⚠️ Alerts:
+• Temperature above maximum threshold
+• Soil moisture below threshold
+```

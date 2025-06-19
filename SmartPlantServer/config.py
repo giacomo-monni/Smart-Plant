@@ -15,7 +15,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 # Webhook URL used to receive updates from Telegram
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
-# MongoDB connection URI to connect to the MongoDB database
+# MongoDB's connection URI to connect to the MongoDB database
 MONGO_URI = os.getenv("MONGO_URI")
 
 # MQTT broker URI for connecting to the Mosquitto MQTT server
