@@ -8,6 +8,8 @@
 #define PUMP_PIN D1   // Pump pin
 #define SOIL_PIN A0   // Soil pin
 
+DHT dht(DHTPIN, DHTTYPE);
+
 const char* ssid = "<SSID>";
 const char* password = "<PASSWORD>";
 const char* mqtt_server = "<BROKER_IP>";
@@ -16,35 +18,34 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // Soil moisture variables (thresholds and actual value)
-int moistureTh = 50;
+int moistureTh;
 int soilHumidity;
 
 // Temperature variables (thresholds and actual value)
-int tempMin = 5;
-int tempMax = 40;
+int tempMin;
+int tempMax;
 int temperature;
 
 // Humidity variables (thresholds and actual value)
-int humidityTh = 50; // %
+int humidityTh; // %
 int humidity;
-
 
 // Irrigation duration parameters
 const float FACTOR = 2.0; // Seconds/difference percentage point
 const unsigned long MAX_IRRIGATION_DURATION = 60000; // max 60s
 
 // MQTT topics
-const char* pot_id = "pot_5"; // Pot ID
+const char* pot_id = "pot_0"; // Pot ID
 String topic_data   = "smartplant/"+String(pot_id)+"/data";
 String topic_ready  = "smartplant/"+String(pot_id)+"/ready";
 String topic_cmd    = "smartplant/"+String(pot_id)+"/cmd";
 
 
 // Variables for timing automatic sensors readings
-float hours = 0.5; // adjust it for tests
+float hours = 0.5/8; // adjust it for tests
 const unsigned long sleepDuration = hours * 60UL * 60UL * 1000UL; // hours * min * sec * msec
 
-bool readyToSleep = false;
+bool parametersReceived = false;
 
 void setup_wifi(){
   delay(10);
@@ -81,21 +82,25 @@ void publishSensorData(){
   humidity = dht.readHumidity();
   bool isIrrigated = false; 
   char buffer[256];
+  int new_soilHumidity;
+  StaticJsonDocument<256> doc;
 
-  Serial.println("Soil Humidity: "+soilHumidity);
+  Serial.println("Soil Humidity: "+String(soilHumidity));
   // Converting soilHumidity analog read to % values
   soilHumidity = toPercentage(soilHumidity);
-  Serial.println("Soil Humidity (%): "+soilHumidity+ 
-                "\nTemperature (°C): "+temperature+
-                "\nEnvironment Humidity: "+humidity);
+  new_soilHumidity = soilHumidity;
+  Serial.println("Soil Humidity (%): "+String(soilHumidity)+
+                "\nTemperature (°C): "+String(temperature)+
+                "\nEnvironment Humidity: "+String(humidity));
+
   // evaluating if the plant needs water
   bool soil_cond = soilHumidity < moistureTh;
-  bool temp_cond = temp > tempMax;
+  bool temp_cond = temperature > tempMax;
   bool humidity_cond = humidity < humidityTh; 
   bool irrigate_cond = soil_cond || temp_cond || humidity_cond;
   doc["need_water"] = String(irrigate_cond ? true : false);
 
-  Serial.println("Plant must be irrigated: "+irrigate_cond);
+  Serial.println("Plant must be irrigated: "+ String(irrigate_cond));
   if(irrigate_cond) { 
     int delta = soilHumidity - moistureTh;
     if(delta > 0){ 
@@ -128,7 +133,7 @@ void publishSensorData(){
       }
     }
   }
-  StaticJsonDocument<256> doc;
+
   doc["humidity_value"]    = String(humidity);
   doc["temperature_value"] = String(temperature);
   doc["soil_moisture"]     = String(new_soilHumidity);
@@ -149,7 +154,9 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
   if (err) 
     return;
 
-  String action = doc["action"];
+  String action = doc["action"].as<String>();
+
+  Serial.println(action);
 
   if(action == "save_parameters"){
     moistureTh = doc["soil_threshold"];
@@ -157,26 +164,29 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
     tempMin     = doc["temperature_range"][0];
     tempMax     = doc["temperature_range"][1];
 
-    Serial.println("Saved parameters:\n
-                    Soil moisture threshold: "+moistureTh+
-                    "\nHumidity threshold: "+humidityTh+
-                    "\nTemperature thresholds (min:max): ("+tempMin+":"+
-                    tempMax+")");
+    Serial.println("Saved parameters:\nSoil moisture threshold: "+String(moistureTh)+
+                  "\nHumidity threshold: "+String(humidityTh)+
+                  "\nTemperature thresholds (min:max): ("+String(tempMin)+":"+String(tempMax)+")");
+    parametersReceived = true;
   }
 }
 
 void reconnect() {
-  while (!client.connected()) {
-    if (client.connect("NodeMCU_pot_5")) {
+  while (client.connected()==0) {
+    if (client.connect("pot_0")) {
       client.subscribe(topic_cmd.c_str());
-      client.publish(topic_ready.c_str());
+      client.publish(topic_ready.c_str(), "");
     } else {
+      Serial.print("Failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" trying again in 5 seconds");
       delay(5000); // waits for 5 seconds
     }
   }
 }
 
 void setup() {
+  Serial.begin(9600);
   pinMode(PUMP_PIN, OUTPUT);
   dht.begin();
   setup_wifi();
@@ -184,14 +194,18 @@ void setup() {
   client.setCallback(mqtt_callback);
   unsigned long tStart = millis();
   
-  while (!parametersReceived && millis() - tStart < 15000) {
+  if(!client.connected()){
+    reconnect();
+  }
+
+  while (!parametersReceived) {
     client.loop(); // attendi fino a 15s i parametri
   }
 
   publishSensorData();
 
   // Going to sleep for saving battery
-  Serial.println("Going to sleep for 2 hours...");
+  Serial.println("Going to sleep...");
   ESP.deepSleep(sleepDuration);
 }
 
