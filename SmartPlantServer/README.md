@@ -152,3 +152,38 @@ Contains the description of the MongoDB database.
 
 MQTT.md:
 Contains the description of the MQTT service such as the topics the server subscribes and publishes.
+
+# Guide
+## Mosquitto
+After installing Mosquitto, go to:  
+C:\Program Files\mosquitto\mosquitto.conf  
+add at the end:  
+listener 1883  
+allow_anonymous true  
+
+Then using powershell use this command:  
+New-NetFirewallRule -DisplayName "MQTT Port 1883" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
+
+Restart mosquitto:  
+net stop mosquitto
+net start mosquitto
+
+To start mosquitto:
+mosquitto -v
+ 
+To simulate a sub:  
+mosquitto_sub -h IP_HOST -t "topic"
+ 
+To simulate a pub:
+mosquitto_pub -h IP_HOST -t "topic" -m "{\"key_name\": VALUE}"
+  
+## Ngrok
+Go to your Ngrok, download ngrok.exe, choose a static domain.
+
+Then use this command:  
+curl -F "url=YOUR_STATIC_DOMAIN/webhook" https://api.telegram.org/bot<TUO_BOT_TOKEN>/setWebhook
+
+To start Ngrok:  
+ngrok http --url=YOUR_STATIC_DOMAIN 5000
+
+ 
