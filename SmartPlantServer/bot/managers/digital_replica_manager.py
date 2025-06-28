@@ -26,7 +26,7 @@ def set_digital_replica(timestamp, new_data, plant_entry):
 
     # Evaluate conditions
     if new_data["soil_moisture_value"] < soil_moisture_th:
-        alerts.append("Soil moisture out of range")
+        alerts.append("Soil moisture below the threshold")
         status = "Dry"
 
     if valid_temp:
@@ -42,7 +42,7 @@ def set_digital_replica(timestamp, new_data, plant_entry):
 
     if valid_humidity:
         if humidity < humidity_air_th:
-            alerts.append("Humidity out of range")
+            alerts.append("Humidity below the threshold")
     else:
         if "Possible malfunction in temperature and humidity sensor" not in alerts:
             alerts.append("Possible malfunction in temperature and humidity sensor")
@@ -101,7 +101,7 @@ def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, hum
     status = "Healthy"
 
     if old_plant["soil_moisture_value"] < float(soil_th):
-        alerts.append("Soil moisture out of range")
+        alerts.append("Soil moisture below the threshold")
         status = "Dry"
 
     if valid_temp:
@@ -116,7 +116,7 @@ def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, hum
 
     if valid_humidity:
         if old_plant["humidity_value"] < float(humidity_th):
-            alerts.append("Humidity out of range")
+            alerts.append("Humidity below the threshold")
     else:
         if "Possible malfunction in temperature and humidity sensor" not in alerts:
             alerts.append("Possible malfunction in temperature and humidity sensor")
