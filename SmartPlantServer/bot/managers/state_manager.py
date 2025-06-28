@@ -1,5 +1,5 @@
 """
-bot/state_manager.py implements a state machine to manage bot actions and keeps track of user sessions
+bot/managers/state_manager.py implements a state machine to manage bot actions and keeps track of user sessions
 through their chat_id. It is also used to manage a command that requires multiple steps to be executed.
 """
 

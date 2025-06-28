@@ -1,103 +1,45 @@
-
 """
-bot/plant_manager.py handles plant management on the database side, such as inserting a plant into the database,
-deleting it, and modifying the parameters of the plants owned by a user.
+services/service.py contains all the services offered to the user for the management of their plants
 """
 
-from pymongo import MongoClient
-from config import MONGO_URI
-from .pot_manager import is_valid_pot, mark_pot_as_used, free_pot
+import requests
+from config import BOT_TOKEN
 from datetime import datetime, timedelta
-from .handlers.utils import is_valid
+from bot.utils import is_valid
 from statistics import mean
-
-client = MongoClient(MONGO_URI)
-db = client.smartplant
-plants = db.plants
-digital_twins = db.digital_twins
+from db import plants_profile_collection, pot_data_collection
+from bot.utils import human_delta
 
 
-# Adds a plant in the database
-def add_plant(chat_id, pot_id, plant_name, soil_threshold, temperature_range, humidity_threshold):
-    valid, msg = is_valid_pot(pot_id)  # verifies if pot already exists and if it's currently used
-    if not valid:
-        return False, msg
+def send_plant_status_message(dr, chat_id):  # sends the digital replica information
+    msg = format_plant_status_report(dr)
 
-    existing_name = plants.find_one({
+    telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+
+    response = requests.post(telegram_url, json={
         "chat_id": chat_id,
-        "plant_name": plant_name
-    })
-    if existing_name:  # verifies if a plant with the same name already exists
-        return False, "❌ You already have a plant with this name."
-
-    try:
-        soil_threshold = abs(int(soil_threshold))
-        temperature_range = [abs(int(temperature_range[0])), abs(int(temperature_range[1]))]
-        humidity_threshold = abs(int(humidity_threshold))
-    except ValueError:
-        return False, "❌ You have entered invalid data."
-
-    plants.insert_one({  # inserts the plant and its user and pot in the database
-        "chat_id": chat_id,
-        "pot_id": pot_id,
-        "plant_name": plant_name,
-        "soil_threshold": soil_threshold,
-        "temperature_range": temperature_range,
-        "humidity_threshold": humidity_threshold
+        "text": msg,
+        "parse_mode": "Markdown"
     })
 
-    mark_pot_as_used(pot_id, chat_id)  # Marks in the database that the pot is now in use and by whom it is being used.
-
-    return True, "✅ Plant successfully added."
-
-
-def get_user_plants(chat_id): # Returns all plants associated with a specific user.
-    return list(plants.find({"chat_id": chat_id}))
-
-
-def remove_plant(chat_id, plant_name): # Removes a user's plant and frees the associated pot.
-    plant = plants.find_one({
-        "chat_id": chat_id,
-        "plant_name": plant_name
-    })
-
-    if not plant: # Checks if the plant does not exist.
-        return False
-
-    pot_id = plant["pot_id"]
-
-    plants.delete_one({ # deletes the plant from the database
-        "chat_id": chat_id,
-        "plant_name": plant_name
-    })
-
-    free_pot(pot_id) # marks the pot as free
-
-    db.pot_data.delete_many({"pot_id": pot_id})
-
-    digital_twins.delete_one({  # deletes the digital twin
-        "chat_id": chat_id,
-        "plant_name": plant_name
-    })
-
-    return True
+    return response
 
 
 def info_plant(chat_id, plant_name): # queries the database to get plant information
-    existing_plant = plants.find_one({
+    existing_plant = plants_profile_collection.find_one({
         "chat_id": chat_id,
         "plant_name": plant_name
     })
     existing_plant.pop("_id", None)  # Removes the _id field if it exists
     existing_plant.pop("chat_id", None)
-    righe = [f"{chiave}: {valore}" for chiave, valore in existing_plant.items()]
-    stringa_finale = "\n".join(righe)
+    rows = [f"{chiave}: {valore}" for chiave, valore in existing_plant.items()]
+    final_string = "\n".join(rows)
 
-    return stringa_finale
+    return final_string
 
 
-def modify_plant(chat_id, old_name, new_name, soil, temp, humidity): # modifies the plant
-    old_plant = plants.find_one({
+def modify_plant(chat_id, old_name, new_name, soil, temp, humidity):  # modifies the plant
+    old_plant = plants_profile_collection.find_one({
         "chat_id": chat_id,
         "plant_name": old_name
     })
@@ -105,7 +47,7 @@ def modify_plant(chat_id, old_name, new_name, soil, temp, humidity): # modifies 
     if not old_plant: # Checks if the plant does not exist
         return False, "❌ You don't own any plant with that name."
 
-    duplicate = plants.find_one({
+    duplicate = plants_profile_collection.find_one({
         "chat_id": chat_id,
         "plant_name": new_name
     })
@@ -120,27 +62,25 @@ def modify_plant(chat_id, old_name, new_name, soil, temp, humidity): # modifies 
     except ValueError:
         return False, "❌ You have entered invalid data."
 
-    plants.update_one( # Modifies the plant's data.
+    plants_profile_collection.update_one( # Modifies the plant's data.
         {"chat_id": chat_id, "plant_name": old_name},
         {"$set": {
             "plant_name": new_name,
-            "soil_threshold": soil,
-            "temperature_range": temp,
-            "humidity_threshold": humidity}}
+            "soil_threshold": soil_threshold,
+            "temperature_range": temperature_range,
+            "humidity_threshold": humidity_threshold}}
     )
 
     return True, "✅ Plant name updated!"
 
 
 def get_plant_statistics(pot_id): # calculates statistic information using the plant's data stored in the database
-    pot_data_col = db["pot_data"]
-
     today = datetime.utcnow()
     week_ago = today - timedelta(days=7)
 
     try:
         # Fetches all data from the past week for that pot_id.
-        records = list(pot_data_col.find({
+        records = list(pot_data_collection.find({
             "pot_id": pot_id,
             "timestamp": {"$gte": week_ago, "$lte": today}
         }))
@@ -172,7 +112,7 @@ def get_plant_statistics(pot_id): # calculates statistic information using the p
         irrigations = [r for r in records if r.get("is_irrigated") is True]
         missed_irrigations = [r for r in records if r.get("must_be_irrigated") is True and r.get("is_irrigated") is False]
 
-        plant = plants.find_one({"pot_id": pot_id})
+        plant = plants_profile_collection.find_one({"pot_id": pot_id})
         ideal_conditions = 0
 
         for r in records:
@@ -209,3 +149,32 @@ def get_plant_statistics(pot_id): # calculates statistic information using the p
         print(f"Error retrieving statistics: {e}")
         return None
 
+
+# Formats the status report message for a plant digital replica.
+def format_plant_status_report(dr):
+    now = datetime.utcnow()
+    delta = now - dr["timestamp"]
+
+    msg = (
+        f"🌿 *Plant Status Report — {dr['plant_name']}*\n\n"
+        f"🆔 Pot ID: `{dr['pot_id']}`\n"
+        f"📅 Timestamp: {dr['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}\n"
+        f"⏱️ Last update: {human_delta(delta)}\n\n"
+        f"🌡️ Temperature: {dr['temperature_value']}°C\n"
+        f"💧 Air Humidity: {dr['humidity_value']}%\n"
+        f"🌾 Soil Moisture: {dr['soil_moisture_value']}%\n"
+        f"🚿 Need Water: {'Yes' if dr['need_water'] else 'No'}\n"
+        f"💦 Irrigated: {'Yes' if dr['is_irrigated'] else 'No'}\n\n"
+        f"📌 *Status:* {dr['status']}\n\n"
+        f"With thresholds:\n"
+        f"Soil moisture = {dr['soil_threshold']}%\n"
+        f"Temperature range (min, max) = ({dr['temperature_range']})°C\n"
+        f"Humidity = {dr['humidity_threshold']}%\n"
+    )
+
+    if dr.get("alerts"):
+        msg += "\n⚠️ *Alerts:*\n"
+        for alert in dr["alerts"]:
+            msg += f"• {alert}\n"
+
+    return msg

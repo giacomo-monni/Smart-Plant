@@ -4,19 +4,14 @@ the current state of the user. Its role is also to register and authenticate a u
 """
 
 import bcrypt
-from pymongo import MongoClient
-from config import MONGO_URI
-
-client = MongoClient(MONGO_URI)  # Connection to the MongoDB server
-db = client.smartplant  # Extracts the 'smartplant' database
-users = db.users  # Extracts the 'users' collection
+from db import users_collection
 
 
 def register_user(username, password, chat_id):  # Responsible for registering a user
-    if users.find_one({"chat_id": chat_id}):  # If the account already exists, don't register
+    if users_collection.find_one({"chat_id": chat_id}):  # If the account already exists, don't register
         return False, "❌ You are already linked to a profile with this account."
 
-    if users.find_one({"username": username}):  # If the username is already taken, don't register
+    if users_collection.find_one({"username": username}):  # If the username is already taken, don't register
         return False, "❌ Username already in use."
 
     salt = bcrypt.gensalt()  # Generates a salt to use when hashing the password
@@ -29,12 +24,12 @@ def register_user(username, password, chat_id):  # Responsible for registering a
         "salt": salt
     }
 
-    users.insert_one(user_data)  # Saves the user data to the database
+    users_collection.insert_one(user_data)  # Saves the user data to the database
     return True, "✅ Registration successful."
 
 
 def authenticate_user(username, password, chat_id):  # Responsible for user login
-    user = users.find_one({"username": username})
+    user = users_collection.find_one({"username": username})
     if not user:  # Check if the user exists in the database
         return False
 

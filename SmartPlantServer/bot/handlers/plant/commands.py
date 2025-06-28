@@ -6,9 +6,9 @@ All commands first check if the user is logged in, and then validate if any plan
 with the user where necessary.
 """
 
-from ...plant_manager import get_user_plants
-from ...state_manager import is_logged_in, set_state
-from ..utils import send
+from bot.managers.plant_manager import get_user_plants
+from bot.managers.state_manager import is_logged_in, set_state
+from bot.utils import send
 
 
 def handle_command(text, chat_id):  # Handles plant-related bot commands

@@ -1,29 +1,22 @@
 """
-bot/digital_twins.py manages the functions that create, update and visualize the digital twin
+bot/managers/digital_replica_manager.py manages the functions that create, update and visualize the digital twin
 """
 
-from pymongo import MongoClient
-from config import MONGO_URI
-from bot.handlers.utils import human_delta, is_valid
-from datetime import datetime
-import math
-
-client = MongoClient(MONGO_URI)
-db = client["smartplant"]
-digital_twins = db["digital_twins"]
+from db import digital_replica_collection
+from bot.utils import is_valid
 
 
-# Updates or creates the digital twin for a plant using the latest data.
-def update_digital_twin(last_data, plant, pot_id, chat_id):
+# Updates or creates the digital replica for a plant using the latest data.
+def set_digital_replica(timestamp, new_data, plant_entry):
     # Thresholds from the plant configuration
-    temp_th = plant.get("temperature_range")
+    temp_th = plant_entry["temperature_range"]
     min_temp = temp_th[0]
     max_temp = temp_th[1]
-    humidity_air_th = plant.get("humidity_threshold")
-    soil_moisture_th = plant.get("soil_threshold")
+    humidity_air_th = plant_entry["humidity_threshold"]
+    soil_moisture_th = plant_entry["soil_threshold"]
 
-    temperature = last_data["temperature_value"]
-    humidity = last_data["humidity_value"]
+    temperature = new_data["temperature_value"]
+    humidity = new_data["humidity_value"]
 
     alerts = []
     status = "Healthy"
@@ -32,7 +25,7 @@ def update_digital_twin(last_data, plant, pot_id, chat_id):
     valid_humidity = is_valid(humidity)
 
     # Evaluate conditions
-    if last_data["soil_moisture_value"] < soil_moisture_th:
+    if new_data["soil_moisture_value"] < soil_moisture_th:
         alerts.append("Soil moisture out of range")
         status = "Dry"
 
@@ -55,64 +48,32 @@ def update_digital_twin(last_data, plant, pot_id, chat_id):
             alerts.append("Possible malfunction in temperature and humidity sensor")
         humidity = "Unknown"
 
-    if last_data["need_water"] and not last_data["is_irrigated"]:
+    if new_data["need_water"] and not new_data["is_irrigated"]:
         status = "The plant needs water"
 
-    if not last_data["need_water"] and last_data["is_irrigated"]:
+    if not new_data["need_water"] and new_data["is_irrigated"]:
         status = "Water excess"
 
-    # Construct the twin document
-    twin = {
-        "timestamp": last_data["timestamp"],
-        "pot_id": pot_id,
-        "chat_id": chat_id,
-        "plant_name": plant["plant_name"],
-        "soil_moisture_value": last_data["soil_moisture_value"],
-        "temperature_value": temperature,
-        "humidity_value": humidity,
-        "need_water": last_data["need_water"],
-        "is_irrigated": last_data["is_irrigated"],
+    # Construct the replica format
+    dr = {
+        "timestamp": timestamp,
+        **new_data,
+        **plant_entry,
         "status": status,
         "alerts": alerts
     }
 
-    return twin
+    return dr
 
 
-# Formats the status report message for a plant digital twin.
-def format_plant_status_report(twin):
-    now = datetime.utcnow()
-    delta = now - twin["timestamp"]
-
-    msg = (
-        f"🌿 *Plant Status Report — {twin['plant_name']}*\n\n"
-        f"🆔 Pot ID: `{twin['pot_id']}`\n"
-        f"📅 Timestamp: {twin['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"⏱️ Last update: {human_delta(delta)}\n\n"
-        f"🌡️ Temperature: {twin['temperature_value']}°C\n"
-        f"💧 Air Humidity: {twin['humidity_value']}%\n"
-        f"🌾 Soil Moisture: {twin['soil_moisture_value']}%\n"
-        f"🚿 Need Water: {'Yes' if twin['need_water'] else 'No'}\n"
-        f"💦 Irrigated: {'Yes' if twin['is_irrigated'] else 'No'}\n\n"
-        f"📌 *Status:* {twin['status']}\n"
-    )
-
-    if twin.get("alerts"):
-        msg += "\n⚠️ *Alerts:*\n"
-        for alert in twin["alerts"]:
-            msg += f"• {alert}\n"
-
-    return msg
-
-
-# Retrieves a digital twin document from MongoDB by chat_id and plant_name.
-def get_digital_twin(chat_id, plant_name):
+# Retrieves a digital replica document from MongoDB by chat_id and plant_name.
+def get_digital_replica(chat_id, plant_name):
     query = {
         "chat_id": chat_id,
         "plant_name": plant_name
     }
 
-    result = digital_twins.find_one(query)
+    result = digital_replica_collection.find_one(query)
 
     if not result:
         return None
@@ -120,8 +81,9 @@ def get_digital_twin(chat_id, plant_name):
     return result
 
 
-def modify_digital_twin(chat_id, old_name, new_name, soil_th, temp_range, humidity_th):
-    old_plant = digital_twins.find_one({
+# Modifies the digital replica when the user uses /modify_plant
+def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, humidity_th):
+    old_plant = digital_replica_collection.find_one({
         "chat_id": int(chat_id),
         "plant_name": old_name
     })
@@ -170,6 +132,6 @@ def modify_digital_twin(chat_id, old_name, new_name, soil_th, temp_range, humidi
         "plant_name": old_name
     }
 
-    digital_twins.update_one(query, {"$set": new_twin})
+    digital_replica_collection.update_one(query, {"$set": new_twin})
 
     return True, "✅ Digital Twin updated!"

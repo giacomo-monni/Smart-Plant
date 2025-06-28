@@ -1,12 +1,12 @@
 """
-bot/handler.py acts as the central core for managing states and commands when a message is received by the bot.
+bot/main_handler.py acts as the central core for managing states and commands when a message is received by the bot.
 It recognizes the user and decides how to handle the received information and what to return to the user.
 """
 
 from .handlers.auth import commands as auth_cmds, states as auth_states
 from .handlers.plant import commands as plant_cmds, states as plant_states
 from .handlers.base import commands as base_cmds
-from .state_manager import get_state
+from bot.managers.state_manager import get_state
 import logging
 
 logging.basicConfig(

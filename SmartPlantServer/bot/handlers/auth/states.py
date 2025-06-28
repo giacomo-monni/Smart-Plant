@@ -7,8 +7,8 @@ through sequential inputs and update the internal session and authentication sta
 """
 
 from ...auth import register_user, authenticate_user
-from ...state_manager import set_state, get_state, clear_state, login_user
-from ..utils import send, get_welcome_message
+from bot.managers.state_manager import set_state, clear_state, login_user
+from bot.utils import send, get_welcome_message
 
 
 def handle_state(state, text, chat_id):  # Handles states related to authentication actions

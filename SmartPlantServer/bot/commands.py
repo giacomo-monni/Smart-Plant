@@ -6,8 +6,6 @@ followed by their description.
 
 commands = {
     "/help": "Shows the list of available commands",
-    "/info": "Information about the Smart Plant project",
-    "/assistance": "Contact support in case of issues",
     "/login": "Log in with username and password",
     "/register": "Create a new account",
     "/add_plant": "Add a new plant to your smart pot",

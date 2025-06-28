@@ -33,7 +33,6 @@ soil moisture measurments and booleans that tells us if the plant needed to be i
 was successfully carried out.
 ```plaintext
 {
-"light_value": light_value,
 "humidity_value": humidity_value,
 "temperature_value": temperature_value,
 "soil_moisture_value": soil_moisture,
