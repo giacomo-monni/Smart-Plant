@@ -2,8 +2,8 @@
 bot/handlers/auth/commands.py handles commands related to user registration and login
 """
 
-from ...state_manager import set_state, is_logged_in
-from ..utils import send
+from bot.managers.state_manager import set_state, is_logged_in
+from bot.utils import send
 
 
 def handle_command(text, chat_id):  # Handles authentication commands

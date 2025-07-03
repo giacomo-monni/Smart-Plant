@@ -1,11 +1,12 @@
 """
-bot/handlers/utils.py contains utility functions that support other, more central functions.
+bot/utils.py contains utility functions that support other, more central functions.
 Mainly used to reduce repetition of commonly used functions.
 """
 
-from ..commands import commands
-from ..state_manager import is_logged_in
+from bot.commands import commands
+from bot.managers.state_manager import is_logged_in
 import math
+
 
 def send(chat_id, text, markdown=False):  # Creates the message to be sent to the bot and shown to the user
     return {
@@ -18,10 +19,10 @@ def send(chat_id, text, markdown=False):  # Creates the message to be sent to th
 
 def get_available_commands(chat_id):  # Returns the list of commands based on whether the user is logged in or not
     return (
-        ["/help", "/info", "/add_plant", "/remove_plant", "/assistance", "/info_plant",
+        ["/help", "/add_plant", "/remove_plant", "/info_plant",
          "/stat_plant", "/modify_plant", "/status"]
         if is_logged_in(chat_id)
-        else ["/help", "/info", "/login", "/register", "/assistance"]
+        else ["/help", "/login", "/register"]
     )
 
 

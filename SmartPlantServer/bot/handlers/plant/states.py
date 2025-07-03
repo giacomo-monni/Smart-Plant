@@ -5,10 +5,11 @@ This module manages the states related to the plants so that the user can intera
 the database or also asks statistical data.
 """
 
-from ...plant_manager import add_plant, remove_plant, modify_plant, get_user_plants, info_plant, get_plant_statistics
-from ...state_manager import set_state, clear_state
-from ..utils import send
-from ...digital_twins import format_plant_status_report, get_digital_twin, modify_digital_twin
+from bot.managers.plant_manager import add_plant, remove_plant, get_user_plants
+from services.service import modify_plant, info_plant, get_plant_statistics, format_plant_status_report
+from bot.managers.state_manager import set_state, clear_state
+from bot.utils import send
+from bot.managers.digital_replica_manager import get_digital_replica, modify_digital_replica
 
 
 def handle_state(state, text, chat_id):  # manages the states related to the plants.
@@ -107,7 +108,7 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         success, msg = modify_plant(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
 
         if success:
-            modify_digital_twin(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
+            modify_digital_replica(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
 
         clear_state(chat_id)
         return send(chat_id, msg)
@@ -181,7 +182,7 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
             return send(chat_id, "❌ The plant name is not valid.")
 
         # Queries the database in order to retrieve the digital twin
-        twin = get_digital_twin(chat_id, text)
+        twin = get_digital_replica(chat_id, text)
         
         if twin is None:
             return send(chat_id, "❌ No data are available for this plant.")

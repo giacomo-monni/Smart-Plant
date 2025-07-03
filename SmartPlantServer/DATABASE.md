@@ -4,8 +4,8 @@ the existing Nodes and the associated plants.
 The MongoDB service use the localhost address with the port 27017.
 ```
 smartplant
-├── digital_twins
-├── plants
+├── digital_replicas
+├── plants_profile
 ├── pot_data
 ├── pots
 └── users
@@ -30,7 +30,7 @@ Currently, we have ten pots (from pot_0 to pot_9).
 The reason is that in this way we can implement a future web application and the user should be able to log in through their credentials.
 
 
-3) **plants**: this collection contains the plants registered by the users.
+3) **plants_profile**: this collection contains the profile of plants registered by the users.
     - *chat_id* identifies the telegram account
     - *pot_id* identifies the node
     - *plant_name* is the plant name (must be unique for each plant of a user)
@@ -53,7 +53,7 @@ The reason is that in this way we can implement a future web application and the
    - *is_irrigated* indicates if the plant was irrigated after the measurements
 
 
-5) **digital_twins**: this collection contains the last measurements for a given plant. It represents the actual state of a plant.
+5) **digital_replicas**: this collection contains the plant profile combined with the last measurements for a given plant. It represents the actual state of a plant.
    - *chat_id* identifies the telegram account
    - *plant_name* is the plant name
    - *pot_id* identifies the node
@@ -62,6 +62,11 @@ The reason is that in this way we can implement a future web application and the
    - *is_irrigated*  indicates if the plant was irrigated after the measurements
    - *need_water* indicates if the plant needed water after the measurements
    - *soil_moisture_value* is the soil moisture measurement
+   - *soil_threshold* is the threshold of soil moisture decided by the user for their plant
+    - *temperature_range* is the range of temperature decided by the user for their plant
+      - *min* indicates the minimum temperature of the range
+      - *max* indicates the maximum temperature of the range
+    - *humidity_threshold* is the threshold of humidity decided by the user for their plant
    - *status* indicates if the plant requires water, if it's too hot and other environmental status
    - *temperature_value* is the temperature measurement
    - *timestamp* represents the moment when the data is inserted into the database.

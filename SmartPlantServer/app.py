@@ -7,23 +7,18 @@ app.py starts a Flask server to manage bidirectional communication between a Tel
 """
 
 from flask import Flask, request, jsonify
-from config import BOT_TOKEN, MQTT_URI, MONGO_URI
-from bot.handler import handle_update
-import requests
-import threading
-import json
-from pymongo import MongoClient
 from datetime import datetime
-from mqtt_client import client
-from bot.digital_twins import update_digital_twin, format_plant_status_report
+import requests
+import json
 import logging
+from config import BOT_TOKEN
+from db import plants_profile_collection, pots_collection, pot_data_collection, digital_replica_collection
+from bot.main_handler import handle_update
+from mqtt_client import start_mqtt_thread, set_on_message
+from bot.managers.digital_replica_manager import set_digital_replica
+from services.service import send_plant_status_message
 
-# === Logging setup ===
-# Avoid the verbosity of the MongoDB connection
-logging.getLogger("pymongo").setLevel(logging.WARNING)
-logging.getLogger("pymongo.monitoring").setLevel(logging.WARNING)
-logging.getLogger("pymongo.pool").setLevel(logging.WARNING)
-logging.getLogger("pymongo.topology").setLevel(logging.WARNING)
+app = Flask(__name__)
 
 # Configure the logging generating and using the file app.log
 logging.basicConfig(
@@ -35,7 +30,18 @@ logging.basicConfig(
     ]
 )
 
-app = Flask(__name__)
+# Avoid the verbosity of the MongoDB connection
+for logger_name in [
+    "pymongo",
+    "pymongo.monitoring",
+    "pymongo.pool",
+    "pymongo.topology",
+    "pymongo.periodic",
+    "pymongo.server",
+    "pymongo.heartbeat",
+]:
+    logging.getLogger(logger_name).setLevel(logging.WARNING)
+
 
 @app.route("/webhook", methods=["POST"])  # Webhook for communication from Telegram to the server
 def webhook():
@@ -59,130 +65,103 @@ def check_server():
     return "The server is up"
 
 
-# === MongoDB Setup ===
-mongo_client = MongoClient(MONGO_URI)
-db = mongo_client["smartplant"]
-plants_col = db["plants"]
-pots_col = db["pots"]
-pot_data_col = db["pot_data"]
-digital_twins = db["digital_twins"]
-
-
 # === MQTT Message Handling ===
-def on_message(client, userdata, msg):  # Receives a MQTT message
+def on_message(client, user, msg):  # Receives a MQTT message
     topic = msg.topic
     payload = msg.payload.decode()
     logging.debug(f"MQTT message received - Topic: {topic}, Payload: {payload}")
 
     topic_parts = topic.split('/')
-    if len(topic_parts) < 3:
+    if len(topic_parts) != 3:
         logging.warning("Invalid topic format")
         return
 
     _, pot_id, subtopic = topic_parts
+    node_data = {}
 
     if subtopic == "data":  # Checks if the subtopic is data (used when receive data from a Node)
         try:
-            data = json.loads(payload)
-            pot = pots_col.find_one({"pot_id": pot_id})
-            if not pot:  # Checks if the pot_id of the Node exists
-                logging.warning(f"Pot {pot_id} not found.")
-                return
+            node_data = json.loads(payload)
+        except Exception as data_error:
+            logging.error(f"Error parsing data for pot {pot_id}: {data_error}")
 
-            if not pot["used"]:  # Checks if that pot_id is already used
-                logging.info("Pot is not registered to any user")
-                return
+        pot_entry = pots_collection.find_one({"pot_id": pot_id})
+        if not pot_entry:  # Checks if the pot_id of the Node exists
+            logging.warning(f"Pot {pot_id} not found.")
+            return
 
-            # Extracts the data obtain by the Node message
-            plant = plants_col.find_one({"pot_id": pot_id})
-            plant_name = plant["plant_name"]
+        # Checks if that data received comes an unregistered pot (the user should register the plant first)
+        if not pot_entry["used"]:
+            logging.info("Pot is not registered to any user")
+            return
 
-            # Generate a timestamp
-            timestamp = datetime.utcnow()
-            timestamp_str = timestamp.strftime("%Y-%m-%d %H:%M:%S")
+        # Extracts the data obtain by the Node message
+        plant_entry = plants_profile_collection.find_one({"pot_id": pot_id})
 
-            # Generates a new entry to save the Node data in the database
-            chat_id = pot["chat_id"]
-            pot_data_entry = {
-                "timestamp": timestamp,
-                "pot_id": pot_id,
-                "chat_id": chat_id,
-                "plant_name": plant_name,
-                "humidity_value": data.get("humidity_value"),
-                "temperature_value": data.get("temperature_value"),
-                "soil_moisture_value": data.get("soil_moisture_value"),
-                "need_water": data.get("need_water"),
-                "is_irrigated": data.get("is_irrigated"),
-            }
+        # Generate a timestamp
+        timestamp = datetime.utcnow()
 
-            pot_data_col.insert_one(pot_data_entry) # saves the data in the database (pot_data collection)
+        # Generates a new entry to save the Node data in the database
+        pot_data_entry = {
+            "timestamp": timestamp,
+            "pot_id": plant_entry["pot_id"],
+            "chat_id": plant_entry["chat_id"],
+            "plant_name": plant_entry["plant_name"],
+            **node_data
+        }
 
-            # builds the digital twin
-            twin = update_digital_twin(pot_data_entry, plant, pot_id, chat_id)
+        pot_data_collection.insert_one(pot_data_entry)  # saves the data in the database (pot_data collection)
 
-            # Update or insert the twin
-            query = {
-                "chat_id": chat_id,
-                "pot_id": pot_id,
-                "plant_name": plant["plant_name"]
-            }
+        # builds the digital replica
+        dr = set_digital_replica(timestamp, node_data, plant_entry)
 
-            # saves the digital twins in the database (digital_twins collection)
-            digital_twins.update_one(query, {"$set": twin}, upsert=True)
+        # Update or insert the digital replica
+        query = {
+            "chat_id": plant_entry["chat_id"],
+            "pot_id": pot_id,
+            "plant_name": plant_entry["plant_name"]
+        }
 
-            logging.info(f"Data saved for pot {pot_id}")
+        # saves the digital twins in the database (digital_twins collection)
+        digital_replica_collection.update_one(query, {"$set": dr}, upsert=True)
 
-            # === Send message to Telegram ===
-            msg = format_plant_status_report(twin)
+        logging.info(f"Data saved for pot {pot_id}")
 
-            telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-            res = requests.post(telegram_url, json={
-                "chat_id": chat_id,
-                "text": msg,
-                "parse_mode": "Markdown"
-            })
-            logging.info(f"Telegram message sent to user {chat_id}: {res.status_code}")
+        # Sends message to Telegram
+        res = send_plant_status_message(dr, plant_entry["chat_id"])
 
-        except Exception as e:
-            logging.error(f"Error parsing data for pot {pot_id}: {e}")
+        chat_id = plant_entry["chat_id"]
+        logging.info(f"Telegram message sent to user {chat_id}: {res.status_code}")
 
-    elif subtopic == "ready":  # This subtopic is used when the Node is ready to receive the thresholds information
+    # This subtopic is used when the Node is ready to receive the thresholds information
+    elif subtopic == "ready":
         try:
-            plant = plants_col.find_one({"pot_id": pot_id})
-            if not plant:
+            plant_entry = plants_profile_collection.find_one({"pot_id": pot_id})
+            if not plant_entry:
                 logging.warning(f"No plant found for pot {pot_id}")
                 return
 
             params = {  # Thresholds data required by the Node
                 "action": "save_parameters",
-                "soil_threshold": plant.get("soil_threshold"),
-                "temperature_range": plant.get("temperature_range"),
-                "humidity_threshold": plant.get("humidity_threshold")
+                "soil_threshold": plant_entry["soil_threshold"],
+                "temperature_range": plant_entry["temperature_range"],
+                "humidity_threshold": plant_entry["humidity_threshold"]
             }
+
             client.publish(f"smartplant/{pot_id}/cmd", json.dumps(params))
-            logging.info(f"Parameters sent to pot {pot_id}: {params}")
+            logging.info(f"Parameters sent to {pot_id}: {params}")
         except Exception as e:
             logging.error(f"Error sending parameters to pot {pot_id}: {e}")
 
 
-client.on_message = on_message
-
-
-def start_mqtt():  # Starts the MQTT connection and subscriptions
-    try:
-        logging.info("Connecting to MQTT broker...")
-        client.connect(MQTT_URI, 1883, 60)
-        client.subscribe("smartplant/+/data")  # The + is a wildcard, so accept the message for every smart pot
-        client.subscribe("smartplant/+/ready")
-        logging.info("Subscribed to MQTT topics.")
-        client.loop_forever()
-    except Exception as e:
-        logging.critical(f"Failed to start MQTT client: {e}")
-
-
-mqtt_thread = threading.Thread(target=start_mqtt)  # Necessary to run MQTT in a different thread
-mqtt_thread.daemon = True  # Terminates with Flask if process is closed
-mqtt_thread.start()  # The thread is useful to run Flask together with MQTT.
+# Starts MQTT
+try:
+    set_on_message(on_message)
+    logging.info("Connecting to MQTT broker...")
+    start_mqtt_thread()
+    logging.info("Subscribed to MQTT topics.")
+except Exception as mqtt_error:
+    logging.critical(f"Failed to start MQTT client: {mqtt_error}")
 
 if __name__ == "__main__":
     logging.info("Starting Flask server...")

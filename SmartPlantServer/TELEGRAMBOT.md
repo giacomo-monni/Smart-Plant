@@ -51,7 +51,7 @@
 
 */login*  asks the user to insert a username e verify their existence before log them in.
 
-*/add_plant* asks the user to insert the Smart Pot ID, the plant name, the soil moisture threshold, the temperature range, humidity threshold, and saves this data in the *plants* collection.
+*/add_plant* asks the user to insert the Smart Pot ID, the plant name, the soil moisture threshold, the temperature range, humidity threshold, and saves this data in the *plants_profile* collection. This basically creates the profile.
 
 */remove_plant* asks the user to insert the plant name, and it removes it from the database.
 
@@ -61,7 +61,7 @@
 
 */stat_plant* asks the user to insert the plant name and returns the weekly statistic for that plant.
 
-*/status* asks the user to insert the plant name in order to give the digital twin current data.  
+*/status* asks the user to insert the plant name in order to give the digital replica current data.  
 Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot:
 ```
 🌿 Plant Status Report — Rosmarino
@@ -74,6 +74,12 @@ Data received when the user uses /status or when measurements arrives automatica
 🚿 Need Water: No
 💦 Irrigated: No
 📌 Status: Healthy
+
+With thresholds:
+Soil moisture = 10%
+Minimum temperature: 10°C
+Maximum temperature: 30°C
+Humidity: 20%
 
 ⚠️ Alerts:
 • Temperature above maximum threshold
