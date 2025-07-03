@@ -2966,3 +2966,1479 @@ TypeError: '<' not supported between instances of 'int' and 'str'
 2025-06-19 16:49:44,438 [DEBUG] https://api.telegram.org:443 "POST /bot7581089785:AAFWsVDeSsgisYHcs9HsEYW9Bt4sKh74SQc/sendMessage HTTP/1.1" 200 892
 2025-06-19 16:49:44,440 [INFO] Response sent to Telegram: 200
 2025-06-19 16:49:44,442 [INFO] 127.0.0.1 - - [19/Jun/2025 16:49:44] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 15:43:15,325 [INFO] Connecting to MQTT broker...
+2025-06-23 15:43:15,328 [INFO] Subscribed to MQTT topics.
+2025-06-23 15:43:15,334 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-23 15:43:15,334 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-23 15:49:36,011 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfb"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2025-06-23 15:49:36,011 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfa"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2025-06-23 15:49:36,012 [DEBUG] {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfa"}, "driverConnectionId": 1, "serverConnectionId": 26, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"684a70cf0e667a8ba5c3ce35\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2025-06-23T13:49:36.012Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 26, \"maxWireVersion\": 25, \"ok\": 1.0}"}
+2025-06-23 15:49:36,012 [DEBUG] {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfb"}, "driverConnectionId": 1, "serverConnectionId": 27, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"684a70cf0e667a8ba5c3ce35\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2025-06-23T13:49:36.012Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 27, \"maxWireVersion\": 25, \"ok\": 1.0}"}
+2025-06-23 15:49:36,013 [DEBUG] {"message": "Connection pool ready", "clientId": {"$oid": "68595b6fb4b7d3ee854e3bfa"}, "serverHost": "localhost", "serverPort": 27017}
+2025-06-23 15:49:36,013 [DEBUG] {"message": "Connection pool ready", "clientId": {"$oid": "68595b6fb4b7d3ee854e3bfb"}, "serverHost": "localhost", "serverPort": 27017}
+2025-06-23 15:49:36,013 [DEBUG] {"message": "Topology description changed", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfa"}, "previousDescription": "<TopologyDescription id: 68595b6fb4b7d3ee854e3bfa, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 68595b6fb4b7d3ee854e3bfa, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2025-06-23 15:49:36,014 [DEBUG] {"message": "Topology description changed", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfb"}, "previousDescription": "<TopologyDescription id: 68595b6fb4b7d3ee854e3bfb, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 68595b6fb4b7d3ee854e3bfb, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2025-06-23 15:49:36,015 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfa"}, "driverConnectionId": 1, "serverConnectionId": 26, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2025-06-23 15:49:36,015 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595b6fb4b7d3ee854e3bfb"}, "driverConnectionId": 1, "serverConnectionId": 27, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2025-06-23 15:49:36,487 [INFO] Connecting to MQTT broker...
+2025-06-23 15:49:36,492 [INFO] Subscribed to MQTT topics.
+2025-06-23 15:49:36,493 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-23 15:49:36,493 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-23 15:50:14,166 [INFO] GET request received on /
+2025-06-23 15:50:14,167 [INFO] 127.0.0.1 - - [23/Jun/2025 15:50:14] "GET / HTTP/1.1" 200 -
+2025-06-23 15:50:14,599 [INFO] 127.0.0.1 - - [23/Jun/2025 15:50:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-23 15:54:00,920 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595c78a5c06e1cf41e8ec1"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2025-06-23 15:54:00,920 [DEBUG] {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "68595c78a5c06e1cf41e8ec1"}, "driverConnectionId": 1, "serverConnectionId": 37, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"684a70cf0e667a8ba5c3ce35\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2025-06-23T13:54:00.921Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 37, \"maxWireVersion\": 25, \"ok\": 1.0}"}
+2025-06-23 15:54:00,922 [DEBUG] {"message": "Connection pool ready", "clientId": {"$oid": "68595c78a5c06e1cf41e8ec1"}, "serverHost": "localhost", "serverPort": 27017}
+2025-06-23 15:54:00,922 [DEBUG] {"message": "Topology description changed", "topologyId": {"$oid": "68595c78a5c06e1cf41e8ec1"}, "previousDescription": "<TopologyDescription id: 68595c78a5c06e1cf41e8ec1, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 68595c78a5c06e1cf41e8ec1, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2025-06-23 15:54:00,922 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595c78a5c06e1cf41e8ec1"}, "driverConnectionId": 1, "serverConnectionId": 37, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2025-06-23 15:54:01,408 [INFO] Connecting to MQTT broker...
+2025-06-23 15:54:01,410 [INFO] Subscribed to MQTT topics.
+2025-06-23 15:54:01,416 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-23 15:54:01,416 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-23 15:54:12,797 [INFO] GET request received on /
+2025-06-23 15:54:12,798 [INFO] 127.0.0.1 - - [23/Jun/2025 15:54:12] "GET / HTTP/1.1" 200 -
+2025-06-23 15:54:13,076 [INFO] 127.0.0.1 - - [23/Jun/2025 15:54:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-23 16:03:09,474 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595e9dd8887e15b48cac4e"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2025-06-23 16:03:09,475 [DEBUG] {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "68595e9dd8887e15b48cac4e"}, "driverConnectionId": 1, "serverConnectionId": 51, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 0.0, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"684a70cf0e667a8ba5c3ce35\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2025-06-23T14:03:09.476Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 51, \"maxWireVersion\": 25, \"ok\": 1.0}"}
+2025-06-23 16:03:09,476 [DEBUG] {"message": "Connection pool ready", "clientId": {"$oid": "68595e9dd8887e15b48cac4e"}, "serverHost": "localhost", "serverPort": 27017}
+2025-06-23 16:03:09,476 [DEBUG] {"message": "Topology description changed", "topologyId": {"$oid": "68595e9dd8887e15b48cac4e"}, "previousDescription": "<TopologyDescription id: 68595e9dd8887e15b48cac4e, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 68595e9dd8887e15b48cac4e, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.0>]>"}
+2025-06-23 16:03:09,477 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68595e9dd8887e15b48cac4e"}, "driverConnectionId": 1, "serverConnectionId": 51, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2025-06-23 16:03:10,017 [INFO] Connecting to MQTT broker...
+2025-06-23 16:03:10,021 [INFO] Subscribed to MQTT topics.
+2025-06-23 16:03:10,025 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-23 16:03:10,025 [INFO] [33mPress CTRL+C to quit[0m
+2025-06-23 16:04:51,277 [INFO] GET request received on /
+2025-06-23 16:04:51,278 [INFO] 127.0.0.1 - - [23/Jun/2025 16:04:51] "GET / HTTP/1.1" 200 -
+2025-06-23 16:04:51,476 [INFO] 127.0.0.1 - - [23/Jun/2025 16:04:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-23 16:16:49,831 [DEBUG] Received update from Telegram
+2025-06-23 16:16:49,831 [DEBUG] Command /help from 143136230
+2025-06-23 16:16:49,831 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/login: Log in with username and password\n/register: Create a new account\n/assistance: Contact support in case of issues'}
+2025-06-23 16:16:49,835 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:16:49,994 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 782
+2025-06-23 16:16:49,995 [INFO] Response sent to Telegram: 200
+2025-06-23 16:16:49,995 [INFO] 127.0.0.1 - - [23/Jun/2025 16:16:49] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:16:54,081 [DEBUG] Received update from Telegram
+2025-06-23 16:16:54,082 [DEBUG] Command /help from 1419727395
+2025-06-23 16:16:54,082 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/login: Log in with username and password\n/register: Create a new account\n/assistance: Contact support in case of issues'}
+2025-06-23 16:16:54,083 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:16:54,259 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 766
+2025-06-23 16:16:54,259 [INFO] Response sent to Telegram: 200
+2025-06-23 16:16:54,261 [INFO] 127.0.0.1 - - [23/Jun/2025 16:16:54] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:19:32,455 [DEBUG] Received update from Telegram
+2025-06-23 16:19:32,455 [DEBUG] Command /info from 143136230
+2025-06-23 16:19:32,455 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 *Smart Plant* is an intelligent system for monitoring and taking care of your plants.\n\n• Monitors soil moisture\n• Sends automatic notifications\n• Automates irrigation 🌱', 'parse_mode': 'Markdown'}
+2025-06-23 16:19:32,457 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:19:32,633 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 544
+2025-06-23 16:19:32,633 [INFO] Response sent to Telegram: 200
+2025-06-23 16:19:32,633 [INFO] 127.0.0.1 - - [23/Jun/2025 16:19:32] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:19:36,767 [DEBUG] Received update from Telegram
+2025-06-23 16:19:36,767 [DEBUG] Command /assistance from 143136230
+2025-06-23 16:19:36,768 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '📞 For issues, please contact support.'}
+2025-06-23 16:19:36,769 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:19:36,942 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 331
+2025-06-23 16:19:36,942 [INFO] Response sent to Telegram: 200
+2025-06-23 16:19:36,943 [INFO] 127.0.0.1 - - [23/Jun/2025 16:19:36] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:19:40,935 [DEBUG] Received update from Telegram
+2025-06-23 16:19:40,935 [DEBUG] Command /help from 143136230
+2025-06-23 16:19:40,935 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/login: Log in with username and password\n/register: Create a new account\n/assistance: Contact support in case of issues'}
+2025-06-23 16:19:40,935 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:19:41,105 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 783
+2025-06-23 16:19:41,105 [INFO] Response sent to Telegram: 200
+2025-06-23 16:19:41,106 [INFO] 127.0.0.1 - - [23/Jun/2025 16:19:41] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:19:48,491 [DEBUG] Received update from Telegram
+2025-06-23 16:19:48,495 [DEBUG] Command /register from 143136230
+2025-06-23 16:19:48,495 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '📝 Please enter a username to register:'}
+2025-06-23 16:19:48,501 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:19:48,699 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 332
+2025-06-23 16:19:48,700 [INFO] Response sent to Telegram: 200
+2025-06-23 16:19:48,701 [INFO] 127.0.0.1 - - [23/Jun/2025 16:19:48] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:19:57,221 [DEBUG] Received update from Telegram
+2025-06-23 16:19:57,221 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🔐 Please enter a password:'}
+2025-06-23 16:19:57,223 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:19:57,374 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 320
+2025-06-23 16:19:57,374 [INFO] Response sent to Telegram: 200
+2025-06-23 16:19:57,375 [INFO] 127.0.0.1 - - [23/Jun/2025 16:19:57] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:04,700 [DEBUG] Received update from Telegram
+2025-06-23 16:20:04,940 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '✅ Registration successful.'}
+2025-06-23 16:20:04,941 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:05,099 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 314
+2025-06-23 16:20:05,100 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:05,100 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:05] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:11,055 [DEBUG] Received update from Telegram
+2025-06-23 16:20:11,055 [DEBUG] Command /login from 1419727395
+2025-06-23 16:20:11,055 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '🔑 Please enter your username:'}
+2025-06-23 16:20:11,056 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:11,232 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 306
+2025-06-23 16:20:11,234 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:11,234 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:11] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:22,282 [DEBUG] Received update from Telegram
+2025-06-23 16:20:22,282 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '🔐 Please enter your password:'}
+2025-06-23 16:20:22,282 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:22,430 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 306
+2025-06-23 16:20:22,435 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:22,435 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:22] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:30,424 [DEBUG] Received update from Telegram
+2025-06-23 16:20:30,428 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '❌ Incorrect username and/or password.'}
+2025-06-23 16:20:30,430 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:30,594 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 308
+2025-06-23 16:20:30,594 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:30,596 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:30] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:53,232 [DEBUG] Received update from Telegram
+2025-06-23 16:20:53,232 [DEBUG] Command /login from 143136230
+2025-06-23 16:20:53,232 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🔑 Please enter your username:'}
+2025-06-23 16:20:53,233 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:53,423 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 323
+2025-06-23 16:20:53,424 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:53,425 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:53] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:20:57,235 [DEBUG] Received update from Telegram
+2025-06-23 16:20:57,235 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🔐 Please enter your password:'}
+2025-06-23 16:20:57,236 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:20:57,410 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 323
+2025-06-23 16:20:57,410 [INFO] Response sent to Telegram: 200
+2025-06-23 16:20:57,411 [INFO] 127.0.0.1 - - [23/Jun/2025 16:20:57] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:21:01,469 [DEBUG] Received update from Telegram
+2025-06-23 16:21:01,520 [DEBUG] Received update from Telegram
+2025-06-23 16:21:01,520 [DEBUG] Command /register from 1419727395
+2025-06-23 16:21:01,520 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '📝 Please enter a username to register:'}
+2025-06-23 16:21:01,521 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:21:01,667 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 315
+2025-06-23 16:21:01,667 [INFO] Response sent to Telegram: 200
+2025-06-23 16:21:01,668 [INFO] 127.0.0.1 - - [23/Jun/2025 16:21:01] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:21:01,678 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "✅ Welcome PippoFranco!\n\nHere are the available commands:\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:21:01,679 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:21:01,828 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1256
+2025-06-23 16:21:01,829 [INFO] Response sent to Telegram: 200
+2025-06-23 16:21:01,829 [INFO] 127.0.0.1 - - [23/Jun/2025 16:21:01] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:21:04,488 [DEBUG] Received update from Telegram
+2025-06-23 16:21:04,488 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '🔐 Please enter a password:'}
+2025-06-23 16:21:04,490 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:21:04,634 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 303
+2025-06-23 16:21:04,634 [INFO] Response sent to Telegram: 200
+2025-06-23 16:21:04,634 [INFO] 127.0.0.1 - - [23/Jun/2025 16:21:04] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:21:08,979 [DEBUG] Received update from Telegram
+2025-06-23 16:21:09,192 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 1419727395, 'text': '✅ Registration successful.'}
+2025-06-23 16:21:09,194 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:21:09,346 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 297
+2025-06-23 16:21:09,346 [INFO] Response sent to Telegram: 200
+2025-06-23 16:21:09,347 [INFO] 127.0.0.1 - - [23/Jun/2025 16:21:09] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:21:46,437 [DEBUG] Received update from Telegram
+2025-06-23 16:21:46,438 [DEBUG] Command /help from 143136230
+2025-06-23 16:21:46,438 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:21:46,439 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:21:46,578 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1226
+2025-06-23 16:21:46,578 [INFO] Response sent to Telegram: 200
+2025-06-23 16:21:46,579 [INFO] 127.0.0.1 - - [23/Jun/2025 16:21:46] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:12,006 [DEBUG] Received update from Telegram
+2025-06-23 16:22:12,007 [DEBUG] Command /info from 143136230
+2025-06-23 16:22:12,007 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 *Smart Plant* is an intelligent system for monitoring and taking care of your plants.\n\n• Monitors soil moisture\n• Sends automatic notifications\n• Automates irrigation 🌱', 'parse_mode': 'Markdown'}
+2025-06-23 16:22:12,008 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:12,247 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 544
+2025-06-23 16:22:12,248 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:12,248 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:12] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:16,305 [DEBUG] Received update from Telegram
+2025-06-23 16:22:16,305 [DEBUG] Command /status from 143136230
+2025-06-23 16:22:16,330 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 You have no registered plants.'}
+2025-06-23 16:22:16,332 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:16,508 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 326
+2025-06-23 16:22:16,509 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:16,510 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:16] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:23,167 [DEBUG] Received update from Telegram
+2025-06-23 16:22:23,167 [DEBUG] Command /modify_plant from 143136230
+2025-06-23 16:22:23,167 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 You have no registered plants.'}
+2025-06-23 16:22:23,170 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:23,330 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 326
+2025-06-23 16:22:23,331 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:23,332 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:23] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:26,533 [DEBUG] Received update from Telegram
+2025-06-23 16:22:26,534 [DEBUG] Command /stat_plant from 143136230
+2025-06-23 16:22:26,535 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 You have no registered plants.'}
+2025-06-23 16:22:26,536 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:26,673 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 326
+2025-06-23 16:22:26,674 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:26,674 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:26] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:28,066 [DEBUG] Received update from Telegram
+2025-06-23 16:22:28,066 [DEBUG] Command /info_plant from 143136230
+2025-06-23 16:22:28,067 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 You have no registered plants.'}
+2025-06-23 16:22:28,069 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:28,247 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 326
+2025-06-23 16:22:28,247 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:28,248 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:28] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:30,990 [DEBUG] Received update from Telegram
+2025-06-23 16:22:30,990 [DEBUG] Command /remove_plant from 143136230
+2025-06-23 16:22:30,992 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌿 You have no registered plants.'}
+2025-06-23 16:22:30,994 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:31,182 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 326
+2025-06-23 16:22:31,183 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:31,183 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:31] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:36,308 [DEBUG] Received update from Telegram
+2025-06-23 16:22:36,309 [DEBUG] Command /assistance from 143136230
+2025-06-23 16:22:36,309 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '📞 For issues, please contact support.'}
+2025-06-23 16:22:36,310 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:36,474 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 331
+2025-06-23 16:22:36,474 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:36,475 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:36] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:22:38,891 [DEBUG] Received update from Telegram
+2025-06-23 16:22:38,891 [DEBUG] Command /add_plant from 143136230
+2025-06-23 16:22:38,891 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🔢 Enter the smart pot ID:'}
+2025-06-23 16:22:38,893 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:22:39,095 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 319
+2025-06-23 16:22:39,095 [INFO] Response sent to Telegram: 200
+2025-06-23 16:22:39,095 [INFO] 127.0.0.1 - - [23/Jun/2025 16:22:39] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:23:06,521 [DEBUG] Received update from Telegram
+2025-06-23 16:23:06,524 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Enter the name of the plant to associate:'}
+2025-06-23 16:23:06,526 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:23:06,693 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 337
+2025-06-23 16:23:06,694 [INFO] Response sent to Telegram: 200
+2025-06-23 16:23:06,694 [INFO] 127.0.0.1 - - [23/Jun/2025 16:23:06] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:23:12,495 [DEBUG] Received update from Telegram
+2025-06-23 16:23:12,495 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Enter the soil moisture value. (e.g. 10 = 10%):'}
+2025-06-23 16:23:12,496 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:23:12,642 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 343
+2025-06-23 16:23:12,643 [INFO] Response sent to Telegram: 200
+2025-06-23 16:23:12,644 [INFO] 127.0.0.1 - - [23/Jun/2025 16:23:12] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:23:32,983 [DEBUG] Received update from Telegram
+2025-06-23 16:23:32,983 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Enter the minimum temperature value. (e.g. 10 = 10°C):'}
+2025-06-23 16:23:32,986 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:23:33,135 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 355
+2025-06-23 16:23:33,135 [INFO] Response sent to Telegram: 200
+2025-06-23 16:23:33,136 [INFO] 127.0.0.1 - - [23/Jun/2025 16:23:33] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:23:39,149 [DEBUG] Received update from Telegram
+2025-06-23 16:23:39,149 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Enter the maximum temperature value. (e.g. 10 = 10°C):'}
+2025-06-23 16:23:39,151 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:23:39,321 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 355
+2025-06-23 16:23:39,322 [INFO] Response sent to Telegram: 200
+2025-06-23 16:23:39,322 [INFO] 127.0.0.1 - - [23/Jun/2025 16:23:39] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:23:45,585 [DEBUG] Received update from Telegram
+2025-06-23 16:23:45,585 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Enter the air humidity value. (e.g. 10 = 10%):'}
+2025-06-23 16:23:45,586 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:23:45,762 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 342
+2025-06-23 16:23:45,762 [INFO] Response sent to Telegram: 200
+2025-06-23 16:23:45,764 [INFO] 127.0.0.1 - - [23/Jun/2025 16:23:45] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:24:14,123 [DEBUG] Received update from Telegram
+2025-06-23 16:24:14,143 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '✅ Plant successfully added.'}
+2025-06-23 16:24:14,144 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:24:14,323 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 315
+2025-06-23 16:24:14,323 [INFO] Response sent to Telegram: 200
+2025-06-23 16:24:14,324 [INFO] 127.0.0.1 - - [23/Jun/2025 16:24:14] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:25:47,737 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:25:47,764 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:25:47,889 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:25:47,890 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:26:12,630 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:26:12,631 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:26:12,755 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:26:12,757 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:26:37,602 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:26:37,604 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:26:37,716 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:26:37,718 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:26:46,264 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68596426c27b64b5811ef6f2"}, "driverConnectionId": 1, "serverHost": "localhost", "serverPort": 27017, "awaited": false}
+2025-06-23 16:26:46,266 [DEBUG] {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "68596426c27b64b5811ef6f2"}, "driverConnectionId": 1, "serverConnectionId": 76, "serverHost": "localhost", "serverPort": 27017, "awaited": false, "durationMS": 16.00000006146729, "reply": "{\"helloOk\": true, \"ismaster\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"684a70cf0e667a8ba5c3ce35\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime\": {\"$date\": \"2025-06-23T14:26:46.265Z\"}, \"logicalSessionTimeoutMinutes\": 30, \"connectionId\": 76, \"maxWireVersion\": 25, \"ok\": 1.0}"}
+2025-06-23 16:26:46,266 [DEBUG] {"message": "Connection pool ready", "clientId": {"$oid": "68596426c27b64b5811ef6f2"}, "serverHost": "localhost", "serverPort": 27017}
+2025-06-23 16:26:46,266 [DEBUG] {"message": "Topology description changed", "topologyId": {"$oid": "68596426c27b64b5811ef6f2"}, "previousDescription": "<TopologyDescription id: 68596426c27b64b5811ef6f2, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 68596426c27b64b5811ef6f2, topology_type: Single, servers: [<ServerDescription ('localhost', 27017) server_type: Standalone, rtt: 0.01600000006146729>]>"}
+2025-06-23 16:26:46,267 [DEBUG] {"message": "Server heartbeat started", "topologyId": {"$oid": "68596426c27b64b5811ef6f2"}, "driverConnectionId": 1, "serverConnectionId": 76, "serverHost": "localhost", "serverPort": 27017, "awaited": true}
+2025-06-23 16:26:46,737 [INFO] Connecting to MQTT broker...
+2025-06-23 16:26:46,737 [INFO] Subscribed to MQTT topics.
+2025-06-23 16:27:06,080 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:27:06,080 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:27:06,081 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:06,084 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:06,204 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:27:06,208 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:27:31,056 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:27:31,057 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:31,057 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:31,169 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:27:31,172 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:27:31,172 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:27:55,988 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:27:55,990 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:55,990 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:27:56,103 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:27:56,103 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:27:56,107 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:28:21,028 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:28:21,028 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:28:21,029 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:28:21,142 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:28:21,143 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:28:21,145 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:28:21,145 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:28:46,019 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:28:46,020 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:28:46,020 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:28:46,134 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:28:46,136 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:28:46,136 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:29:11,002 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:29:11,002 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:29:11,003 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:29:11,003 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:29:11,116 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:29:11,116 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:29:11,118 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:29:11,119 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:29:35,995 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:29:35,996 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:29:35,997 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:29:36,110 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:29:36,110 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:29:36,113 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:30:00,969 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:30:00,971 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:30:01,083 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:30:01,086 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:30:01,086 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:30:25,973 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:30:25,974 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:30:25,974 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:30:26,111 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:30:26,114 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:30:50,945 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:30:50,947 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:30:51,060 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:30:51,060 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"50","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:30:51,062 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:30:51,062 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:31:15,934 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:31:15,935 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:31:15,935 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:31:16,057 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:31:16,059 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:31:40,920 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:31:40,923 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:31:40,923 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:31:41,035 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:31:41,039 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:05,903 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:32:05,904 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:32:06,017 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:32:06,020 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:06,020 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:30,893 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:32:30,895 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:32:30,895 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:32:31,008 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:32:31,011 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:31,011 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:55,885 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:32:55,886 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:32:56,014 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:32:56,018 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:32:56,020 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:33:21,904 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:33:21,904 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:33:21,906 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:33:22,028 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:33:22,030 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:33:22,032 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:33:46,879 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:33:46,879 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:33:46,881 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:33:46,881 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:33:46,993 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:33:46,993 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:33:46,995 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:33:46,995 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:34:11,858 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:34:11,860 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:34:11,974 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:34:11,976 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:34:54,263 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:34:54,265 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:34:54,388 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:34:54,388 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":"1","humidity_value":"51","temperature_value":"26","soil_moisture":"0","is_irrigated":"0"}
+2025-06-23 16:34:54,389 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:35:20,345 [DEBUG] Received update from Telegram
+2025-06-23 16:35:20,345 [DEBUG] Command /help from 143136230
+2025-06-23 16:35:20,345 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:35:20,348 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:35:20,530 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1226
+2025-06-23 16:35:20,531 [INFO] Response sent to Telegram: 200
+2025-06-23 16:35:20,532 [INFO] 127.0.0.1 - - [23/Jun/2025 16:35:20] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:35:23,457 [DEBUG] Received update from Telegram
+2025-06-23 16:35:23,457 [DEBUG] Command /status from 143136230
+2025-06-23 16:35:23,469 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🛠️ Select the plant to modify:\nmirto'}
+2025-06-23 16:35:23,473 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:35:23,626 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 336
+2025-06-23 16:35:23,626 [INFO] Response sent to Telegram: 200
+2025-06-23 16:35:23,627 [INFO] 127.0.0.1 - - [23/Jun/2025 16:35:23] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:35:27,322 [DEBUG] Received update from Telegram
+2025-06-23 16:35:27,324 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '❌ The plant name is not valid.'}
+2025-06-23 16:35:27,325 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:35:27,475 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 318
+2025-06-23 16:35:27,476 [INFO] Response sent to Telegram: 200
+2025-06-23 16:35:27,476 [INFO] 127.0.0.1 - - [23/Jun/2025 16:35:27] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:35:31,563 [DEBUG] Received update from Telegram
+2025-06-23 16:35:31,563 [DEBUG] Command /stat_plant from 143136230
+2025-06-23 16:35:31,564 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🛠️ Select the plant to receive statistical data:\nmirto'}
+2025-06-23 16:35:31,566 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:35:31,801 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 354
+2025-06-23 16:35:31,801 [INFO] Response sent to Telegram: 200
+2025-06-23 16:35:31,802 [INFO] 127.0.0.1 - - [23/Jun/2025 16:35:31] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:35:35,243 [DEBUG] Received update from Telegram
+2025-06-23 16:35:35,260 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '❌ No statistics are available for this plant.'}
+2025-06-23 16:35:35,262 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:35:35,417 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 333
+2025-06-23 16:35:35,417 [INFO] Response sent to Telegram: 200
+2025-06-23 16:35:35,418 [INFO] 127.0.0.1 - - [23/Jun/2025 16:35:35] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:35:58,668 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:35:58,668 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:35:58,668 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:35:58,786 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:35:58,786 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:35:58,789 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:35:58,791 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:36:24,570 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:36:24,570 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:36:24,571 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:36:24,571 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:36:24,694 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:36:24,696 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:36:49,559 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:36:49,560 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:36:49,560 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:36:49,674 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:36:49,675 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:36:49,675 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:37:14,542 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:37:14,543 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:37:14,543 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:37:14,656 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:37:14,659 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:37:14,659 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:37:51,111 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:37:51,112 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:37:51,112 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:37:51,235 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:37:51,237 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:37:51,237 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:38:23,160 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:38:23,161 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:38:23,284 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:38:23,288 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:38:33,174 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:38:33,175 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:38:33,175 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:38:33,292 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture":0,"is_irrigated":false}
+2025-06-23 16:38:33,295 [ERROR] Error parsing data for pot pot_0: '<' not supported between instances of 'NoneType' and 'int'
+2025-06-23 16:39:26,581 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:39:26,582 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:40:55,224 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:40:55,224 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:40:55,225 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:40:55,347 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:40:55,350 [INFO] Data saved for pot pot_0
+2025-06-23 16:40:55,353 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:40:55,357 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:40:55,581 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:40:55,581 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:40:55,613 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:40:55,613 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:41:34,964 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:41:34,964 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:41:34,965 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:41:34,965 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:41:35,101 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:41:35,117 [INFO] Data saved for pot pot_0
+2025-06-23 16:41:35,119 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:41:35,123 [INFO] Data saved for pot pot_0
+2025-06-23 16:41:35,125 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:41:35,265 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:41:35,265 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:41:35,290 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:41:35,290 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:00,877 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:42:00,877 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:42:00,878 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:42:00,878 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:42:01,000 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:42:01,000 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:42:01,004 [INFO] Data saved for pot pot_0
+2025-06-23 16:42:01,005 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:42:01,237 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:01,237 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:01,256 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:01,257 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:25,850 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:42:25,851 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:42:25,851 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:42:25,974 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:42:25,974 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:42:25,977 [INFO] Data saved for pot pot_0
+2025-06-23 16:42:25,977 [INFO] Data saved for pot pot_0
+2025-06-23 16:42:25,978 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:42:25,978 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:42:26,138 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:26,138 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:26,155 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:26,156 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:51,860 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:42:51,860 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:42:51,983 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:42:51,987 [INFO] Data saved for pot pot_0
+2025-06-23 16:42:51,987 [INFO] Data saved for pot pot_0
+2025-06-23 16:42:51,988 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:42:52,165 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:52,165 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:42:52,179 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:42:52,179 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:43:02,134 [DEBUG] Received update from Telegram
+2025-06-23 16:43:02,134 [DEBUG] Command /statplant from 143136230
+2025-06-23 16:43:02,134 [DEBUG] Generated response: None
+2025-06-23 16:43:02,134 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:02] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:13,800 [DEBUG] Received update from Telegram
+2025-06-23 16:43:13,800 [DEBUG] Command /help from 143136230
+2025-06-23 16:43:13,800 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:43:13,801 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:13,985 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1226
+2025-06-23 16:43:13,985 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:13,987 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:13] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:16,213 [DEBUG] Received update from Telegram
+2025-06-23 16:43:16,213 [DEBUG] Command /stat_plant from 143136230
+2025-06-23 16:43:16,214 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🛠️ Select the plant to receive statistical data:\nmirto'}
+2025-06-23 16:43:16,215 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:16,423 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 354
+2025-06-23 16:43:16,425 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:16,426 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:16] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:17,876 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:43:17,878 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:43:17,878 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:43:18,000 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:43:18,003 [INFO] Data saved for pot pot_0
+2025-06-23 16:43:18,003 [INFO] Data saved for pot pot_0
+2025-06-23 16:43:18,004 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:18,170 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:43:18,170 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:43:18,208 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 961
+2025-06-23 16:43:18,208 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:43:23,141 [DEBUG] Received update from Telegram
+2025-06-23 16:43:23,143 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '❌ No statistics are available for this plant.'}
+2025-06-23 16:43:23,144 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:23,346 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 333
+2025-06-23 16:43:23,347 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:23,347 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:23] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:29,398 [DEBUG] Received update from Telegram
+2025-06-23 16:43:29,399 [DEBUG] Command /help from 143136230
+2025-06-23 16:43:29,399 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:43:29,399 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:29,565 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1227
+2025-06-23 16:43:29,566 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:29,566 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:29] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:31,521 [DEBUG] Received update from Telegram
+2025-06-23 16:43:31,521 [DEBUG] Command /stat_plant from 143136230
+2025-06-23 16:43:31,522 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🛠️ Select the plant to receive statistical data:\nmirto'}
+2025-06-23 16:43:31,523 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:31,753 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 355
+2025-06-23 16:43:31,753 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:31,753 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:31] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:34,695 [DEBUG] Received update from Telegram
+2025-06-23 16:43:34,698 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '❌ No statistics are available for this plant.'}
+2025-06-23 16:43:34,700 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:34,864 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 334
+2025-06-23 16:43:34,865 [INFO] Response sent to Telegram: 200
+2025-06-23 16:43:34,865 [INFO] 127.0.0.1 - - [23/Jun/2025 16:43:34] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:43:42,863 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:43:42,864 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:43:42,987 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:43:42,990 [INFO] Data saved for pot pot_0
+2025-06-23 16:43:42,990 [INFO] Data saved for pot pot_0
+2025-06-23 16:43:42,991 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:43:43,146 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:43:43,148 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:43:43,180 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:43:43,180 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:08,874 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:44:08,875 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:44:08,875 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:44:08,999 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:44:08,999 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:44:09,004 [INFO] Data saved for pot pot_0
+2025-06-23 16:44:09,005 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:09,005 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:09,178 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:09,178 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:09,203 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:09,204 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:22,134 [DEBUG] Received update from Telegram
+2025-06-23 16:44:22,135 [DEBUG] Command /help from 143136230
+2025-06-23 16:44:22,135 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': "📋 Available commands:\n\n/help: Shows the list of available commands\n/info: Information about the Smart Plant project\n/add_plant: Add a new plant to your smart pot\n/remove_plant: Remove an existing plant\n/assistance: Contact support in case of issues\n/info_plant: Returns the saved plant's information\n/stat_plant: Displays the plant's statistics for the past 7 days\n/modify_plant: Edit plant parameters (name, soil, temperature, humidity)\n/status: Displays the plant's current status"}
+2025-06-23 16:44:22,136 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:22,459 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 1227
+2025-06-23 16:44:22,459 [INFO] Response sent to Telegram: 200
+2025-06-23 16:44:22,460 [INFO] 127.0.0.1 - - [23/Jun/2025 16:44:22] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:44:24,404 [DEBUG] Received update from Telegram
+2025-06-23 16:44:24,404 [DEBUG] Command /stat_plant from 143136230
+2025-06-23 16:44:24,405 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🛠️ Select the plant to receive statistical data:\nmirto'}
+2025-06-23 16:44:24,408 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:24,545 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 355
+2025-06-23 16:44:24,545 [INFO] Response sent to Telegram: 200
+2025-06-23 16:44:24,546 [INFO] 127.0.0.1 - - [23/Jun/2025 16:44:24] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:44:25,563 [DEBUG] Received update from Telegram
+2025-06-23 16:44:25,567 [DEBUG] Generated response: {'method': 'sendMessage', 'chat_id': 143136230, 'text': '🌱 Plant *mirto* statistics for the past week:\n\n📅 Week from 16/06/2025 to 23/06/2025\n\n📊 Average temperature: 26°C\n📈 Maximum temperature: 26°C\n📉 Minimum temperature: 26°C\n💧 Average humidity: 51%\n🌿 Minimum humidity: 51%\n🌾 Average soil moisture: 0%\n\n💧 The plant was watered 0 times in the past 7 days\n🚱 0.0% of the time the plant needed watering but had no water\n\n✅ All plant parameters remained within ideal limits for 0.0% of the time.', 'parse_mode': 'Markdown'}
+2025-06-23 16:44:25,569 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:25,755 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 910
+2025-06-23 16:44:25,756 [INFO] Response sent to Telegram: 200
+2025-06-23 16:44:25,757 [INFO] 127.0.0.1 - - [23/Jun/2025 16:44:25] "POST /webhook HTTP/1.1" 200 -
+2025-06-23 16:44:33,868 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:44:33,869 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:44:33,869 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:44:33,991 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:44:33,993 [INFO] Data saved for pot pot_0
+2025-06-23 16:44:33,993 [INFO] Data saved for pot pot_0
+2025-06-23 16:44:33,994 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:33,994 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:34,147 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:34,148 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:34,177 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:34,177 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:58,843 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:44:58,845 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:44:58,968 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:44:58,970 [INFO] Data saved for pot pot_0
+2025-06-23 16:44:58,970 [INFO] Data saved for pot pot_0
+2025-06-23 16:44:58,972 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:44:59,144 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:59,145 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:44:59,165 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:44:59,167 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:45:23,833 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:45:23,833 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:45:23,834 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:45:23,834 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:45:23,958 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:45:23,960 [INFO] Data saved for pot pot_0
+2025-06-23 16:45:23,960 [INFO] Data saved for pot pot_0
+2025-06-23 16:45:23,962 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:45:23,962 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:45:24,174 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:45:24,174 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:45:24,193 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:45:24,193 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:45:48,813 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:45:48,815 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:45:48,940 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:45:48,940 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:45:48,942 [INFO] Data saved for pot pot_0
+2025-06-23 16:45:48,942 [INFO] Data saved for pot pot_0
+2025-06-23 16:45:48,943 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:45:49,104 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:45:49,106 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:45:49,129 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:45:49,129 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:46:13,805 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:46:13,805 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:46:13,806 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:46:13,806 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:46:13,927 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:46:13,931 [INFO] Data saved for pot pot_0
+2025-06-23 16:46:13,932 [INFO] Data saved for pot pot_0
+2025-06-23 16:46:13,932 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:46:13,933 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:46:14,090 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:46:14,090 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:46:14,120 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:46:14,122 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:46:38,781 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:46:38,781 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:46:38,783 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:46:38,783 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:46:38,896 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:46:38,898 [INFO] Data saved for pot pot_0
+2025-06-23 16:46:38,900 [INFO] Data saved for pot pot_0
+2025-06-23 16:46:38,900 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:46:38,900 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:46:39,079 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:46:39,080 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:46:39,104 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:46:39,104 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:03,771 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:47:03,772 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:47:03,772 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:47:03,885 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:47:03,888 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:03,888 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:03,889 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:03,889 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:04,037 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:04,038 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:04,061 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:04,062 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:28,758 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:47:28,758 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:47:28,759 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:47:28,759 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:47:28,885 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:47:28,888 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:28,888 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:28,889 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:28,889 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:29,034 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:29,034 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:29,064 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:29,064 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:56,722 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:47:56,723 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:47:56,848 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:47:56,850 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:56,850 [INFO] Data saved for pot pot_0
+2025-06-23 16:47:56,850 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:56,851 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:47:57,024 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:57,024 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:47:57,046 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:47:57,046 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:48:21,707 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:48:21,707 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:48:21,708 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:48:21,830 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":48,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:48:21,830 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":48,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:48:21,833 [INFO] Data saved for pot pot_0
+2025-06-23 16:48:21,833 [INFO] Data saved for pot pot_0
+2025-06-23 16:48:21,834 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:48:21,834 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:48:22,087 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:48:22,087 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:48:22,110 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:48:22,110 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:48:49,679 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:48:49,682 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:48:49,810 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":48,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:48:49,813 [INFO] Data saved for pot pot_0
+2025-06-23 16:48:49,813 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:48:49,814 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:48:49,956 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:48:49,957 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:48:49,976 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:48:49,977 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:49:15,678 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:49:15,679 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:49:15,679 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:49:15,802 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":48,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:49:15,802 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":48,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:49:15,804 [INFO] Data saved for pot pot_0
+2025-06-23 16:49:15,804 [INFO] Data saved for pot pot_0
+2025-06-23 16:49:15,805 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:49:15,979 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:49:15,979 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:49:16,006 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:49:16,008 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:49:47,524 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:49:47,525 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:49:47,525 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:49:47,648 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:49:47,651 [INFO] Data saved for pot pot_0
+2025-06-23 16:49:47,653 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:49:47,820 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:49:47,821 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:49:47,850 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:49:47,850 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:50:12,500 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:50:12,500 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:50:12,500 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:50:12,628 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:50:12,631 [INFO] Data saved for pot pot_0
+2025-06-23 16:50:12,633 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:50:12,633 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:50:12,798 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:50:12,799 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:50:12,838 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:50:12,838 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:50:38,511 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:50:38,511 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:50:38,512 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:50:38,634 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:50:38,634 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:50:38,637 [INFO] Data saved for pot pot_0
+2025-06-23 16:50:38,637 [INFO] Data saved for pot pot_0
+2025-06-23 16:50:38,638 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:50:38,794 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:50:38,794 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:50:38,813 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:50:38,814 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:03,498 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:51:03,499 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:51:03,499 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:51:03,621 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:51:03,623 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:03,624 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:03,624 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:51:03,625 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:51:03,810 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:03,810 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:03,848 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:03,848 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:30,552 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:51:30,552 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:51:30,553 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:51:30,553 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:51:30,683 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:51:30,686 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:30,686 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:30,687 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:51:30,687 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:51:30,885 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:30,885 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:30,909 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:30,909 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:55,526 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:51:55,527 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:51:55,653 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:51:55,653 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:51:55,659 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:55,660 [INFO] Data saved for pot pot_0
+2025-06-23 16:51:55,661 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:51:55,827 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:55,827 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:51:55,856 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:51:55,858 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:52:20,508 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:52:20,509 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:52:20,509 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:52:20,638 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:52:20,641 [INFO] Data saved for pot pot_0
+2025-06-23 16:52:20,641 [INFO] Data saved for pot pot_0
+2025-06-23 16:52:20,642 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:52:20,642 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:52:20,808 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:52:20,809 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:52:20,831 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:52:20,832 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:52:45,518 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:52:45,519 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:52:45,519 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:52:45,643 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:52:45,646 [INFO] Data saved for pot pot_0
+2025-06-23 16:52:45,646 [INFO] Data saved for pot pot_0
+2025-06-23 16:52:45,647 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:52:45,648 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:52:45,812 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:52:45,812 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:52:45,836 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:52:45,837 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:53:10,486 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:53:10,487 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:53:10,487 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:53:10,611 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:53:10,614 [INFO] Data saved for pot pot_0
+2025-06-23 16:53:10,614 [INFO] Data saved for pot pot_0
+2025-06-23 16:53:10,615 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:53:10,615 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:53:10,778 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:53:10,778 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:53:10,809 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:53:10,809 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:53:36,491 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:53:36,492 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:53:36,614 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:53:36,614 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:53:36,617 [INFO] Data saved for pot pot_0
+2025-06-23 16:53:36,617 [INFO] Data saved for pot pot_0
+2025-06-23 16:53:36,618 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:53:36,618 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:53:36,800 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:53:36,800 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:53:36,821 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:53:36,822 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:01,481 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:54:01,482 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:54:01,628 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:54:01,631 [INFO] Data saved for pot pot_0
+2025-06-23 16:54:01,633 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:54:01,633 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:54:01,772 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:01,772 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:01,804 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:01,804 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:26,500 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:54:26,501 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:54:26,613 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:54:26,616 [INFO] Data saved for pot pot_0
+2025-06-23 16:54:26,616 [INFO] Data saved for pot pot_0
+2025-06-23 16:54:26,617 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:54:26,617 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:54:26,781 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:26,782 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:26,802 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:26,803 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:51,471 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:54:51,472 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:54:51,472 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:54:51,806 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:54:51,808 [INFO] Data saved for pot pot_0
+2025-06-23 16:54:51,808 [INFO] Data saved for pot pot_0
+2025-06-23 16:54:51,809 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:54:52,034 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:52,035 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:54:52,052 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:54:52,052 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:55:16,653 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:55:16,654 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:55:16,654 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:55:16,776 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:55:16,776 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:55:16,779 [INFO] Data saved for pot pot_0
+2025-06-23 16:55:16,779 [INFO] Data saved for pot pot_0
+2025-06-23 16:55:16,779 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:55:16,779 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:55:16,940 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:55:16,940 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:55:16,960 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:55:16,960 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:55:42,961 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:55:42,962 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:55:45,418 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":50,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:55:45,422 [INFO] Data saved for pot pot_0
+2025-06-23 16:55:45,423 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:55:45,423 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:55:45,578 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:55:45,578 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:55:45,608 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:55:45,609 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:56:17,585 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:56:17,586 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:56:17,712 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":33,"is_irrigated":false}
+2025-06-23 16:56:17,717 [INFO] Data saved for pot pot_0
+2025-06-23 16:56:17,717 [INFO] Data saved for pot pot_0
+2025-06-23 16:56:17,718 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:56:17,873 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 16:56:17,875 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:56:17,895 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 16:56:17,896 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:56:58,844 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:56:58,844 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:56:58,847 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:56:58,970 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:56:58,974 [INFO] Data saved for pot pot_0
+2025-06-23 16:56:58,975 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:56:58,977 [INFO] Data saved for pot pot_0
+2025-06-23 16:56:58,978 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:56:59,145 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:56:59,146 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:56:59,164 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:56:59,165 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:57:42,069 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:57:42,072 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:59:14,931 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:59:14,931 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:59:14,932 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:59:15,068 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:59:15,071 [INFO] Data saved for pot pot_0
+2025-06-23 16:59:15,071 [INFO] Data saved for pot pot_0
+2025-06-23 16:59:15,072 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:59:15,072 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:59:15,397 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:59:15,397 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:59:15,417 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:59:15,417 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:59:39,818 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 16:59:39,819 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 16:59:39,952 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:59:39,952 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 16:59:39,955 [INFO] Data saved for pot pot_0
+2025-06-23 16:59:39,956 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:59:39,957 [INFO] Data saved for pot pot_0
+2025-06-23 16:59:39,958 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 16:59:40,188 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:59:40,188 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 16:59:40,216 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 16:59:40,216 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:04,797 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:00:04,798 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:00:04,798 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:00:04,931 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:00:04,934 [INFO] Data saved for pot pot_0
+2025-06-23 17:00:04,934 [INFO] Data saved for pot pot_0
+2025-06-23 17:00:04,934 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:04,936 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:05,112 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:05,112 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:05,129 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:05,130 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:29,799 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:00:29,799 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:00:29,800 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:00:29,800 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:00:29,935 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:00:29,939 [INFO] Data saved for pot pot_0
+2025-06-23 17:00:29,939 [INFO] Data saved for pot pot_0
+2025-06-23 17:00:29,941 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:29,941 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:30,098 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:30,100 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:30,115 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:30,116 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:54,773 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:00:54,773 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:00:54,773 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:00:54,909 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:00:54,909 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:00:54,913 [INFO] Data saved for pot pot_0
+2025-06-23 17:00:54,915 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:54,915 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:00:55,053 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:55,053 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:00:55,081 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:00:55,081 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:01:20,790 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:01:20,790 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:01:20,791 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:01:20,793 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:01:20,926 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:01:20,929 [INFO] Data saved for pot pot_0
+2025-06-23 17:01:20,929 [INFO] Data saved for pot pot_0
+2025-06-23 17:01:20,930 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:01:20,930 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:01:21,118 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:01:21,118 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:01:21,166 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:01:21,166 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:01:46,793 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:01:46,795 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:01:46,926 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:01:46,926 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:01:46,929 [INFO] Data saved for pot pot_0
+2025-06-23 17:01:46,929 [INFO] Data saved for pot pot_0
+2025-06-23 17:01:46,931 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:01:46,931 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:01:47,116 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:01:47,116 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:01:47,137 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:01:47,137 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:02:14,745 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:02:14,745 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:02:14,746 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:02:14,880 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:02:14,883 [INFO] Data saved for pot pot_0
+2025-06-23 17:02:14,884 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:02:14,886 [INFO] Data saved for pot pot_0
+2025-06-23 17:02:14,887 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:02:15,090 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:02:15,090 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:02:15,105 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:02:15,106 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:02:46,505 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:02:46,507 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:04:27,569 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:04:27,569 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:04:27,570 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:04:27,570 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:04:27,703 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":53,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:04:27,707 [INFO] Data saved for pot pot_0
+2025-06-23 17:04:27,708 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:04:27,708 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:04:27,883 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:04:27,884 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:04:27,957 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:04:27,957 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:04:52,549 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:04:52,550 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:04:52,685 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:04:52,688 [INFO] Data saved for pot pot_0
+2025-06-23 17:04:52,689 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:04:52,689 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:04:52,841 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:04:52,842 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:04:52,874 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:04:52,874 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:05:18,574 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:05:18,574 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:05:18,575 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:05:18,708 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:05:18,710 [INFO] Data saved for pot pot_0
+2025-06-23 17:05:18,712 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:05:18,712 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:05:18,943 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:05:18,943 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:05:18,974 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:05:18,974 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:05:43,546 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:05:43,546 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:05:43,547 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:05:43,547 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:05:43,680 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:05:43,682 [INFO] Data saved for pot pot_0
+2025-06-23 17:05:43,683 [INFO] Data saved for pot pot_0
+2025-06-23 17:05:43,684 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:05:43,684 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:05:43,848 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:05:43,848 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:05:43,874 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:05:43,874 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:06:08,533 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:06:08,533 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:06:08,535 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:06:08,535 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:08:17,866 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:08:17,867 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:08:17,869 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:08:18,000 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":25,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:08:18,003 [INFO] Data saved for pot pot_0
+2025-06-23 17:08:18,004 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:08:18,004 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:08:18,184 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 918
+2025-06-23 17:08:18,185 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:08:18,218 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 918
+2025-06-23 17:08:18,219 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:08:42,858 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:08:42,858 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:08:42,860 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:08:42,860 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:08:42,992 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:08:42,992 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:08:42,996 [INFO] Data saved for pot pot_0
+2025-06-23 17:08:42,996 [INFO] Data saved for pot pot_0
+2025-06-23 17:08:42,998 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:08:42,998 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:08:43,146 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:08:43,146 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:08:43,168 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:08:43,170 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:09:10,818 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:09:10,820 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:09:10,954 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:09:10,973 [INFO] Data saved for pot pot_0
+2025-06-23 17:09:10,974 [INFO] Data saved for pot pot_0
+2025-06-23 17:09:10,980 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:09:10,982 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:09:11,235 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:09:11,236 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:09:11,251 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:09:11,252 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:09:35,803 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:09:35,803 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:09:35,804 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:09:35,804 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:09:35,941 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:09:35,944 [INFO] Data saved for pot pot_0
+2025-06-23 17:09:35,944 [INFO] Data saved for pot pot_0
+2025-06-23 17:09:35,945 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:09:35,945 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:09:36,158 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:09:36,158 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:09:36,247 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:09:36,247 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:00,788 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:10:00,788 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:10:00,790 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:10:00,934 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:10:00,937 [INFO] Data saved for pot pot_0
+2025-06-23 17:10:00,938 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:00,938 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:01,088 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:01,088 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:01,114 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:01,115 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:25,772 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:10:25,774 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:10:25,910 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:10:25,913 [INFO] Data saved for pot pot_0
+2025-06-23 17:10:25,914 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:25,914 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:26,081 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:26,082 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:26,134 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:26,134 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:50,757 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:10:50,757 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:10:50,758 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:10:50,758 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:10:50,890 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:10:50,893 [INFO] Data saved for pot pot_0
+2025-06-23 17:10:50,893 [INFO] Data saved for pot pot_0
+2025-06-23 17:10:50,894 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:50,894 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:10:51,070 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:51,070 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:10:51,094 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:10:51,094 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:11:15,742 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:11:15,742 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:11:15,743 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:11:15,878 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:11:15,880 [INFO] Data saved for pot pot_0
+2025-06-23 17:11:15,882 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:11:15,882 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:11:16,034 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:11:16,034 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:11:16,063 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:11:16,064 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:11:41,856 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:11:41,856 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:11:41,857 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:11:41,990 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":53,"temperature_value":26,"soil_moisture_value":40,"is_irrigated":false}
+2025-06-23 17:11:41,993 [INFO] Data saved for pot pot_0
+2025-06-23 17:11:41,993 [INFO] Data saved for pot pot_0
+2025-06-23 17:11:41,994 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:11:42,330 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:11:42,331 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:11:42,354 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:11:42,355 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:06,840 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:12:06,840 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:12:06,841 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:12:06,974 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":53,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:12:06,977 [INFO] Data saved for pot pot_0
+2025-06-23 17:12:06,979 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:06,979 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:07,161 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:07,162 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:07,190 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:07,190 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:31,828 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:12:31,830 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:12:31,830 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:12:31,964 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:12:31,967 [INFO] Data saved for pot pot_0
+2025-06-23 17:12:31,967 [INFO] Data saved for pot pot_0
+2025-06-23 17:12:31,968 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:31,969 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:32,117 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:32,117 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:32,147 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:32,147 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:56,812 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:12:56,812 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:12:56,812 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:12:56,947 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:12:56,947 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:12:56,949 [INFO] Data saved for pot pot_0
+2025-06-23 17:12:56,950 [INFO] Data saved for pot pot_0
+2025-06-23 17:12:56,951 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:56,951 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:12:57,091 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:57,092 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:12:57,125 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:12:57,126 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:13:21,801 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:13:21,801 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:13:21,803 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:13:21,937 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:13:21,942 [INFO] Data saved for pot pot_0
+2025-06-23 17:13:21,944 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:13:21,944 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:13:22,083 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:13:22,083 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:13:22,108 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:13:22,110 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:13:46,811 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:13:46,812 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:13:46,812 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:13:46,949 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:13:46,949 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:13:46,952 [INFO] Data saved for pot pot_0
+2025-06-23 17:13:46,952 [INFO] Data saved for pot pot_0
+2025-06-23 17:13:46,953 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:13:47,093 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:13:47,094 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:13:47,112 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:13:47,112 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:14:27,033 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:14:27,034 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:14:27,034 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:14:27,176 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:14:27,176 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:14:27,178 [INFO] Data saved for pot pot_0
+2025-06-23 17:14:27,178 [INFO] Data saved for pot pot_0
+2025-06-23 17:14:27,180 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:14:27,180 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:14:27,480 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:14:27,480 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:14:27,511 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:14:27,512 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:15:59,394 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:15:59,395 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:17:22,876 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:17:22,876 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:17:22,877 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:17:22,877 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:17:23,011 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":53,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:17:23,011 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":53,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:17:23,014 [INFO] Data saved for pot pot_0
+2025-06-23 17:17:23,015 [INFO] Data saved for pot pot_0
+2025-06-23 17:17:23,015 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:17:23,016 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:17:23,201 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:17:23,201 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:17:23,218 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:17:23,219 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:18:31,676 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:18:31,677 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:18:31,677 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:18:31,809 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":13,"is_irrigated":false}
+2025-06-23 17:18:31,809 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":13,"is_irrigated":false}
+2025-06-23 17:18:31,813 [INFO] Data saved for pot pot_0
+2025-06-23 17:18:31,815 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:18:31,998 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:18:31,998 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:18:32,024 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:18:32,024 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:19:27,176 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:19:27,177 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:19:27,322 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":26,"is_irrigated":false}
+2025-06-23 17:19:27,322 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":26,"is_irrigated":false}
+2025-06-23 17:19:27,328 [INFO] Data saved for pot pot_0
+2025-06-23 17:19:27,329 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:19:27,329 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:19:27,539 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:19:27,539 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:19:27,581 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 963
+2025-06-23 17:19:27,582 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:20:30,261 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:20:30,261 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:20:30,262 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:20:30,262 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:23:18,605 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:23:18,605 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:23:18,606 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:23:18,606 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:23:18,739 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:23:18,742 [INFO] Data saved for pot pot_0
+2025-06-23 17:23:18,743 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:23:18,744 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:23:18,970 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:23:18,970 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:23:19,004 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:23:19,004 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:25:05,918 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:25:05,919 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:25:05,919 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:27:54,490 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:27:54,491 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:27:54,491 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:27:54,627 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":49,"temperature_value":25,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:27:54,632 [INFO] Data saved for pot pot_0
+2025-06-23 17:27:54,632 [INFO] Data saved for pot pot_0
+2025-06-23 17:27:54,633 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:27:54,878 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 918
+2025-06-23 17:27:54,880 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:27:54,912 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 918
+2025-06-23 17:27:54,913 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:28:57,561 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:28:57,562 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:28:57,562 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:28:57,696 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:28:57,699 [INFO] Data saved for pot pot_0
+2025-06-23 17:28:57,701 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:28:57,701 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:28:57,879 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:28:57,880 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:28:57,893 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:28:57,894 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:30:00,649 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:30:00,650 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:30:00,786 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:30:00,789 [INFO] Data saved for pot pot_0
+2025-06-23 17:30:00,790 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:30:00,990 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:30:00,991 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:31:15,901 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:31:15,902 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:31:16,036 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:31:16,038 [INFO] Data saved for pot pot_0
+2025-06-23 17:31:16,039 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:31:16,265 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:31:16,266 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:32:18,674 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:32:18,675 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:32:18,807 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:32:18,810 [INFO] Data saved for pot pot_0
+2025-06-23 17:32:18,811 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:32:18,990 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:32:18,990 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:32:41,511 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:32:41,513 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:32:41,648 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":52,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:32:41,651 [INFO] Data saved for pot pot_0
+2025-06-23 17:32:41,653 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:32:41,847 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:32:41,847 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:34:06,304 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:34:06,306 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:36:54,753 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:36:54,755 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:36:54,888 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":27,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:36:54,891 [INFO] Data saved for pot pot_0
+2025-06-23 17:36:54,892 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:36:55,127 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:36:55,127 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:37:57,832 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:37:57,833 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:37:57,966 [DEBUG] MQTT message received - Topic: smartplant/pot_0/data, Payload: {"need_water":true,"humidity_value":51,"temperature_value":26,"soil_moisture_value":0,"is_irrigated":false}
+2025-06-23 17:37:57,968 [INFO] Data saved for pot pot_0
+2025-06-23 17:37:57,969 [DEBUG] Starting new HTTPS connection (1): api.telegram.org:443
+2025-06-23 17:37:58,163 [DEBUG] https://api.telegram.org:443 "POST /bot8007055834:AAGtZ7dSlo7YneluF6VKJaThLa4aqC5ON1c/sendMessage HTTP/1.1" 200 962
+2025-06-23 17:37:58,163 [INFO] Telegram message sent to user 143136230: 200
+2025-06-23 17:39:14,022 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:39:14,023 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:40:06,660 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:40:06,662 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:42:56,137 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:42:56,137 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:45:46,322 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:45:46,324 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:46:49,210 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:46:49,211 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:47:52,177 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:47:52,178 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:48:55,164 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:48:55,165 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:49:53,420 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:49:53,421 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:51:45,964 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:51:45,965 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:52:28,973 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:52:28,975 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:53:36,047 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:53:36,048 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:54:39,128 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:54:39,129 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:55:43,246 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:55:43,249 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:57:27,891 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:57:27,892 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:58:30,695 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:58:30,696 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 17:59:33,738 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 17:59:33,740 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:00:36,821 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:00:36,823 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:01:39,808 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:01:39,809 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:02:42,879 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:02:42,880 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:03:48,928 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:03:48,929 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:04:51,905 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:04:51,906 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:05:16,073 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:05:16,074 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:05:31,739 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:05:31,740 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:05:41,161 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:05:41,163 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:05:50,595 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:05:50,596 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:06:53,147 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:06:53,149 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:07:03,595 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:07:03,596 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:07:18,340 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:07:18,342 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:07:54,489 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:07:54,490 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:09:36,481 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:09:36,482 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:10:18,774 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:10:18,776 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:11:44,484 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:11:44,485 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:12:42,853 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:12:42,854 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
+2025-06-23 18:13:45,528 [DEBUG] MQTT message received - Topic: smartplant/pot_0/ready, Payload: 
+2025-06-23 18:13:45,529 [INFO] Parameters sent to pot pot_0: {'action': 'save_parameters', 'soil_threshold': 50, 'temperature_range': [4, 25], 'humidity_threshold': 60}
