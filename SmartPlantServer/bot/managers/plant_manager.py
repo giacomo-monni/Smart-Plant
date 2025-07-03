@@ -66,7 +66,7 @@ def remove_plant(chat_id, plant_name): # Removes a user's plant and frees the as
 
     pot_data_collection.delete_many({"pot_id": pot_id})
 
-    digital_replica_collection.delete_one({  # deletes the digital twin
+    digital_replica_collection.delete_one({  # deletes the digital replica
         "chat_id": chat_id,
         "plant_name": plant_name
     })

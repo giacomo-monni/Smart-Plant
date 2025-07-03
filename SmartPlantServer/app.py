@@ -95,7 +95,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
             logging.info("Pot is not registered to any user")
             return
 
-        # Extracts the data obtain by the Node message
+        # Extracts the data obtained from the Node message
         plant_entry = plants_profile_collection.find_one({"pot_id": pot_id})
 
         # Generate a timestamp
@@ -122,7 +122,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
             "plant_name": plant_entry["plant_name"]
         }
 
-        # saves the digital twins in the database (digital_twins collection)
+        # saves the digital replicas in the database (digital_replicas collection)
         digital_replica_collection.update_one(query, {"$set": dr}, upsert=True)
 
         logging.info(f"Data saved for pot {pot_id}")

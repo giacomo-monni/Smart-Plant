@@ -13,7 +13,7 @@ from bot.managers.digital_replica_manager import get_digital_replica, modify_dig
 
 
 def handle_state(state, text, chat_id):  # manages the states related to the plants.
-    # Adds the plant in the database, more precisely in the plants collection.
+    # Adds the plant in the database, more precisely in the plants_profile collection.
     if state == "add_plant_pot":
         if len(get_user_plants(chat_id)) >= 3:
             clear_state(chat_id)
@@ -76,29 +76,29 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         if text not in names:
             clear_state(chat_id)
             return send(chat_id, "❌ The plant name is not valid.")
-        set_state(chat_id, {"step": "modify_plant_name", "old_name": text})
+        set_state(chat_id, {"step": "modify_plant_name", "old_name": text}) # next state
         return send(chat_id, "✏️ Enter the new name of the plant:")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_name":
-        state["step"] = "modify_plant_moisture"
+        state["step"] = "modify_plant_moisture" # next state
         state["new_name"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the soil moisture value. (e.g. 10 = 10%):")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_moisture":
-        state["step"] = "modify_plant_tempmin"
+        state["step"] = "modify_plant_tempmin" # next state
         state["soil_threshold"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the minimum temperature value. (e.g. 10 = 10°C):")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_tempmin":
-        state["step"] = "modify_plant_tempmax"
+        state["step"] = "modify_plant_tempmax" # next state
         state["min_temperature"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the maximum temperature value. (e.g. 10 = 10°C):")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_tempmax":
-        state["step"] = "modify_plant_humidity"
+        state["step"] = "modify_plant_humidity" # next state
         state["max_temperature"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the air humidity value. (e.g. 10 = 10%):")
@@ -107,33 +107,11 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         temperature_range = [state["min_temperature"], state["max_temperature"]]
         success, msg = modify_plant(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
 
-        if success:
+        if success: # only if plant modification OK
             modify_digital_replica(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
 
         clear_state(chat_id)
         return send(chat_id, msg)
-
-
-    # # Asks the Node to execute measurements and return them to the user
-    # elif state == "data_plant_select":
-    #     plant_list = get_user_plants(chat_id)
-    #     names = [p["plant_name"] for p in plant_list]
-    #     clear_state(chat_id)
-    #     if text not in names:
-    #         return send(chat_id, "❌ The plant name is not valid.")
-    #
-    #     plant = next(p for p in plant_list if p["plant_name"] == text)
-    #     pot_id = plant["pot_id"]
-    #
-    #     payload = {"action": "get_data_now"}
-    #     topic = f"smartplant/{pot_id}/cmd"
-    #
-    #     if not client.is_connected():  # checks the MQTT connection
-    #         return send(chat_id, "❌ There are issues with the servers, please try again later.")
-    #
-    #     client.publish(topic, json.dumps(payload))  # Publishes the command
-    #
-    #     return send(chat_id, "✅ Command sent, please wait for the response.")
 
     # Asks the weekly plant statistics
     elif state == "stat_plant_select":
@@ -173,7 +151,7 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
             return send(chat_id, f"❌ An error occurred while retrieving the statistics: {str(e)}")
 
 
-    # Returns the digital twin current data
+    # Returns the digital replica current data
     elif state == "status_plant_select":
         plant_list = get_user_plants(chat_id)
         names = [p["plant_name"] for p in plant_list]
@@ -181,13 +159,13 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         if text not in names:
             return send(chat_id, "❌ The plant name is not valid.")
 
-        # Queries the database in order to retrieve the digital twin
-        twin = get_digital_replica(chat_id, text)
+        # Queries the database in order to retrieve the digital replica
+        replica = get_digital_replica(chat_id, text)
         
-        if twin is None:
+        if replica is None:
             return send(chat_id, "❌ No data are available for this plant.")
 
         # Sends the data to the user
-        msg = format_plant_status_report(twin)
+        msg = format_plant_status_report(replica)
 
         return send(chat_id, msg, markdown=True)

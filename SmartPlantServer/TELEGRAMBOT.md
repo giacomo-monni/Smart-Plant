@@ -3,8 +3,6 @@
 ### Commands
 ```
 /help: "Shows the list of available commands"
-/info: "Information about the Smart Plant project"
-/assistance: "Contact support in case of issues"
 /login: "Log in with username and password"
 /register: "Create a new account"
 /add_plant: "Add a new plant to your smart pot"
@@ -18,17 +16,13 @@
 #### Commands available before the log in
 ```
 /help
-/info
 /login
 /register
-/assistance
 ```
 
 #### Commands available after the log in
 ```
 /help
-/info
-/assistance
 /add_plant
 /remove_plant
 /modify_plant
@@ -42,10 +36,6 @@
 */start* is automatically called when a user starts the bot. It simply show a welcome message and the list of possible commands.
 
 */help* shows the list of possible commands when the user is logged out or logged in.
-
-*/info* shows a simple message explaining this an IoT project.
-
-*/assistance* simply provide a contact to request help. At the moment this is not implemented and works as a placeholder.
 
 */register* asks the user to insert a username and a password. The credential are then stored to the database in the *users* collection.
 

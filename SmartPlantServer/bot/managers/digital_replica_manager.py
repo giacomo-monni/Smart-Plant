@@ -121,7 +121,7 @@ def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, hum
         if "Possible malfunction in temperature and humidity sensor" not in alerts:
             alerts.append("Possible malfunction in temperature and humidity sensor")
 
-    new_twin = {
+    new_replica = {
         "plant_name": new_name,
         "status": status,
         "alerts": alerts
@@ -132,6 +132,6 @@ def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, hum
         "plant_name": old_name
     }
 
-    digital_replica_collection.update_one(query, {"$set": new_twin})
+    digital_replica_collection.update_one(query, {"$set": new_replica})
 
-    return True, "✅ Digital Twin updated!"
+    return True, "✅ Digital Replica updated!"
