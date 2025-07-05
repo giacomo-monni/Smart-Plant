@@ -85,6 +85,10 @@ def on_message(client, user, msg):  # Receives a MQTT message
         except Exception as data_error:
             logging.error(f"Error parsing data for pot {pot_id}: {data_error}")
 
+        if len(node_data) != 5:
+            logging.warning("Invalid received payload format")
+            return
+
         pot_entry = pots_collection.find_one({"pot_id": pot_id})
         if not pot_entry:  # Checks if the pot_id of the Node exists
             logging.warning(f"Pot {pot_id} not found.")

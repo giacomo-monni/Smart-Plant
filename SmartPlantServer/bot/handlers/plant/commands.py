@@ -16,7 +16,7 @@ def handle_command(text, chat_id):  # Handles plant-related bot commands
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 You must be logged in to use this command.")
         set_state(chat_id, "add_plant_pot")
-        return send(chat_id, "🔢 Enter the smart pot ID:")
+        return send(chat_id, "🔢 Enter the smart pot ID (pot_<id>):")
 
     elif text == "/remove_plant":  # Removes a plant
         if not is_logged_in(chat_id):

@@ -1,5 +1,5 @@
 ## MQTT
-MQTT is the communication protocol used for the communication between the users and their Nodes. 
+MQTT is the communication protocol used for the communication between the server and its Nodes. 
 To implement an MQTT service we installed Mosquitto (https://mosquitto.org/) and we used the localhost address to manage this service.
 
 ### Topics
