@@ -1,5 +1,4 @@
 # Smart Plant - Server Side
-A project by Michele Portas and Giacomo Monni for the Internet of Things exam.
 
 ## Server structure
 ```plaintext

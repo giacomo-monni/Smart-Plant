@@ -28,7 +28,7 @@ The Node requires threshold values in order to make decision about the irrigatio
 and to give commands to the Node to carry out a task requested by a user.
 
 ### Payload received by smartplant/pot_id/data
-This data is received after the Node makes its measurements, and so it contains the light, humidity, temperature, 
+This data is received after the Node makes its measurements, and so it contains the humidity, temperature, 
 soil moisture measurments and booleans that tells us if the plant needed to be irrigated and if the irrigation 
 was successfully carried out.
 ```plaintext

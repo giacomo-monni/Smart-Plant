@@ -6,7 +6,7 @@ the database or also asks statistical data.
 """
 
 from bot.managers.plant_manager import add_plant, remove_plant, get_user_plants
-from services.service import modify_plant, info_plant, get_plant_statistics, format_plant_status_report
+from services.service import modify_plant, info_plant, get_plant_statistics, format_plant_status_report, format_plant_statistics_report
 from bot.managers.state_manager import set_state, clear_state
 from bot.utils import send
 from bot.managers.digital_replica_manager import get_digital_replica, modify_digital_replica
@@ -51,13 +51,11 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         clear_state(chat_id)
         return send(chat_id, msg)
 
-
     # Removes the plant from the database
     elif state == "remove_plant_select":
         success = remove_plant(chat_id, text)
         clear_state(chat_id)
         return send(chat_id, "🗑️ Plant successfully removed." if success else "⚠️ Plant not found.")
-
 
     # Returns the information related to a plant inserted during the plant registration phase)
     elif state == "info_plant_select":
@@ -67,7 +65,6 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         if text not in names:
             return send(chat_id, "❌ The plant name is not valid.")
         return send(chat_id, info_plant(chat_id, text))
-
 
     # Modifies the information related to a plant inserted during the registration phase.
     elif state == "modify_plant_select":
@@ -130,26 +127,12 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
             if not stats:
                 return send(chat_id, "❌ No statistics are available for this plant.")
 
-            # Weekly report formatting
-            week_report = (
-                f"🌱 Plant *{text}* statistics for the past week:\n\n"
-                f"📅 Week from {stats['week_start']} to {stats['week_end']}\n\n"
-                f"📊 Average temperature: {stats['avg_temperature']}°C\n"
-                f"📈 Maximum temperature: {stats['max_temperature']}°C\n"
-                f"📉 Minimum temperature: {stats['min_temperature']}°C\n"
-                f"💧 Average humidity: {stats['avg_humidity']}%\n"
-                f"🌿 Minimum humidity: {stats['min_humidity']}%\n"
-                f"🌾 Average soil moisture: {stats['avg_soil_moisture']}%\n\n"
-                f"💧 The plant was watered {stats['irrigations_count']} times in the past 7 days\n"
-                f"🚱 {stats['missed_irrigations_percentage']}% of the time the plant needed watering but had no water\n\n"
-                f"✅ All plant parameters remained within ideal limits for {stats['ideal_conditions_percentage']}% of the time."
-            )
+            week_report = format_plant_statistics_report(text, stats)
 
             return send(chat_id, week_report, markdown=True)
 
         except Exception as e:
             return send(chat_id, f"❌ An error occurred while retrieving the statistics: {str(e)}")
-
 
     # Returns the digital replica current data
     elif state == "status_plant_select":

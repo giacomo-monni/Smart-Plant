@@ -1,5 +1,7 @@
 
 # Read this first
+A project by Michele Portas and Giacomo Monni for the Internet of Things exam.
+
 This file only purpose is to list the '.md' files that contains details for each of their section.
 
 **SERVER.md:**  
