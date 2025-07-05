@@ -178,3 +178,22 @@ def format_plant_status_report(dr):
             msg += f"• {alert}\n"
 
     return msg
+
+
+# Formats the statistics report message
+def format_plant_statistics_report(plant_name, stats):
+    week_report = (
+        f"🌱 Plant *{plant_name}* statistics for the past week:\n\n"
+        f"📅 Week from {stats['week_start']} to {stats['week_end']}\n\n"
+        f"📊 Average temperature: {stats['avg_temperature']}°C\n"
+        f"📈 Maximum temperature: {stats['max_temperature']}°C\n"
+        f"📉 Minimum temperature: {stats['min_temperature']}°C\n"
+        f"💧 Average humidity: {stats['avg_humidity']}%\n"
+        f"🌿 Minimum humidity: {stats['min_humidity']}%\n"
+        f"🌾 Average soil moisture: {stats['avg_soil_moisture']}%\n\n"
+        f"💧 The plant was watered {stats['irrigations_count']} times in the past 7 days\n"
+        f"🚱 {stats['missed_irrigations_percentage']}% of the time the plant needed watering but had no water\n\n"
+        f"✅ All plant parameters remained within ideal limits for {stats['ideal_conditions_percentage']}% of the time."
+    )
+
+    return week_report
