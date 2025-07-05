@@ -39,3 +39,6 @@ This project uses an *ESP 8266 (NodeMCU)* to monitor the soil humidity of a plan
 - Analog capacitive soil moisture sensor
 - DHT11 sensor (environmental temperature and humidity)
 - 5V DC Water Pump + relay
+
+## Circuit Scheme
+![Circuit scheme](img/SmartPlant-circuit.drawio.png)

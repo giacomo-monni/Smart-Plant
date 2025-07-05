@@ -10,9 +10,9 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char* ssid = "<SSID>";
-const char* password = "<PASSWORD>";
-const char* mqtt_server = "<BROKER_IP>";
+const char* ssid = "Infostrada-067CDC";
+const char* password = "fSzk7LPxGj";
+const char* mqtt_server = "192.168.1.133";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -31,7 +31,7 @@ int humidityTh; // %
 int humidity;
 
 // Irrigation duration parameters
-const float FACTOR = 2.0; // Seconds/difference percentage point
+const int FACTOR = 2; // Seconds/difference percentage point
 const unsigned long MAX_IRRIGATION_DURATION = 60000; // max 60s
 
 // MQTT topics
@@ -42,8 +42,8 @@ String topic_cmd    = "smartplant/"+String(pot_id)+"/cmd";
 
 
 // Variables for timing automatic sensors readings
-float hours = 0.5/8; // adjust it for tests
-const unsigned long sleepDuration = hours * 60UL * 60UL * 1000UL; // hours * min * sec * msec
+const float hours = 60; // adjust it for tests
+const unsigned long sleepDuration = hours * 1e6; 
 
 bool parametersReceived = false;
 
@@ -60,8 +60,8 @@ void setup_wifi(){
 }
 
 int toPercentage(int sensorRead){
-  const float dry = 1024; // sensor in air (completely dry)
-  const float wet = 740; // sensor in water (completely wet)
+  const int dry = 1024; // sensor in air (completely dry)
+  const int wet = 740; // sensor in water (completely wet)
 
   // avoid logarithm overflow
   sensorRead = constrain(sensorRead, wet, dry);
@@ -85,7 +85,6 @@ void publishSensorData(){
   int new_soilHumidity;
   StaticJsonDocument<256> doc;
 
-  Serial.println("Soil Humidity: "+String(soilHumidity));
   // Converting soilHumidity analog read to % values
   soilHumidity = toPercentage(soilHumidity);
   new_soilHumidity = soilHumidity;
@@ -98,12 +97,12 @@ void publishSensorData(){
   bool temp_cond = temperature > tempMax;
   bool humidity_cond = humidity < humidityTh; 
   bool irrigate_cond = soil_cond || temp_cond || humidity_cond;
-  doc["need_water"] = String(irrigate_cond ? true : false);
+  //doc["need_water"] = irrigate_cond;
 
-  Serial.println("Plant must be irrigated: "+ String(irrigate_cond));
-  if(irrigate_cond) { 
-    int delta = soilHumidity - moistureTh;
+  if(irrigate_cond==true) { 
+    int delta = moistureTh - soilHumidity;
     if(delta > 0){ 
+
       float duration = delta * FACTOR * 1000.0; 
       if(temperature < tempMin)
         duration *= 0.8; // less irrigation duration of 20%
@@ -115,6 +114,7 @@ void publishSensorData(){
       if(duration > MAX_IRRIGATION_DURATION)
         duration = MAX_IRRIGATION_DURATION;
     
+      
       // Irrigation
       digitalWrite(PUMP_PIN, HIGH);
       delay((unsigned long)duration); 
@@ -122,41 +122,37 @@ void publishSensorData(){
       delay(45000); // waiting for water to soak in 
 
       new_soilHumidity = analogRead(SOIL_PIN); // measuring soil humidity again
-      new_soilHumidity = toPercentage(soilHumidity);
+      new_soilHumidity = toPercentage(new_soilHumidity);
+
       // evaluating if watered properly or some problem occurred
-      if(new_soilHumidity > soilHumidity && new_soilHumidity > moistureTh){
+      if(new_soilHumidity > soilHumidity && new_soilHumidity > moistureTh)
         isIrrigated = true;
-        Serial.println("Plant has been irrigated");
-      }else{
+      else
         isIrrigated = false;
-        Serial.println("Plant has not been irrigated: out of water or pump fault");
-      }
     }
   }
 
-  doc["humidity_value"]    = String(humidity);
-  doc["temperature_value"] = String(temperature);
-  doc["soil_moisture"]     = String(new_soilHumidity);
-  doc["is_irrigated"]      = String(isIrrigated);
-  doc["need_water"]        = String(irrigate_cond);
+  doc["humidity_value"]    = humidity;
+  doc["temperature_value"] = temperature;
+  doc["soil_moisture_value"]     = new_soilHumidity;
+  doc["is_irrigated"]      = isIrrigated;
+  doc["need_water"]        = irrigate_cond;
 
   serializeJson(doc, buffer);
   client.publish(topic_data.c_str(), buffer);
-
-  Serial.println("Data published");
+  Serial.println("Buffer: \n"+ String(buffer));
 }
 
 void mqtt_callback(char* topic, byte* payload, unsigned int length) {
+  StaticJsonDocument<256> doc;
+
   payload[length] = '\0';
 
-  StaticJsonDocument<256> doc;
   DeserializationError err = deserializeJson(doc, payload);
   if (err) 
     return;
 
   String action = doc["action"].as<String>();
-
-  Serial.println(action);
 
   if(action == "save_parameters"){
     moistureTh = doc["soil_threshold"];
@@ -187,12 +183,12 @@ void reconnect() {
 
 void setup() {
   Serial.begin(9600);
+  delay(5000);
   pinMode(PUMP_PIN, OUTPUT);
   dht.begin();
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(mqtt_callback);
-  unsigned long tStart = millis();
   
   if(!client.connected()){
     reconnect();
@@ -205,7 +201,6 @@ void setup() {
   publishSensorData();
 
   // Going to sleep for saving battery
-  Serial.println("Going to sleep...");
   ESP.deepSleep(sleepDuration);
 }
 
