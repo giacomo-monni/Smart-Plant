@@ -53,25 +53,3 @@
 
 */status* asks the user to insert the plant name in order to give the digital replica current data.  
 Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot:
-```
-🌿 Plant Status Report — Rosmarino
-🆔 Pot ID: pot_test
-📅 Timestamp: 2025-06-14 14:12:00
-⏱️ Last update: 8 minutes ago
-🌡️ Temperature: 27.5°C
-💧 Air Humidity: 61%
-🌾 Soil Moisture: 32%
-🚿 Need Water: No
-💦 Irrigated: No
-📌 Status: Healthy
-
-With thresholds:
-Soil moisture = 10%
-Minimum temperature: 10°C
-Maximum temperature: 30°C
-Humidity: 20%
-
-⚠️ Alerts:
-• Temperature above maximum threshold
-• Soil moisture below threshold
-```
