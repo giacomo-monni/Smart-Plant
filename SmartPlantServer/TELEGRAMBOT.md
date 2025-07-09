@@ -52,4 +52,4 @@
 */stat_plant* asks the user to insert the plant name and returns the weekly statistic for that plant.
 
 */status* asks the user to insert the plant name in order to give the digital replica current data.  
-Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot:
+Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot.
