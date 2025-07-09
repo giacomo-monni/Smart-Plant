@@ -10,9 +10,9 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char* ssid = "Infostrada-067CDC";
-const char* password = "fSzk7LPxGj";
-const char* mqtt_server = "192.168.1.133";
+const char* ssid = "<YOUR_SSID>";
+const char* password = "<PASSWD>";
+const char* mqtt_server = "<MQTT_BROKER_IP>";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -85,7 +85,7 @@ void publishSensorData(){
   int new_soilHumidity;
   StaticJsonDocument<256> doc;
 
-  // Converting soilHumidity analog read to % values
+  // Converting soilHumidity analogue read to % values
   soilHumidity = toPercentage(soilHumidity);
   new_soilHumidity = soilHumidity;
   Serial.println("Soil Humidity (%): "+String(soilHumidity)+
@@ -195,12 +195,12 @@ void setup() {
   }
 
   while (!parametersReceived) {
-    client.loop(); // attendi fino a 15s i parametri
+    client.loop(); 
   }
 
   publishSensorData();
 
-  // Going to sleep for saving battery
+  // Going to sleep to save battery
   ESP.deepSleep(sleepDuration);
 }
 
