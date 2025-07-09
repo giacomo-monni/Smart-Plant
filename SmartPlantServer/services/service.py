@@ -109,9 +109,6 @@ def get_plant_statistics(pot_id): # calculates statistic information using the p
 
         soil_moistures = valid_soil_moistures  # Keep only valid, no filling
 
-        irrigations = [r for r in records if r.get("is_irrigated") is True]
-        missed_irrigations = [r for r in records if r.get("must_be_irrigated") is True and r.get("is_irrigated") is False]
-
         plant = plants_profile_collection.find_one({"pot_id": pot_id})
         ideal_conditions = 0
 
@@ -140,8 +137,6 @@ def get_plant_statistics(pot_id): # calculates statistic information using the p
             'avg_humidity': round(avg_hum, 2) if avg_hum is not None else None,
             'min_humidity': min(humidities) if humidities else None,
             'avg_soil_moisture': round(mean(soil_moistures), 2) if soil_moistures else None,
-            'irrigations_count': len(irrigations),
-            'missed_irrigations_percentage': round(len(missed_irrigations) / total_records * 100,2) if total_records else 0,
             'ideal_conditions_percentage': round(ideal_conditions / total_records * 100, 2) if total_records else 0
         }
 
@@ -164,7 +159,6 @@ def format_plant_status_report(dr):
         f"💧 Air Humidity: {dr['humidity_value']}%\n"
         f"🌾 Soil Moisture: {dr['soil_moisture_value']}%\n"
         f"🚿 Need Water: {'Yes' if dr['need_water'] else 'No'}\n"
-        f"💦 Irrigated: {'Yes' if dr['is_irrigated'] else 'No'}\n\n"
         f"📌 *Status:* {dr['status']}\n\n"
         f"With thresholds:\n"
         f"Soil moisture = {dr['soil_threshold']}%\n"
@@ -191,8 +185,6 @@ def format_plant_statistics_report(plant_name, stats):
         f"💧 Average humidity: {stats['avg_humidity']}%\n"
         f"🌿 Minimum humidity: {stats['min_humidity']}%\n"
         f"🌾 Average soil moisture: {stats['avg_soil_moisture']}%\n\n"
-        f"💧 The plant was watered {stats['irrigations_count']} times in the past 7 days\n"
-        f"🚱 {stats['missed_irrigations_percentage']}% of the time the plant needed watering but had no water\n\n"
         f"✅ All plant parameters remained within ideal limits for {stats['ideal_conditions_percentage']}% of the time."
     )
 

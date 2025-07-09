@@ -48,11 +48,8 @@ def set_digital_replica(timestamp, new_data, plant_entry):
             alerts.append("Possible malfunction in temperature and humidity sensor")
         humidity = "Unknown"
 
-    if new_data["need_water"] and not new_data["is_irrigated"]:
+    if new_data["need_water"]:
         status = "The plant needs water"
-
-    if not new_data["need_water"] and new_data["is_irrigated"]:
-        status = "Water excess"
 
     # Construct the replica format
     dr = {

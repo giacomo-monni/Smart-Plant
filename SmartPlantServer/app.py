@@ -85,7 +85,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
         except Exception as data_error:
             logging.error(f"Error parsing data for pot {pot_id}: {data_error}")
 
-        if len(node_data) != 5:
+        if len(node_data) != 4:
             logging.warning("Invalid received payload format")
             return
 
