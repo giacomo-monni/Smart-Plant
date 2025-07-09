@@ -37,7 +37,6 @@ was successfully carried out.
 "temperature_value": temperature_value,
 "soil_moisture_value": soil_moisture,
 "need_water": need_water, 
-"is_irrigated": is_irrigated
 }
 ```
 
