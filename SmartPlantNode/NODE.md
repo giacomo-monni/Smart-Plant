@@ -24,9 +24,6 @@ This project uses an *ESP 8266 (NodeMCU)* to monitor the soil humidity of a plan
   - Low environmental humidity
     - if it's under the environmental humidity threshold, it waters slightly more
 
-- **Verification of actual watering**
-  - to check whether the system has run out of water, or if a problem with the pump occurred
-
 - **Data sent to the Server**
   - sensors data sent to the server
 
