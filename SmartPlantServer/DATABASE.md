@@ -50,7 +50,6 @@ The reason is that in this way we can implement a future web application and the
    - *temperature_value* is the temperature measurement carried out by the temperature sensor
    - *soil_moisture_value* is the soil moisture measurement carried out by the soil moisture sensor
    - *need_water* indicates if the plant needed water after the measurements
-   - *is_irrigated* indicates if the plant was irrigated after the measurements
 
 
 5) **digital_replicas**: this collection contains the plant profile combined with the last measurements for a given plant. It represents the actual state of a plant.
@@ -59,7 +58,6 @@ The reason is that in this way we can implement a future web application and the
    - *pot_id* identifies the node
    - *alerts* shows possible problems in the actual plant treatment
    - *humidity_value* is the humidity measurement
-   - *is_irrigated*  indicates if the plant was irrigated after the measurements
    - *need_water* indicates if the plant needed water after the measurements
    - *soil_moisture_value* is the soil moisture measurement
    - *soil_threshold* is the threshold of soil moisture decided by the user for their plant
