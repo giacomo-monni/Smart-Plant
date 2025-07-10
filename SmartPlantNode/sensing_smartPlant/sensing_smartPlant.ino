@@ -171,7 +171,6 @@ void reconnect() {
 
 void setup() {
   Serial.begin(9600);
-  //delay(500);
   pinMode(PUMP_PIN, OUTPUT);
   dht.begin();
   setup_wifi();
