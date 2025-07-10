@@ -159,7 +159,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
 void reconnect() {
   while (client.connected()==0) {
     if (client.connect("pot_0")) {
-        Serial.print("MQTT Connected");
+        Serial.println("MQTT Connected");
     } else {
       Serial.print("Failed, rc=");
       Serial.print(client.state());
