@@ -42,8 +42,8 @@ String topic_cmd    = "smartplant/"+String(pot_id)+"/cmd";
 
 
 // Variables for timing automatic sensors readings
-const float hours = 60; // adjust it for tests
-const unsigned long sleepDuration = hours * 1e6; 
+const float minutes = 1; // 1 just for tests (120 in real-world application)
+const unsigned long sleepDuration = minutes * 60 * 1e6; 
 
 bool parametersReceived = false;
 
