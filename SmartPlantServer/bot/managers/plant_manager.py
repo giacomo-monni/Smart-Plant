@@ -9,7 +9,7 @@ from .pot_manager import is_valid_pot, mark_pot_as_used, free_pot
 
 
 # Adds a plant in the database
-def add_plant(chat_id, pot_id, plant_name, soil_threshold, temperature_range, humidity_threshold):
+def add_plant(chat_id, pot_id, plant_name, is_indoor, soil_threshold, soil_max, temperature_range, humidity_threshold):
     valid, msg = is_valid_pot(pot_id)  # verifies if pot already exists and if it's currently used
     if not valid:
         return False, msg
@@ -32,7 +32,9 @@ def add_plant(chat_id, pot_id, plant_name, soil_threshold, temperature_range, hu
         "chat_id": chat_id,
         "pot_id": pot_id,
         "plant_name": plant_name,
+        "is_indoor": (is_indoor == "indoor"),
         "soil_threshold": soil_threshold,
+        "soil_max": soil_max,
         "temperature_range": temperature_range,
         "humidity_threshold": humidity_threshold
     })

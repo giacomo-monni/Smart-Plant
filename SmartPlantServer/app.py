@@ -131,12 +131,6 @@ def on_message(client, user, msg):  # Receives a MQTT message
 
         logging.info(f"Data saved for pot {pot_id}")
 
-        # Sends message to Telegram
-        res = send_plant_status_message(dr, plant_entry["chat_id"])
-
-        chat_id = plant_entry["chat_id"]
-        logging.info(f"Telegram message sent to user {chat_id}: {res.status_code}")
-
     # This subtopic is used when the Node is ready to receive the thresholds information
     elif subtopic == "ready":
         try:
@@ -148,6 +142,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
             params = {  # Thresholds data required by the Node
                 "action": "save_parameters",
                 "soil_threshold": plant_entry["soil_threshold"],
+                "soil_max": plant_entry["soil_max"],
                 "temperature_range": plant_entry["temperature_range"],
                 "humidity_threshold": plant_entry["humidity_threshold"]
             }

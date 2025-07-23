@@ -22,14 +22,26 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         return send(chat_id, "🌱 Enter the name of the plant to associate:") # Plant name
 
     elif isinstance(state, dict) and state.get("step") == "add_plant_name":
-        state["step"] = "add_plant_moisture"
+        state["step"] = "is_indoor"
         state["plant_name"] = text
+        set_state(chat_id, state)
+        return send(chat_id, "🌱 Enter: indoor or outdoor") # Indoor/outdoor choice
+
+    elif isinstance(state, dict) and state.get("step") == "is_indoor":
+        state["step"] = "add_plant_moisture"
+        state["is_indoor"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the soil moisture value. (e.g. 10 = 10%):") # Soil moisture threshold
 
     elif isinstance(state, dict) and state.get("step") == "add_plant_moisture":
-        state["step"] = "add_plant_tempmin"
+        state["step"] = "add_moisture_max"
         state["soil_threshold"] = text
+        set_state(chat_id, state)
+        return send(chat_id, "🌱 Enter the maximum soil moisture value. (e.g. 10 = 10%):") # Soil moisture max
+
+    elif isinstance(state, dict) and state.get("step") == "add_moisture_max":
+        state["step"] = "add_plant_tempmin"
+        state["soil_max"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the minimum temperature value. (e.g. 10 = 10°C):") # Minimum temperature
 
@@ -47,7 +59,8 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
 
     elif isinstance(state, dict) and state.get("step") == "add_plant_humidity":
         temperature_range = [state["min_temperature"], state["max_temperature"]]
-        success, msg = add_plant(chat_id, state["pot_id"], state["plant_name"], state["soil_threshold"], temperature_range, text)
+        success, msg = add_plant(chat_id, state["pot_id"], state["plant_name"], state["is_indoor"],
+                                 state["soil_threshold"], state["soil_max"], temperature_range, text)
         clear_state(chat_id)
         return send(chat_id, msg)
 
@@ -77,14 +90,26 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         return send(chat_id, "✏️ Enter the new name of the plant:")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_name":
-        state["step"] = "modify_plant_moisture" # next state
+        state["step"] = "modify_plant_indoor" # next state
         state["new_name"] = text
+        set_state(chat_id, state)
+        return send(chat_id, "🌱 Enter: indoor or outdoor:")
+
+    elif isinstance(state, dict) and state.get("step") == "modify_plant_indoor":
+        state["step"] = "modify_plant_moisture" # next state
+        state["new_indoor"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the soil moisture value. (e.g. 10 = 10%):")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_moisture":
-        state["step"] = "modify_plant_tempmin" # next state
+        state["step"] = "modify_soil_max" # next state
         state["soil_threshold"] = text
+        set_state(chat_id, state)
+        return send(chat_id, "🌱 Enter the maximum soil moisture value. (e.g. 10 = 10%):")
+
+    elif isinstance(state, dict) and state.get("step") == "modify_soil_max":
+        state["step"] = "modify_plant_tempmin" # next state
+        state["soil_new_max"] = text
         set_state(chat_id, state)
         return send(chat_id, "🌱 Enter the minimum temperature value. (e.g. 10 = 10°C):")
 
@@ -102,7 +127,8 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_humidity":
         temperature_range = [state["min_temperature"], state["max_temperature"]]
-        success, msg = modify_plant(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
+        success, msg = modify_plant(chat_id, state["old_name"], state["new_name"], state["new_indoor"],
+                                    state["soil_threshold"], state["soil_new_max"], temperature_range, text)
 
         if success: # only if plant modification OK
             modify_digital_replica(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)

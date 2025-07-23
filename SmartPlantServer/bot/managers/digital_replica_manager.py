@@ -14,9 +14,12 @@ def set_digital_replica(timestamp, new_data, plant_entry):
     max_temp = temp_th[1]
     humidity_air_th = plant_entry["humidity_threshold"]
     soil_moisture_th = plant_entry["soil_threshold"]
+    soil_max_th = plant_entry["soil_max"]
+    is_indoor = plant_entry["is_indoor"]
 
     temperature = new_data["temperature_value"]
     humidity = new_data["humidity_value"]
+    water_excess = new_data["water_excess"]
 
     alerts = []
     status = "Healthy"
@@ -47,6 +50,9 @@ def set_digital_replica(timestamp, new_data, plant_entry):
         if "Possible malfunction in temperature and humidity sensor" not in alerts:
             alerts.append("Possible malfunction in temperature and humidity sensor")
         humidity = "Unknown"
+
+    if water_excess:
+        alerts.append("The plant is receiving too water")
 
     if new_data["need_water"]:
         status = "The plant needs water"

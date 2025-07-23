@@ -38,7 +38,7 @@ def info_plant(chat_id, plant_name): # queries the database to get plant informa
     return final_string
 
 
-def modify_plant(chat_id, old_name, new_name, soil, temp, humidity):  # modifies the plant
+def modify_plant(chat_id, old_name, new_name, new_indoor, soil, soil_max, temp, humidity):  # modifies the plant
     old_plant = plants_profile_collection.find_one({
         "chat_id": chat_id,
         "plant_name": old_name
@@ -66,7 +66,9 @@ def modify_plant(chat_id, old_name, new_name, soil, temp, humidity):  # modifies
         {"chat_id": chat_id, "plant_name": old_name},
         {"$set": {
             "plant_name": new_name,
+            "is_indoor": new_indoor,
             "soil_threshold": soil_threshold,
+            "soil_max": soil_max,
             "temperature_range": temperature_range,
             "humidity_threshold": humidity_threshold}}
     )
@@ -162,6 +164,8 @@ def format_plant_status_report(dr):
         f"📌 *Status:* {dr['status']}\n\n"
         f"With thresholds:\n"
         f"Soil moisture = {dr['soil_threshold']}%\n"
+        f"Soil moisture max = {dr['soil_max']}%\n"
+        f"The plant was indoor: {dr['is_indoor']}%\n"
         f"Temperature range (min, max) = ({dr['temperature_range']})°C\n"
         f"Humidity = {dr['humidity_threshold']}%\n"
     )
