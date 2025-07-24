@@ -70,15 +70,6 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         clear_state(chat_id)
         return send(chat_id, "🗑️ Plant successfully removed." if success else "⚠️ Plant not found.")
 
-    # Returns the information related to a plant inserted during the plant registration phase)
-    elif state == "info_plant_select":
-        plant_list = get_user_plants(chat_id)
-        names = [p["plant_name"] for p in plant_list]
-        clear_state(chat_id)
-        if text not in names:
-            return send(chat_id, "❌ The plant name is not valid.")
-        return send(chat_id, info_plant(chat_id, text))
-
     # Modifies the information related to a plant inserted during the registration phase.
     elif state == "modify_plant_select":
         plant_list = get_user_plants(chat_id)
@@ -131,7 +122,8 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
                                     state["soil_threshold"], state["soil_new_max"], temperature_range, text)
 
         if success: # only if plant modification OK
-            modify_digital_replica(chat_id, state["old_name"], state["new_name"], state["soil_threshold"], temperature_range, text)
+            modify_digital_replica(chat_id, state["old_name"], state["new_name"], state["new_indoor"],
+                                   state["soil_threshold"], state["soil_new_max"], temperature_range, text)
 
         clear_state(chat_id)
         return send(chat_id, msg)
@@ -170,9 +162,9 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
 
         # Queries the database in order to retrieve the digital replica
         replica = get_digital_replica(chat_id, text)
-        
+
         if replica is None:
-            return send(chat_id, "❌ No data are available for this plant.")
+            return send(chat_id, "❌ No data are available for this plant.\n"+info_plant(chat_id, text))
 
         # Sends the data to the user
         msg = format_plant_status_report(replica)

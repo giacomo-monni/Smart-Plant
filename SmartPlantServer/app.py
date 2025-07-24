@@ -12,11 +12,11 @@ import requests
 import json
 import logging
 from config import BOT_TOKEN
-from db import plants_profile_collection, pots_collection, pot_data_collection, digital_replica_collection
+from db import plants_profile_collection, pots_collection, pot_data_collection, digital_replica_collection, users_collection
 from bot.main_handler import handle_update
 from mqtt_client import start_mqtt_thread, set_on_message
 from bot.managers.digital_replica_manager import set_digital_replica
-from services.service import send_plant_status_message
+from services.service import send_plant_status_message, will_it_rain
 
 app = Flask(__name__)
 
@@ -85,7 +85,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
         except Exception as data_error:
             logging.error(f"Error parsing data for pot {pot_id}: {data_error}")
 
-        if len(node_data) != 4:
+        if len(node_data) != 6:
             logging.warning("Invalid received payload format")
             return
 
@@ -101,6 +101,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
 
         # Extracts the data obtained from the Node message
         plant_entry = plants_profile_collection.find_one({"pot_id": pot_id})
+        user_entry = users_collection.find_one({"chat_id": plant_entry["chat_id"]})
 
         # Generate a timestamp
         timestamp = datetime.utcnow()
@@ -117,7 +118,7 @@ def on_message(client, user, msg):  # Receives a MQTT message
         pot_data_collection.insert_one(pot_data_entry)  # saves the data in the database (pot_data collection)
 
         # builds the digital replica
-        dr = set_digital_replica(timestamp, node_data, plant_entry)
+        dr = set_digital_replica(timestamp, node_data, plant_entry, user_entry["location"])
 
         # Update or insert the digital replica
         query = {
@@ -135,12 +136,19 @@ def on_message(client, user, msg):  # Receives a MQTT message
     elif subtopic == "ready":
         try:
             plant_entry = plants_profile_collection.find_one({"pot_id": pot_id})
+            user_entry = users_collection.find_one({"chat_id": plant_entry['chat_id']})
             if not plant_entry:
                 logging.warning(f"No plant found for pot {pot_id}")
                 return
 
+            will_rain = False
+            if not plant_entry['is_indoor']:
+                if will_it_rain(user_entry['location']):
+                    will_rain = True
+
             params = {  # Thresholds data required by the Node
                 "action": "save_parameters",
+                "will_rain": will_rain,
                 "soil_threshold": plant_entry["soil_threshold"],
                 "soil_max": plant_entry["soil_max"],
                 "temperature_range": plant_entry["temperature_range"],

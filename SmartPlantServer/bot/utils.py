@@ -19,7 +19,7 @@ def send(chat_id, text, markdown=False):  # Creates the message to be sent to th
 
 def get_available_commands(chat_id):  # Returns the list of commands based on whether the user is logged in or not
     return (
-        ["/help", "/add_plant", "/remove_plant", "/info_plant",
+        ["/help", "/add_plant", "/remove_plant",
          "/stat_plant", "/modify_plant", "/status"]
         if is_logged_in(chat_id)
         else ["/help", "/login", "/register"]

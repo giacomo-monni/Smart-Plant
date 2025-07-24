@@ -28,16 +28,6 @@ def handle_command(text, chat_id):  # Handles plant-related bot commands
         set_state(chat_id, "remove_plant_select")
         return send(chat_id, "🗑️ Select the plant to remove:\n" + "\n".join(names))
 
-    elif text == "/info_plant":  # Views plant info
-        if not is_logged_in(chat_id):
-            return send(chat_id, "🔒 You must be logged in to use this command.")
-        plant_list = get_user_plants(chat_id)
-        if not plant_list:
-            return send(chat_id, "🌿 You have no registered plants.")
-        names = [p["plant_name"] for p in plant_list]
-        set_state(chat_id, "info_plant_select")
-        return send(chat_id, "🛠️ Select a plant to view its information:\n" + "\n".join(names))
-
     elif text == "/modify_plant":  # Modifies plant info
         if not is_logged_in(chat_id):
             return send(chat_id, "🔒 You must be logged in to use this command.")

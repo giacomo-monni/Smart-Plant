@@ -17,7 +17,9 @@ def handle_state(state, text, chat_id):  # Handles states related to authenticat
         return send(chat_id, "🔐 Please enter a password:")  # Prompts for password input
 
     elif isinstance(state, dict) and state.get("step") == "register_password":
-        set_state(chat_id, {"step": "register_location", "password": text})
+        state["password"] = text
+        state["step"] = "register_location"
+        set_state(chat_id, state)
         return send(chat_id, "🔐 Please enter your location as: City, Country (e.g Milan, Italy)")  # Prompts for the location
 
     elif isinstance(state, dict) and state.get("step") == "register_location":
