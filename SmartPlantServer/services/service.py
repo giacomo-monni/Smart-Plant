@@ -58,6 +58,7 @@ def modify_plant(chat_id, old_name, new_name, new_indoor, soil, soil_max, temp, 
 
     try:
         soil_threshold = abs(int(soil))
+        soil_max = abs(int(soil_max))
         temperature_range = [abs(int(temp[0])), abs(int(temp[1]))]
         humidity_threshold = abs(int(humidity))
     except ValueError:

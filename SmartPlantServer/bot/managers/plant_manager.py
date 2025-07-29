@@ -23,6 +23,7 @@ def add_plant(chat_id, pot_id, plant_name, is_indoor, soil_threshold, soil_max, 
 
     try:
         soil_threshold = abs(int(soil_threshold))
+        soil_max = abs(int(soil_max))
         temperature_range = [abs(int(temperature_range[0])), abs(int(temperature_range[1]))]
         humidity_threshold = abs(int(humidity_threshold))
     except ValueError:
