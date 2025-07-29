@@ -7,7 +7,7 @@ import bcrypt
 from db import users_collection
 
 
-def register_user(username, password, chat_id):  # Responsible for registering a user
+def register_user(username, password, location, chat_id):  # Responsible for registering a user
     if users_collection.find_one({"chat_id": chat_id}):  # If the account already exists, don't register
         return False, "❌ You are already linked to a profile with this account."
 
@@ -20,6 +20,7 @@ def register_user(username, password, chat_id):  # Responsible for registering a
     user_data = {  # Data to be saved to the database
         "chat_id": chat_id,
         "username": username,
+        "location": location,
         "password_hash": hashed_pw,
         "salt": salt
     }

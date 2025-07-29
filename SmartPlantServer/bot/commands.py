@@ -11,7 +11,6 @@ commands = {
     "/add_plant": "Add a new plant to your smart pot",
     "/remove_plant": "Remove an existing plant",
     "/modify_plant": "Edit plant parameters (name, soil, temperature, humidity)",
-    "/info_plant": "Returns the saved plant's information",
     "/stat_plant": "Displays the plant's statistics for the past 7 days",
     "/status": "Displays the plant's current status"
 }

@@ -9,6 +9,7 @@ from bot.utils import is_valid
 from statistics import mean
 from db import plants_profile_collection, pot_data_collection
 from bot.utils import human_delta
+from geopy.geocoders import Nominatim
 
 
 def send_plant_status_message(dr, chat_id):  # sends the digital replica information
@@ -38,7 +39,7 @@ def info_plant(chat_id, plant_name): # queries the database to get plant informa
     return final_string
 
 
-def modify_plant(chat_id, old_name, new_name, soil, temp, humidity):  # modifies the plant
+def modify_plant(chat_id, old_name, new_name, new_indoor, soil, soil_max, temp, humidity):  # modifies the plant
     old_plant = plants_profile_collection.find_one({
         "chat_id": chat_id,
         "plant_name": old_name
@@ -66,7 +67,9 @@ def modify_plant(chat_id, old_name, new_name, soil, temp, humidity):  # modifies
         {"chat_id": chat_id, "plant_name": old_name},
         {"$set": {
             "plant_name": new_name,
+            "is_indoor": new_indoor,
             "soil_threshold": soil_threshold,
+            "soil_max": soil_max,
             "temperature_range": temperature_range,
             "humidity_threshold": humidity_threshold}}
     )
@@ -162,6 +165,8 @@ def format_plant_status_report(dr):
         f"📌 *Status:* {dr['status']}\n\n"
         f"With thresholds:\n"
         f"Soil moisture = {dr['soil_threshold']}%\n"
+        f"Soil moisture max = {dr['soil_max']}%\n"
+        f"The plant was indoor: {dr['is_indoor']}\n"
         f"Temperature range (min, max) = ({dr['temperature_range']})°C\n"
         f"Humidity = {dr['humidity_threshold']}%\n"
     )
@@ -189,3 +194,41 @@ def format_plant_statistics_report(plant_name, stats):
     )
 
     return week_report
+
+
+def will_it_rain(location: str) -> bool:
+    # Convert location name to latitude and longitude using Nominatim (OpenStreetMap)
+    geolocator = Nominatim(user_agent="weather-checker")
+    loc = geolocator.geocode(location)
+    if not loc:
+        raise ValueError("Could not find location")
+
+    lat, lon = loc.latitude, loc.longitude
+
+    # Build the Open-Meteo API URL (no API key required)
+    url = (
+        f"https://api.open-meteo.com/v1/forecast?"
+        f"latitude={lat}&longitude={lon}"
+        f"&hourly=precipitation_probability&timezone=auto"
+    )
+
+    # Request forecast data
+    response = requests.get(url)
+    data = response.json()
+
+    # Get current time and the next 30-minute mark
+    now = datetime.now()
+    next_half_hour = now + timedelta(minutes=30)
+
+    # Extract forecast times and precipitation probabilities
+    times = data["hourly"]["time"]
+    probs = data["hourly"]["precipitation_probability"]
+
+    # Check if any forecasted time within the next 30 minutes has >30% chance of rain
+    for t, prob in zip(times, probs):
+        time_obj = datetime.fromisoformat(t)
+        if now <= time_obj <= next_half_hour:
+            if prob > 30:
+                return True
+
+    return False

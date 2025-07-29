@@ -7,16 +7,19 @@ from bot.utils import is_valid
 
 
 # Updates or creates the digital replica for a plant using the latest data.
-def set_digital_replica(timestamp, new_data, plant_entry):
+def set_digital_replica(timestamp, new_data, plant_entry, location):
     # Thresholds from the plant configuration
     temp_th = plant_entry["temperature_range"]
     min_temp = temp_th[0]
     max_temp = temp_th[1]
     humidity_air_th = plant_entry["humidity_threshold"]
     soil_moisture_th = plant_entry["soil_threshold"]
+    soil_max_th = plant_entry["soil_max"]
+    is_indoor = plant_entry["is_indoor"]
 
     temperature = new_data["temperature_value"]
     humidity = new_data["humidity_value"]
+    water_excess = new_data["water_excess"]
 
     alerts = []
     status = "Healthy"
@@ -48,6 +51,9 @@ def set_digital_replica(timestamp, new_data, plant_entry):
             alerts.append("Possible malfunction in temperature and humidity sensor")
         humidity = "Unknown"
 
+    if water_excess:
+        alerts.append("The plant is receiving too water")
+
     if new_data["need_water"]:
         status = "The plant needs water"
 
@@ -56,6 +62,7 @@ def set_digital_replica(timestamp, new_data, plant_entry):
         "timestamp": timestamp,
         **new_data,
         **plant_entry,
+        "location": location,
         "status": status,
         "alerts": alerts
     }
@@ -79,7 +86,7 @@ def get_digital_replica(chat_id, plant_name):
 
 
 # Modifies the digital replica when the user uses /modify_plant
-def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, humidity_th):
+def modify_digital_replica(chat_id, old_name, new_name, new_indoor, soil_th, max_soil_th, temp_range, humidity_th):
     old_plant = digital_replica_collection.find_one({
         "chat_id": int(chat_id),
         "plant_name": old_name
@@ -118,6 +125,9 @@ def modify_digital_replica(chat_id, old_name, new_name, soil_th, temp_range, hum
         if "Possible malfunction in temperature and humidity sensor" not in alerts:
             alerts.append("Possible malfunction in temperature and humidity sensor")
 
+    if old_plant['soil_moisture_value'] > float(max_soil_th):
+        alerts.append("The plant is receiving too water")
+        
     new_replica = {
         "plant_name": new_name,
         "status": status,

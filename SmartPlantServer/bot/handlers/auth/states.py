@@ -17,7 +17,13 @@ def handle_state(state, text, chat_id):  # Handles states related to authenticat
         return send(chat_id, "🔐 Please enter a password:")  # Prompts for password input
 
     elif isinstance(state, dict) and state.get("step") == "register_password":
-        success, msg = register_user(state["username"], text, chat_id)  # Saves credentials to the database
+        state["password"] = text
+        state["step"] = "register_location"
+        set_state(chat_id, state)
+        return send(chat_id, "🔐 Please enter your location as: City, Country (e.g Milan, Italy)")  # Prompts for the location
+
+    elif isinstance(state, dict) and state.get("step") == "register_location":
+        success, msg = register_user(state["username"], state["password"], text, chat_id)  # Saves credentials to the database
         clear_state(chat_id)
         return send(chat_id, msg)
 

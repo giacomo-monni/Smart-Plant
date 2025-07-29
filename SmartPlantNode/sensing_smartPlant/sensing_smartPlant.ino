@@ -42,8 +42,8 @@ String topic_cmd    = "smartplant/"+String(pot_id)+"/cmd";
 
 
 // Variables for timing automatic sensors readings
-const float hours = 60; // adjust it for tests
-const unsigned long sleepDuration = hours * 1e6; 
+const float minutes = 1; // 1 just for tests (120 in real-world application)
+const unsigned long sleepDuration = minutes * 60 * 1e6; 
 
 bool parametersReceived = false;
 
@@ -159,7 +159,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
 void reconnect() {
   while (client.connected()==0) {
     if (client.connect("pot_0")) {
-        Serial.print("MQTT Connected");
+        Serial.println("MQTT Connected");
     } else {
       Serial.print("Failed, rc=");
       Serial.print(client.state());
@@ -171,7 +171,6 @@ void reconnect() {
 
 void setup() {
   Serial.begin(9600);
-  //delay(500);
   pinMode(PUMP_PIN, OUTPUT);
   dht.begin();
   setup_wifi();
