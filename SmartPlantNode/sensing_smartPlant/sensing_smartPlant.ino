@@ -18,7 +18,8 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // Soil moisture variables (thresholds and actual value)
-int moistureTh;
+int moistureMin;
+int moistureMax;
 int soilHumidity;
 
 // Temperature variables (thresholds and actual value)
@@ -29,6 +30,9 @@ int temperature;
 // Humidity variables (thresholds and actual value)
 int humidityTh; // %
 int humidity;
+
+// Weather forecasting for rain
+bool willRain;
 
 // Irrigation duration parameters
 const float FACTOR = 0.5; // Seconds/difference percentage point
@@ -86,23 +90,31 @@ void publishSensorData(){
   bool isIrrigated = false; 
   char buffer[256];
   StaticJsonDocument<256> doc;
+  int new_soilHumidity;
+  bool waterExcess;
 
   // Converting soilHumidity analog read to % values
   soilHumidity = toPercentage(soilHumidity);
 
   // evaluating if the plant needs water
-  bool soil_cond = soilHumidity < moistureTh;
+  bool soil_cond = soilHumidity < moistureMin;
   bool temp_cond = temperature > tempMax;
   bool humidity_cond = humidity < humidityTh; 
   bool irrigate_cond = soil_cond || temp_cond || humidity_cond;
 
-  bool irrigate_cond2 = soilHumidity > (moistureTh * 1.2);
+  bool irrigate_cond2 = soilHumidity > (moistureMin * 1.2);
   
   if(irrigate_cond2)
     irrigate_cond=false;
 
+  if(willRain){
+    irrigate_cond = false;
+    isIrrigated = false;
+    waterExcess = false;
+  }
+
   if(irrigate_cond==true) { 
-    int delta = moistureTh - soilHumidity;
+    int delta = moistureMin - soilHumidity;
     if(delta > 0){ 
 
       float duration = float(delta * FACTOR * 1000); 
@@ -120,16 +132,34 @@ void publishSensorData(){
       digitalWrite(PUMP_PIN, HIGH);
       delay((unsigned long)duration); 
       digitalWrite(PUMP_PIN, LOW);
+      delay(60000); // waiting for water to soak in 
+      
+      new_soilHumidity = analogRead(SOIL_PIN); // measuring soil humidity again
+      new_soilHumidity = toPercentage(new_soilHumidity);
 
+      // evaluating if watered properly or some problem occurred
+      if(new_soilHumidity > soilHumidity && new_soilHumidity > moistureMin)
+        isIrrigated = true;
+      else
+        isIrrigated = false;
+
+      if(new_soilHumidity > moistureMax)
+        waterExcess = true;
+      else
+        waterExcess = false;
     }
   }
 
   doc["humidity_value"]    = humidity;
   doc["temperature_value"] = temperature;
-  doc["soil_moisture_value"]     = soilHumidity;
+  doc["soil_moisture_value"]     = new_soilHumidity;
   doc["need_water"]        = irrigate_cond;
+  doc["water_excess"]      = waterExcess;
+  doc["is_irrigated"]      = isIrrigated;
 
   serializeJson(doc, buffer);
+
+  reconnect();
   client.publish(topic_data.c_str(), buffer);
   delay(500);
   Serial.println("Buffer: \n"+ String(buffer));
@@ -147,11 +177,12 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
   String action = doc["action"].as<String>();
 
   if(action == "save_parameters"){
-    moistureTh = doc["soil_threshold"];
-    humidityTh = doc["humidity_threshold"];
+    moistureMin = doc["soil_threshold"];
+    moistureMax = doc["soil_max"];
+    humidityTh  = doc["humidity_threshold"];
     tempMin     = doc["temperature_range"][0];
     tempMax     = doc["temperature_range"][1];
-
+    willRain    = doc["will_rain"];
     parametersReceived = true;
   }
 }
