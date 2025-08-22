@@ -214,8 +214,13 @@ def will_it_rain(location: str) -> bool:
     )
 
     # Request forecast data
-    response = requests.get(url)
-    data = response.json()
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+    except requests.RequestException as e:
+        print(f"[Error contacting Open Meteo API] {e}")
+        return False
 
     # Get current time and the next 30-minute mark
     now = datetime.now()

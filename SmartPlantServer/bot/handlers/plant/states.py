@@ -31,7 +31,7 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         state["step"] = "add_plant_moisture"
         state["is_indoor"] = text
         set_state(chat_id, state)
-        return send(chat_id, "🌱 Enter the soil moisture value. (e.g. 10 = 10%):") # Soil moisture threshold
+        return send(chat_id, "🌱 Enter the minimum soil moisture value. (e.g. 10 = 10%):") # Soil moisture threshold
 
     elif isinstance(state, dict) and state.get("step") == "add_plant_moisture":
         state["step"] = "add_moisture_max"
@@ -90,7 +90,7 @@ def handle_state(state, text, chat_id):  # manages the states related to the pla
         state["step"] = "modify_plant_moisture" # next state
         state["new_indoor"] = text
         set_state(chat_id, state)
-        return send(chat_id, "🌱 Enter the soil moisture value. (e.g. 10 = 10%):")
+        return send(chat_id, "🌱 Enter the minimum soil moisture value. (e.g. 10 = 10%):")
 
     elif isinstance(state, dict) and state.get("step") == "modify_plant_moisture":
         state["step"] = "modify_soil_max" # next state
