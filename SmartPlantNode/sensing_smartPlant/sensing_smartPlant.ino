@@ -35,11 +35,11 @@ int humidity;
 bool willRain;
 
 // Irrigation duration parameters
-const float FACTOR = 0.5; // Seconds/difference percentage point
-const unsigned long MAX_IRRIGATION_DURATION = 60000; // max 60s
+const float FACTOR = 0.09; // Seconds/difference percentage point
+const unsigned long MAX_IRRIGATION_DURATION = 10000; // max 60s
 
 // MQTT topics
-const char* pot_id = "pot_0"; // Pot ID
+const char* pot_id = "pot_1"; // Pot ID
 String topic_data   = "smartplant/"+String(pot_id)+"/data";
 String topic_ready  = "smartplant/"+String(pot_id)+"/ready";
 String topic_cmd    = "smartplant/"+String(pot_id)+"/cmd";
@@ -90,11 +90,11 @@ void publishSensorData(){
   bool isIrrigated = false; 
   char buffer[256];
   StaticJsonDocument<256> doc;
-  int new_soilHumidity;
   bool waterExcess;
 
   // Converting soilHumidity analog read to % values
   soilHumidity = toPercentage(soilHumidity);
+  int new_soilHumidity = soilHumidity;
 
   // evaluating if the plant needs water
   bool soil_cond = soilHumidity < moistureMin;
@@ -133,7 +133,7 @@ void publishSensorData(){
       delay((unsigned long)duration); 
       digitalWrite(PUMP_PIN, LOW);
       delay(60000); // waiting for water to soak in 
-      
+
       new_soilHumidity = analogRead(SOIL_PIN); // measuring soil humidity again
       new_soilHumidity = toPercentage(new_soilHumidity);
 
