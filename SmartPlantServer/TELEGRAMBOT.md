@@ -8,7 +8,6 @@
 /add_plant: "Add a new plant to your smart pot"
 /remove_plant: "Remove an existing plant"
 /modify_plant: "Edit plant parameters (name, soil, temperature, humidity)"
-/info_plant: "Returns the saved plant's information"
 /stat_plant: "Displays the plant's statistics for the past 7 days"
 /status: "Displays the plant's current status"
 ```
@@ -26,7 +25,6 @@
 /add_plant
 /remove_plant
 /modify_plant
-/info_plant
 /stat_plant
 /status
 ```
@@ -47,9 +45,7 @@
 
 */modify_plant* asks the user to insert the old plant name, the new plant name, the soil moisture threshold, the temperature range, humidity threshold, and modify this data in the *plants* collection.
 
-*/info_plant* asks the user to insert the plant name, and it returns the plant thresholds.
-
 */stat_plant* asks the user to insert the plant name and returns the weekly statistic for that plant.
 
 */status* asks the user to insert the plant name in order to give the digital replica current data.  
-Data received when the user uses /status or when measurements arrives automatically after the timeout of the pot.
+
