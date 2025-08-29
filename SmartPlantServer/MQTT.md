@@ -36,7 +36,9 @@ was successfully carried out.
 "humidity_value": humidity_value,
 "temperature_value": temperature_value,
 "soil_moisture_value": soil_moisture,
-"need_water": need_water, 
+"need_water": need_water,
+“is_irrigated”: is_irrigated,
+“water_excess”: water_excess
 }
 ```
 
@@ -46,23 +48,18 @@ and wants to receive the threshold values.
 
 ### Payload sent with smartplant/pot_id/cmd
 Since cmd is used both for sending threshold values and user commands through the bot, we divided the payload using two actions:
-*save_parameters* to send the thresholds and *get_data_now* to obtain the measurements.
-
-When the user uses the command /get_data_now from the Telegram bot, the server sends the following payload (in json format):  
-```
-{
-"action": "get_data_now"
-}
-```
+*save_parameters* to send the thresholds.
 
 When the server receives a ready message, it should send the following payload (in json format):  
 ```plaintext
 {  
 "action": "save_parameters",
-"soil_threshold": soil_threshold,  
+"will_rain": will_rain, 
+"soil_threshold": soil_threshold,
+"soil_max": soil_max, 
 "temperature_range": temperature_range,  
 "humidity_threshold": humidity_threshold  
 }
 ```
-Note: *soil_threshold*, *temperature_range* and *humidity_threshold* are data stored in the database after the user 
+Note: *soil_threshold* and "soil_max", *temperature_range* and *humidity_threshold* are data stored in the database after the user 
 registers a plant.
