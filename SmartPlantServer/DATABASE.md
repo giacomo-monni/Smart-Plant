@@ -23,6 +23,7 @@ Currently, we have ten pots (from pot_0 to pot_9).
 2) **users**: this collection contains the registered user and their credentials.
     - *chat_id* it's the ID connected to the user telegram account, and it's needed to identify the session;
     - *username* the username chosen by the user during the registration phase;
+    - *location* is the registered user's city;
     - *password_hash* the hashed password that the user inserted during the registration phase;
     - *salt* the random value associated to the hashed password.
   
@@ -34,11 +35,13 @@ The reason is that in this way we can implement a future web application and the
     - *chat_id* identifies the telegram account
     - *pot_id* identifies the node
     - *plant_name* is the plant name (must be unique for each plant of a user)
-    - *soil_threshold* is the threshold of soil moisture decided by the user for their plant
+    - *soil_threshold* is the minimum threshold of soil moisture decided by the user for their plant
+    - *soil_max* is the maximum soil moisture threshold, used to figure out the water excess
     - *temperature_range* is the range of temperature decided by the user for their plant
       - *min* indicates the minimum temperature of the range
       - *max* indicates the maximum temperature of the range
     - *humidity_threshold* is the threshold of humidity decided by the user for their plant
+    - *is_indoor* tells us if a plant is set indoor or outdoor
 
 
 4) **pot_data**: this collection contains the measurements carried out by the smart pots for each plant.
@@ -50,6 +53,8 @@ The reason is that in this way we can implement a future web application and the
    - *temperature_value* is the temperature measurement carried out by the temperature sensor
    - *soil_moisture_value* is the soil moisture measurement carried out by the soil moisture sensor
    - *need_water* indicates if the plant needed water after the measurements
+   - *water_excess* indicates if the soil moisture value is higher than the maximum soil moisture threshold
+   - *is_irrigated* indicates if the plant was truly irrigated or not
 
 
 5) **digital_replicas**: this collection contains the plant profile combined with the last measurements for a given plant. It represents the actual state of a plant.
@@ -61,6 +66,7 @@ The reason is that in this way we can implement a future web application and the
    - *need_water* indicates if the plant needed water after the measurements
    - *soil_moisture_value* is the soil moisture measurement
    - *soil_threshold* is the threshold of soil moisture decided by the user for their plant
+   - *soil_max* is the maximum soil moisture threshold, used to figure out the water excess
     - *temperature_range* is the range of temperature decided by the user for their plant
       - *min* indicates the minimum temperature of the range
       - *max* indicates the maximum temperature of the range
@@ -68,6 +74,10 @@ The reason is that in this way we can implement a future web application and the
    - *status* indicates if the plant requires water, if it's too hot and other environmental status
    - *temperature_value* is the temperature measurement
    - *timestamp* represents the moment when the data is inserted into the database.
+   - *is_indoor* tells us if a plant is set indoor or outdoor
+   - *is_irrigated* indicates if the plant was truly irrigated or not
+   - *location* is the registered user's city;
+   - *water_excess* indicates if the soil moisture value is higher than the maximum soil moisture threshold
 
 Note: the timestamp isn't calculated when the node carries out the measurements but when the server inserts the entry in the database.
 This of course can be imprecise, but it doesn't matter since smart plant service doesn't strictly require high time precision.
