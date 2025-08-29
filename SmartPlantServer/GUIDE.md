@@ -78,16 +78,19 @@ To simulate a pub:
 mosquitto_pub -h IP_HOST -t "topic" -m "{\"key_name\": VALUE}"
 ```
 
-For example, to simulate a ready to the server:
+For example, to simulate a 'ready' to the server:
 ```
 mosquitto_pub -h localhost -t "smartplant/pot_0/ready" -m ""
 ```
 
-To simulate a data to the server:
+To simulate a 'data' to the server:
 ```
-mosquitto_pub -h localhost -t "smartplant/pot_0/data" -m "{\"soil_moisture_value\": 10, \"temperature_value\": 20, \"humidity_value\": 30, \"need_water\": true, \"is_irrigated\": false}"
+mosquitto_pub -h localhost -t "smartplant/pot_0/data" -m "{\"soil_moisture_value\": 10, \"temperature_value\": 20, \"humidity_value\": 30, \"need_water\": true, \"is_irrigated\": false,  \"water_excess\": false}"
 ```
 
-
+To simulate a 'cmd' to the node:
+```
+mosquitto_pub -h localhost -t "smartplant/pot_0/cmd" -m "{\"action\": 'save_parameters', \"will_rain\": false, \"soil_threshold\": 10, \"soil_max\": 20, \"temperature_range\": [20,30], \"humidity_threshold\": 30 }"
+```
 
 
