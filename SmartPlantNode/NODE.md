@@ -24,6 +24,16 @@ This project uses an *ESP 8266 (NodeMCU)* to monitor the soil humidity of a plan
   - Low environmental humidity
     - if it's under the environmental humidity threshold, it waters slightly more
 
+- Recognizes if it has irrigated the plant and if a **Water Excess** occurred
+  - it measures once again the new soil moisture after a certain time for waiting for the water to soak in;
+    if this new soil moisture measurement is greater than the first one, the irrigation occurred
+  - if the new soil moisture measurement is greater than the maximum soil moisture threshold,
+    it means that a water excess occurred
+
+- **Weather Forecast**
+  - uses a "will_rain" parameter (only if the plant is outdoors), and if it is going to rain in the next hours,
+    it will not irrigate the plant
+    
 - **Data sent to the Server**
   - sensors data sent to the server
 
