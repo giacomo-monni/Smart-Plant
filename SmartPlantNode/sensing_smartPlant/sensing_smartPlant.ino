@@ -143,7 +143,7 @@ void publishSensorData(){
       else
         isIrrigated = false;
 
-      if(new_soilHumidity > moistureMax)
+      if((new_soilHumidity > moistureMax) && isIrrigated)
         waterExcess = true;
       else
         waterExcess = false;
